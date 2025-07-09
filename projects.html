@@ -18,7 +18,7 @@
 <p class="p1"><span class="s1">&lt;head&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Jobayer Hosen - Portfolio&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Projects - Jobayer Hosen&lt;/title&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</span></p>
@@ -28,9 +28,8 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body { font-family: 'Inter', sans-serif; background-color: #0a192f; color: #ccd6f6; }</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.text-accent { color: #64ffda; }</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.bg-light-navy { background-color: #112240; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.glass-card { background: rgba(17, 34, 64, 0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(100, 255, 218, 0.2); }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.fade-in-section.is-visible { opacity: 1; transform: translateY(0); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.project-card:hover .project-image { transform: scale(1.05); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7); }</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/head&gt;</span></p>
 <p class="p1"><span class="s1">&lt;body class="text-gray-300"&gt;</span></p>
@@ -58,43 +57,29 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</span></p>
 <p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;main class="container mx-auto px-6"&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Hero Section --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="hero" class="min-h-screen flex flex-col justify-center items-start fade-in-section"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p class="text-accent text-lg mb-4"&gt;Hi, my name is&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-4xl md:text-7xl font-bold text-gray-100"&gt;Jobayer Hosen.&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-4xl md:text-6xl font-bold text-gray-400 mt-2"&gt;I build things for the physical and digital world.&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p class="max-w-xl mt-6 text-lg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>I'm a third-year Civil Engineering student at BUET with a passion for technology and web development. from level 3 term 1</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- About Section --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="about" class="py-24 fade-in-section"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"&gt;&lt;span class="text-accent mr-4"&gt;01.&lt;/span&gt; About Me&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="grid md:grid-cols-5 gap-12 items-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="md:col-span-3 text-lg space-y-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Hello! I'm Jobayer, a driven Civil Engineering student from Bangladesh. njvnjsfnvosnfovosfnvosfobfsbjunfsubnfsjnsvksdvksmkvv fojbs sijvs jos  oj oj oj oj My journey began at &lt;strong class="text-gray-100"&gt;Notre Dame College&lt;/strong&gt;, and now I'm honing my analytical and problem-solving skills at the prestigious &lt;strong class="text-gray-100"&gt;Bangladesh University of Engineering and Technology (BUET)&lt;/strong&gt;.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;main class="container mx-auto px-6 pt-32 pb-24"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1 class="text-4xl md:text-5xl font-bold text-gray-100 mb-12"&gt;My Projects&lt;/h1&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- Project Card 1 --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;a href="project-detail-1.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="overflow-hidden"&gt;&lt;img src="assets/project1-placeholder.jpg" alt="Project One" class="project-image w-full h-56 object-cover transition-transform duration-300"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="p-6"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-2 text-gray-100"&gt;Structural Analysis Web Tool&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p class="text-gray-400 mb-4"&gt;A web application for performing basic structural analysis on beams and trusses.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span class="text-accent hover:underline"&gt;View Details &amp;rarr;&lt;/span&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="md:col-span-2"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;img src="assets/jobayer1.jpg" alt="Jobayer Hosen" class="rounded-lg shadow-lg w-full h-auto object-cover border-2 border-accent/20"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- Project Card 2 --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;a href="project-detail-2.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="overflow-hidden"&gt;&lt;img src="assets/project2-placeholder.jpg" alt="Project Two" class="project-image w-full h-56 object-cover transition-transform duration-300"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="p-6"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-2 text-gray-100"&gt;Construction Material Calculator&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p class="text-gray-400 mb-4"&gt;A tool to estimate the quantity of materials like cement, sand, and aggregate required for concrete works.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span class="text-accent hover:underline"&gt;View Details &amp;rarr;&lt;/span&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Skills Section --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="skills" class="py-24 fade-in-section"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"&gt;&lt;span class="text-accent mr-4"&gt;02.&lt;/span&gt; My Skills&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-5xl mx-auto"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"&gt;&lt;i class="fas fa-drafting-compass text-4xl text-accent mb-2"&gt;&lt;/i&gt;&lt;p&gt;AutoCAD&lt;/p&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"&gt;&lt;i class="fas fa-square-root-alt text-4xl text-accent mb-2"&gt;&lt;/i&gt;&lt;p&gt;MATLAB&lt;/p&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"&gt;&lt;i class="fas fa-code text-4xl text-accent mb-2"&gt;&lt;/i&gt;&lt;p&gt;C++&lt;/p&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"&gt;&lt;i class="fas fa-cube text-4xl text-accent mb-2"&gt;&lt;/i&gt;&lt;p&gt;Sketchup&lt;/p&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"&gt;&lt;i class="fas fa-camera-retro text-4xl text-accent mb-2"&gt;&lt;/i&gt;&lt;p&gt;Enscape&lt;/p&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</span></p>
 <p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Footer --&gt;</span></p>
@@ -115,20 +100,6 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const mobileMenu = document.getElementById('mobile-menu');</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>mobileMenuButton.addEventListener('click', () =&gt; {</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>mobileMenu.classList.toggle('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// --- Fade-in Sections on Scroll ---</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const sections = document.querySelectorAll('.fade-in-section');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const observer = new IntersectionObserver((entries) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>entries.forEach(entry =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (entry.isIntersecting) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>entry.target.classList.add('is-visible');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>observer.unobserve(entry.target);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}, { threshold: 0.15 });</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>sections.forEach(section =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>observer.observe(section);</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/body&gt;</span></p>
