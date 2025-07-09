@@ -14,6 +14,8 @@
         .text-accent { color: #64ffda; }
         .bg-light-navy { background-color: #112240; }
         .glass-card { background: rgba(17, 34, 64, 0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(100, 255, 218, 0.2); }
+        .project-card:hover .project-image { transform: scale(1.05); }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7); }
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
     </style>
@@ -26,9 +28,11 @@
             <a href="index.html" class="text-3xl font-extrabold text-accent">JH</a>
             <nav class="hidden md:flex items-center space-x-8 text-lg">
                 <a href="#about" class="hover:text-accent transition-colors duration-300">About</a>
+                <a href="#education" class="hover:text-accent transition-colors duration-300">Education</a>
                 <a href="#skills" class="hover:text-accent transition-colors duration-300">Skills</a>
-                <a href="projects.html" class="hover:text-accent transition-colors duration-300">Projects</a>
-                <a href="mailto:jobayerhosen420@gmail.com" class="hover:text-accent transition-colors duration-300">Contact</a>
+                <a href="#projects" class="hover:text-accent transition-colors duration-300">Projects</a>
+                <a href="#achievements" class="hover:text-accent transition-colors duration-300">Achievements</a>
+                <a href="#contact" class="hover:text-accent transition-colors duration-300">Contact</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-accent focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
@@ -37,9 +41,11 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-light-navy">
             <a href="#about" class="block py-2 hover:text-accent">About</a>
+            <a href="#education" class="block py-2 hover:text-accent">Education</a>
             <a href="#skills" class="block py-2 hover:text-accent">Skills</a>
-            <a href="projects.html" class="block py-2 hover:text-accent">Projects</a>
-            <a href="mailto:jobayerhosen420@gmail.com" class="block py-2 hover:text-accent">Contact</a>
+            <a href="#projects" class="block py-2 hover:text-accent">Projects</a>
+            <a href="#achievements" class="block py-2 hover:text-accent">Achievements</a>
+            <a href="#contact" class="block py-2 hover:text-accent">Contact</a>
         </div>
     </header>
 
@@ -50,9 +56,6 @@
             <p class="text-accent text-lg mb-4">Hi, my name is</p>
             <h1 class="text-4xl md:text-7xl font-bold text-gray-100">Jobayer Hosen.</h1>
             <h2 class="text-4xl md:text-6xl font-bold text-gray-400 mt-2">I build things for the physical and digital world.</h2>
-            <p class="max-w-xl mt-6 text-lg">
-                I'm a third-year Civil Engineering student at BUET with a passion for technology and web development, currently in Level 3, Term 1.
-            </p>
         </section>
 
         <!-- About Section -->
@@ -60,8 +63,8 @@
             <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">01.</span> About Me</h2>
             <div class="grid md:grid-cols-5 gap-12 items-center">
                 <div class="md:col-span-3 text-lg space-y-4">
-                    <p>Hello! I'm Jobayer, a driven Civil Engineering student from Bangladesh. My journey began at <strong class="text-gray-100">Notre Dame College</strong>, and now I'm honing my analytical and problem-solving skills at the prestigious <strong class="text-gray-100">Bangladesh University of Engineering and Technology (BUET)</strong>.</p>
-                     <p>While my core study is in the physical world of structures and infrastructure, I've discovered a profound passion for the digital realm. I find immense satisfaction in the logic and creativity of programming, and I'm actively developing my skills in web technologies.</p>
+                    <p>Hello! I'm Jobayer, a driven Civil Engineering student from Bangladesh, currently in Level 3, Term 1 at the prestigious <strong class="text-gray-100">Bangladesh University of Engineering and Technology (BUET)</strong>. My journey into engineering began at <strong class="text-gray-100">Notre Dame College</strong>, where I built a strong academic foundation.</p>
+                    <p>While my core study is in the physical world of structures and infrastructure, I've discovered a profound passion for the digital realm. I find immense satisfaction in the logic and creativity of programming and I'm actively developing my skills in web technologies to build applications that are as well-designed and reliable as the structures I study.</p>
                 </div>
                 <div class="md:col-span-2">
                     <img src="assets/jobayer1.jpg" alt="Jobayer Hosen" class="rounded-lg shadow-lg w-full h-auto object-cover border-2 border-accent/20">
@@ -69,9 +72,26 @@
             </div>
         </section>
 
+        <!-- Education Section -->
+        <section id="education" class="py-24 fade-in-section">
+            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">02.</span> Education</h2>
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="glass-card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-accent">Bangladesh University of Engineering and Technology (BUET)</h3>
+                    <p class="text-gray-400 italic">2021 - Present</p>
+                    <p class="mt-2">Bachelor of Science in Civil Engineering (Level 3, Term 1)</p>
+                </div>
+                <div class="glass-card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-accent">Notre Dame College, Dhaka</h3>
+                    <p class="text-gray-400 italic">2019 - 2021</p>
+                    <p class="mt-2">Higher Secondary Certificate (HSC)</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Skills Section -->
         <section id="skills" class="py-24 fade-in-section">
-            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">02.</span> My Skills</h2>
+            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">03.</span> Skills</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-drafting-compass text-4xl text-accent mb-2"></i><p>AutoCAD</p></div>
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-square-root-alt text-4xl text-accent mb-2"></i><p>MATLAB</p></div>
@@ -79,6 +99,53 @@
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-cube text-4xl text-accent mb-2"></i><p>Sketchup</p></div>
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-camera-retro text-4xl text-accent mb-2"></i><p>Enscape</p></div>
             </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 fade-in-section">
+            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">04.</span> Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1: Links to project-detail-1.html -->
+                <a href="project-detail-1.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
+                    <div class="overflow-hidden"><img src="assets/project1-placeholder.jpg" alt="Project One" class="project-image w-full h-56 object-cover transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/112240/64ffda?text=Project+1';"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-100">Structural Analysis Web Tool</h3>
+                        <p class="text-gray-400 mb-4">A web application for performing basic structural analysis on beams and trusses.</p>
+                        <span class="text-accent hover:underline">View Details &rarr;</span>
+                    </div>
+                </a>
+                <!-- Project Card 2: Links to project-detail-2.html -->
+                <a href="project-detail-2.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
+                    <div class="overflow-hidden"><img src="assets/project2-placeholder.jpg" alt="Project Two" class="project-image w-full h-56 object-cover transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/112240/64ffda?text=Project+2';"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-100">Construction Material Calculator</h3>
+                        <p class="text-gray-400 mb-4">A tool to estimate the quantity of materials like cement, sand, and aggregate.</p>
+                        <span class="text-accent hover:underline">View Details &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-24 fade-in-section">
+            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">05.</span> Achievements</h2>
+            <div class="max-w-3xl mx-auto space-y-4 text-lg">
+                <p class="glass-card p-4 rounded-md"><i class="fas fa-trophy text-accent mr-3"></i>Dean's List Honoree - 2023</p>
+                <p class="glass-card p-4 rounded-md"><i class="fas fa-trophy text-accent mr-3"></i>Winner, BUET Inter-Departmental Design Competition</p>
+                <p class="glass-card p-4 rounded-md"><i class="fas fa-trophy text-accent mr-3"></i>Published a paper on concrete sustainability (You can add details here)</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 text-center fade-in-section">
+            <h2 class="text-2xl font-bold text-accent mb-2">06. What’s Next?</h2>
+            <h3 class="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Get In Touch</h3>
+            <p class="max-w-xl mx-auto mb-8">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Whether you have a question or just want to say hi, feel free to reach out!
+            </p>
+            <a href="mailto:jobayerhosen420@gmail.com" class="inline-block border border-accent text-accent text-lg px-8 py-4 rounded-md hover:bg-accent/10 transition-colors duration-300">
+                Say Hello
+            </a>
         </section>
 
     </main>
@@ -112,11 +179,10 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.10 });
         sections.forEach(section => {
             observer.observe(section);
         });
     </script>
 </body>
 </html>
-
