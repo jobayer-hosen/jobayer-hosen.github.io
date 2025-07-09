@@ -4,111 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobayer Hosen - Portfolio</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Custom Styles -->
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a192f; /* Navy background */
-            color: #ccd6f6; /* Light text */
-        }
-        .text-accent {
-            color: #64ffda; /* Neon green/cyan accent */
-        }
-        .bg-accent {
-            background-color: #64ffda;
-        }
-        .border-accent {
-            border-color: #64ffda;
-        }
-        .bg-light-navy {
-            background-color: #112240;
-        }
-
-        /* Parallax Background Effect */
-        .parallax-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.5rem;
-        }
-        .parallax-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 150%; /* Taller to allow for movement */
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            transition: transform 0.2s ease-out;
-        }
-        
-        /* Glassmorphism Effect */
-        .glass-card {
-            background: rgba(17, 34, 64, 0.75); /* semi-transparent light navy */
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(100, 255, 218, 0.2);
-        }
-
-        /* Project Card Hover Effect */
-        .project-card:hover .project-image {
-            transform: scale(1.05);
-        }
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
-        }
-        
-        /* Section fade-in animation */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #0a192f; color: #ccd6f6; }
+        .text-accent { color: #64ffda; }
+        .bg-light-navy { background-color: #112240; }
+        .glass-card { background: rgba(17, 34, 64, 0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(100, 255, 218, 0.2); }
+        .parallax-container { position: relative; overflow: hidden; border-radius: 0.5rem; }
+        .parallax-bg { position: absolute; top: 0; left: 0; width: 100%; height: 150%; background-size: cover; background-position: center; z-index: -1; transition: transform 0.2s ease-out; }
+        .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body class="text-gray-300">
 
-    <!-- Header & Navigation -->
-    <header class="bg-navy/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-accent">JH</a>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="hover:text-accent transition-colors duration-300">About</a>
-                <a href="#education" class="hover:text-accent transition-colors duration-300">Education</a>
-                <a href="#skills" class="hover:text-accent transition-colors duration-300">Skills</a>
-                <a href="#projects" class="hover:text-accent transition-colors duration-300">Projects</a>
-                <a href="#contact" class="hover:text-accent transition-colors duration-300">Contact</a>
-                <a href="https://github.com/jobayer-hosen/jobayer-hosen.github.io" target="_blank" class="border border-accent text-accent px-4 py-2 rounded-md hover:bg-accent/10 transition-colors duration-300">
-                    Resume
-                </a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-accent focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-            <a href="#about" class="block py-2 hover:text-accent">About</a>
-            <a href="#education" class="block py-2 hover:text-accent">Education</a>
-            <a href="#skills" class="block py-2 hover:text-accent">Skills</a>
-            <a href="#projects" class="block py-2 hover:text-accent">Projects</a>
-            <a href="#contact" class="block py-2 hover:text-accent">Contact</a>
-            <a href="https://github.com/jobayer-hosen/jobayer-hosen.github.io" target="_blank" class="block py-2 hover:text-accent">Resume</a>
-        </div>
-    </header>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
 
     <main class="container mx-auto px-6">
 
@@ -118,7 +33,7 @@
             <h1 class="text-4xl md:text-7xl font-bold text-gray-100">Jobayer Hosen.</h1>
             <h2 class="text-4xl md:text-6xl font-bold text-gray-400 mt-2">I build things for the physical and digital world.</h2>
             <p class="max-w-xl mt-6 text-lg">
-                I'm a third-year Civil Engineering student at BUET with a passion for technology. Currently I am in Level 3, Term 1.
+                I'm a third-year Civil Engineering student at BUET with a passion for technology and web development. I apply structural precision to my code to create robust, user-friendly digital experiences.
             </p>
             <div class="mt-8 flex items-center space-x-6">
                 <a href="mailto:jobayerhosen420@gmail.com" class="text-accent text-2xl hover:text-white transition-colors"><i class="fas fa-envelope"></i></a>
@@ -136,139 +51,33 @@
                 <div class="md:col-span-3 text-lg space-y-4">
                     <p>Hello! I'm Jobayer, a driven Civil Engineering student from Bangladesh. My journey began at <strong class="text-gray-100">Notre Dame College</strong>, and now I'm honing my analytical and problem-solving skills at the prestigious <strong class="text-gray-100">Bangladesh University of Engineering and Technology (BUET)</strong>.</p>
                     <p>While my core study is in the physical world of structures and infrastructure, I've discovered a profound passion for the digital realm. I find immense satisfaction in the logic and creativity of programming, and I'm actively developing my skills in web technologies.</p>
-                    <p>My goal is to bridge these two worlds, leveraging my engineering mindset to build web applications that are as well-designed and reliable as the structures I study.</p>
                 </div>
                 <div class="md:col-span-2 parallax-container h-80">
-                    <div id="parallax-img" class="parallax-bg" style="background-image: url('IMG_20231130_145909_Bokeh.jpg');"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="py-24 fade-in-section">
-            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">02.</span> Education</h2>
-            <div class="max-w-3xl mx-auto space-y-8">
-                <div class="glass-card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-accent">Bangladesh University of Engineering and Technology (BUET)</h3>
-                    <p class="text-gray-400 italic">2021 - Present</p>
-                    <p class="mt-2">Bachelor of Science in Civil Engineering (3rd Year)</p>
-                </div>
-                <div class="glass-card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-accent">Notre Dame College, Dhaka</h3>
-                    <p class="text-gray-400 italic">2019 - 2021</p>
-                    <p class="mt-2">Higher Secondary Certificate (HSC)</p>
+                    <div id="parallax-img" class="parallax-bg" style="background-image: url('assets/IMG_20231130_145909_Bokeh.jpg');"></div>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
         <section id="skills" class="py-24 fade-in-section">
-            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">03.</span> Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">02.</span> My Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-drafting-compass text-4xl text-accent mb-2"></i><p>AutoCAD</p></div>
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-square-root-alt text-4xl text-accent mb-2"></i><p>MATLAB</p></div>
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-code text-4xl text-accent mb-2"></i><p>C++</p></div>
+                <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-cube text-4xl text-accent mb-2"></i><p>Sketchup</p></div>
+                <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-camera-retro text-4xl text-accent mb-2"></i><p>Enscape</p></div>
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fab fa-html5 text-4xl text-accent mb-2"></i><p>HTML5</p></div>
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fab fa-css3-alt text-4xl text-accent mb-2"></i><p>CSS3</p></div>
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fab fa-js-square text-4xl text-accent mb-2"></i><p>JavaScript</p></div>
-                <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fab fa-react text-4xl text-accent mb-2"></i><p>React</p></div>
-                <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-database text-4xl text-accent mb-2"></i><p>SQL</p></div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-24 fade-in-section">
-            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">04.</span> My Projects</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Project Card 1 -->
-                <div class="project-card bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
-                    <div class="overflow-hidden"><img src="https://placehold.co/600x400/112240/64ffda?text=Project+One" alt="Project One" class="project-image w-full h-56 object-cover transition-transform duration-300"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-100">Structural Analysis Web Tool</h3>
-                        <p class="text-gray-400 mb-4">A web application for performing basic structural analysis on beams and trusses. (You can edit this)</p>
-                        <div class="flex space-x-4 text-accent"><a href="#" class="hover:text-white"><i class="fab fa-github"></i></a> <a href="#" class="hover:text-white"><i class="fas fa-external-link-alt"></i></a></div>
-                    </div>
-                </div>
-                <!-- Project Card 2 -->
-                <div class="project-card bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
-                    <div class="overflow-hidden"><img src="https://placehold.co/600x400/112240/64ffda?text=Project+Two" alt="Project Two" class="project-image w-full h-56 object-cover transition-transform duration-300"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-100">Construction Material Calculator</h3>
-                        <p class="text-gray-400 mb-4">A tool to estimate the quantity of materials like cement, sand, and aggregate required for concrete works.</p>
-                        <div class="flex space-x-4 text-accent"><a href="#" class="hover:text-white"><i class="fab fa-github"></i></a> <a href="#" class="hover:text-white"><i class="fas fa-external-link-alt"></i></a></div>
-                    </div>
-                </div>
-                <!-- Project Card 3 -->
-                <div class="project-card bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
-                    <div class="overflow-hidden"><img src="https://placehold.co/600x400/112240/64ffda?text=Project+Three" alt="Project Three" class="project-image w-full h-56 object-cover transition-transform duration-300"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-100">Personal Portfolio Website</h3>
-                        <p class="text-gray-400 mb-4">This personal portfolio, built from scratch to showcase my skills and projects using modern web technologies.</p>
-                        <div class="flex space-x-4 text-accent"><a href="#" class="hover:text-white"><i class="fab fa-github"></i></a> <a href="#" class="hover:text-white"><i class="fas fa-external-link-alt"></i></a></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-24 text-center fade-in-section">
-            <h2 class="text-2xl font-bold text-accent mb-2">05. What’s Next?</h2>
-            <h3 class="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Get In Touch</h3>
-            <p class="max-w-xl mx-auto mb-8">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Whether you have a question or just want to say hi, feel free to reach out!
-            </p>
-            <a href="mailto:jobayerhosen420@gmail.com" class="inline-block border border-accent text-accent text-lg px-8 py-4 rounded-md hover:bg-accent/10 transition-colors duration-300">
-                Say Hello
-            </a>
-        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="py-6 text-center text-gray-500">
-        <p>Designed & Built by Jobayer Hosen</p>
-    </footer>
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
 
-    <script>
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // --- Navbar Shadow on Scroll ---
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-lg', 'bg-[#0a192f]/90');
-            } else {
-                navbar.classList.remove('shadow-lg', 'bg-[#0a192f]/90');
-            }
-        });
-
-        // --- Parallax Image Effect ---
-        const parallaxImg = document.getElementById('parallax-img');
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.pageYOffset;
-            // Adjust the '0.1' to change the speed of the parallax effect
-            parallaxImg.style.transform = `translateY(${scrollPosition * 0.1}px)`;
-        });
-
-        // --- Fade-in Sections on Scroll ---
-        const sections = document.querySelectorAll('.fade-in-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.15
-        });
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
