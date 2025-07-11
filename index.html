@@ -18,6 +18,7 @@
         .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7); }
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+        .dropdown-arrow { transition: transform 0.3s ease-in-out; }
     </style>
 </head>
 <body class="text-gray-300">
@@ -26,12 +27,13 @@
     <header class="bg-navy/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-3xl font-extrabold text-accent">JH</a>
-            <nav class="hidden md:flex items-center space-x-8 text-lg">
+            <nav class="hidden md:flex items-center space-x-6 text-lg">
                 <a href="#about" class="hover:text-accent transition-colors duration-300">About</a>
                 <a href="#education" class="hover:text-accent transition-colors duration-300">Education</a>
                 <a href="#skills" class="hover:text-accent transition-colors duration-300">Skills</a>
                 <a href="#projects" class="hover:text-accent transition-colors duration-300">Projects</a>
                 <a href="#achievements" class="hover:text-accent transition-colors duration-300">Achievements</a>
+                <a href="#activities" class="hover:text-accent transition-colors duration-300">Activities</a>
                 <a href="#contact" class="hover:text-accent transition-colors duration-300">Contact</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-accent focus:outline-none">
@@ -45,6 +47,7 @@
             <a href="#skills" class="block py-2 hover:text-accent">Skills</a>
             <a href="#projects" class="block py-2 hover:text-accent">Projects</a>
             <a href="#achievements" class="block py-2 hover:text-accent">Achievements</a>
+            <a href="#activities" class="block py-2 hover:text-accent">Activities</a>
             <a href="#contact" class="block py-2 hover:text-accent">Contact</a>
         </div>
     </header>
@@ -63,9 +66,7 @@
             <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">01.</span> About Me</h2>
             <div class="grid md:grid-cols-5 gap-12 items-center">
                 <div class="md:col-span-3 text-lg space-y-4">
-                    <p> I’m Jobayer, a 3rd-year Civil Engineering student at prestigious <strong class="text-gray-100">Bangladesh University of Engineering and Technology (BUET)</strong> with a passion for where infrastructure meets technology. 
-                        While I love the fundamentals of civil engineering, I’m equally fascinated by how tech is reshaping the field from smart materials to AI-assisted design.
-                 
+                    <p> I’m Jobayer, a 3rd-year Civil Engineering student at prestigious <strong class="text-gray-100">Bangladesh University of Engineering and Technology (BUET)</strong> with a passion for where infrastructure meets technology. While I love the fundamentals of civil engineering, I’m equally fascinated by how tech is reshaping the field from smart materials to AI-assisted design.</p>
                     <p>When I’m not studying structures, you’ll find me exploring the latest tech trends or binge-watching movies and anime. I’m not sure where this blend of interests will take me, but I’m excited to build the future-both physically and digitally.</p>
                 </div>
                 <div class="md:col-span-2">
@@ -99,7 +100,8 @@
         <!-- Skills Section -->
         <section id="skills" class="py-24 fade-in-section">
             <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">03.</span> Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
+                <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fab fa-html5 text-4xl text-accent mb-2"></i><p>HTML</p></div>
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-drafting-compass text-4xl text-accent mb-2"></i><p>AutoCAD</p></div>
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-square-root-alt text-4xl text-accent mb-2"></i><p>MATLAB</p></div>
                 <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-code text-4xl text-accent mb-2"></i><p>C++</p></div>
@@ -112,7 +114,6 @@
         <section id="projects" class="py-24 fade-in-section">
             <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">04.</span> Projects</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1: Links to project-detail-1.html -->
                 <a href="project-detail-1.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
                     <div class="overflow-hidden"><img src="assets/project1-placeholder.jpg" alt="Project One" class="project-image w-full h-56 object-cover transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/112240/64ffda?text=Project+1';"></div>
                     <div class="p-6">
@@ -121,7 +122,6 @@
                         <span class="text-accent hover:underline">View Details &rarr;</span>
                     </div>
                 </a>
-                <!-- Project Card 2: Links to project-detail-2.html -->
                 <a href="project-detail-2.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
                     <div class="overflow-hidden"><img src="assets/project2-placeholder.jpg" alt="Project Two" class="project-image w-full h-56 object-cover transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/112240/64ffda?text=Project+2';"></div>
                     <div class="p-6">
@@ -152,9 +152,65 @@
             </div>
         </section>
 
+        <!-- Activities & Experience Section -->
+        <section id="activities" class="py-24 fade-in-section">
+            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">06.</span> Activities & Experience</h2>
+            <div class="max-w-3xl mx-auto space-y-4 text-lg">
+                <!-- Udvash Experience with Dropdown -->
+                <div class="glass-card rounded-lg overflow-hidden">
+                    <button class="w-full p-4 flex justify-between items-center text-left" onclick="toggleDropdown('udvash-details')">
+                        <div class="flex items-center">
+                            <img src="assets/udvash-logo-white.png" alt="Udvash Logo" class="w-10 h-10 mr-4">
+                            <div>
+                                <h3 class="font-bold text-accent">Math Teacher, UDVASH</h3>
+                                <p class="text-sm text-gray-400">September 2022 - Present</p>
+                            </div>
+                        </div>
+                        <i id="udvash-arrow" class="fas fa-chevron-down text-accent dropdown-arrow"></i>
+                    </button>
+                    <div id="udvash-details" class="hidden px-4 pb-4 border-t border-accent/20">
+                        <ul class="list-disc list-inside space-y-2 text-base mt-4">
+                            <li>Tutored and mentored over 50,000+ students.</li>
+                            <li>Enhanced public speaking skills by leading large classes and seminars, both online and offline.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Other Activities -->
+                <div class="glass-card p-4 rounded-md flex items-center">
+                    <i class="fas fa-users text-accent mr-4 w-6 text-center"></i>
+                    <div>
+                        <span>General Member, ACI Student Chapter, BUET</span>
+                        <p class="text-sm text-gray-400">2022 - Present</p>
+                    </div>
+                </div>
+                 <div class="glass-card p-4 rounded-md flex items-center">
+                    <i class="fab fa-wikipedia-w text-accent mr-4 w-6 text-center"></i>
+                     <div>
+                        <span>Volunteer Contributor, Wikipedia</span>
+                        <p class="text-sm text-gray-400">2019 - Present</p>
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-md flex items-center">
+                    <i class="fas fa-leaf text-accent mr-4 w-6 text-center"></i>
+                    <div>
+                        <span>Lifetime Member, Notre Dame Nature Study Club</span>
+                        <p class="text-sm text-gray-400">Aug 2019 - Apr 2021</p>
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-md flex items-center">
+                    <i class="fas fa-book-open text-accent mr-4 w-6 text-center"></i>
+                    <div>
+                        <span>Member, Notre Dame English Club</span>
+                        <p class="text-sm text-gray-400">Aug 2019 - Apr 2021</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="py-24 text-center fade-in-section">
-            <h2 class="text-2xl font-bold text-accent mb-2">06. What’s Next?</h2>
+            <h2 class="text-2xl font-bold text-accent mb-2">07. What’s Next?</h2>
             <h3 class="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Get In Touch</h3>
             <p class="max-w-xl mx-auto mb-8">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Whether you have a question or just want to say hi, feel free to reach out!
@@ -170,11 +226,11 @@
     <footer class="py-6 text-center text-gray-500">
         <p>Designed & Built by Jobayer Hosen</p>
         <div class="mt-4 flex justify-center items-center space-x-6">
-            <a href="mailto:jobayerhosen420@gmail.com" class="text-gray-400 hover:text-accent transition-colors"><i class="fas fa-envelope text-2xl"></i></a>
-            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-linkedin text-2xl"></i></a>
-            <a href="https://github.com/jobayer-hosen" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-github text-2xl"></i></a>
-            <a href="https://www.facebook.com/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-facebook text-2xl"></i></a>
-            <a href="https://www.instagram.com/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="mailto:jobayerhosen420@gmail.com" class="text-gray-400 hover:text-accent transition-colors"><i class="fas fa-envelope text-3xl"></i></a>
+            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-linkedin text-3xl"></i></a>
+            <a href="https://github.com/jobayer-hosen" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-github text-3xl"></i></a>
+            <a href="https://www.facebook.com/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-facebook text-3xl"></i></a>
+            <a href="https://www.instagram.com/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-instagram text-3xl"></i></a>
         </div>
     </footer>
 
@@ -185,6 +241,14 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        // --- Dropdown Toggle Function ---
+        function toggleDropdown(id) {
+            const details = document.getElementById(id);
+            const arrow = document.getElementById(id.replace('-details', '-arrow'));
+            details.classList.toggle('hidden');
+            arrow.classList.toggle('rotate-180');
+        }
 
         // --- Fade-in Sections on Scroll ---
         const sections = document.querySelectorAll('.fade-in-section');
