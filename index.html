@@ -1,269 +1,341 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="no-js scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobayer Hosen - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Jobayer Hosen | Civil Engineering, BUET</title>
+    <meta name="description" content="Jobayer Hosen is a Civil Engineering student at BUET majoring in Structural Engineering, working where infrastructure meets technology.">
+    <meta name="author" content="Jobayer Hosen">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="canonical" href="https://jobayer-hosen.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Jobayer Hosen | Civil Engineering, BUET">
+    <meta property="og:description" content="Civil Engineering student at BUET, working where infrastructure meets technology.">
+    <meta property="og:url" content="https://jobayer-hosen.github.io/">
+    <meta property="og:image" content="https://jobayer-hosen.github.io/assets/jobayer1.jpg">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="assets/js/tailwind-config.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0a192f; color: #ccd6f6; }
-        .text-accent { color: #64ffda; }
-        .bg-light-navy { background-color: #112240; }
-        .glass-card { background: rgba(17, 34, 64, 0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(100, 255, 218, 0.2); }
-        .project-card:hover .project-image { transform: scale(1.05); }
-        .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7); }
-        .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
-        .dropdown-arrow { transition: transform 0.3s ease-in-out; }
-    </style>
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body class="text-gray-300">
+<body>
+    <a href="#main" class="skip-link btn btn-solid">Skip to content</a>
 
-    <header class="bg-navy/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Original JH Logo Kept Here -->
-            <a href="index.html" class="text-2xl font-extrabold tracking-wider text-gray-100 flex items-center">JH</a>
-            <nav class="hidden md:flex items-center space-x-6 text-lg">
-                <a href="#about" class="hover:text-accent transition-colors duration-300">About</a>
-                <a href="#education" class="hover:text-accent transition-colors duration-300">Education</a>
-                <a href="#skills" class="hover:text-accent transition-colors duration-300">Skills</a>
-                <a href="#projects" class="hover:text-accent transition-colors duration-300">Projects</a>
-                <a href="#achievements" class="hover:text-accent transition-colors duration-300">Achievements</a>
-                <a href="#activities" class="hover:text-accent transition-colors duration-300">Activities</a>
-                <a href="#contact" class="hover:text-accent transition-colors duration-300">Contact</a>
+    <!-- ============ Header ============ -->
+    <header class="site-header fixed inset-x-0 top-0 z-50">
+        <div class="h-full max-w-6xl mx-auto px-6 md:px-10 flex items-center justify-between">
+            <a href="#top" class="logo-mark" aria-label="Jobayer Hosen, back to top">JH</a>
+            <nav class="hidden md:flex items-center gap-7 text-sm" aria-label="Main">
+                <a href="#about" class="nav-link"><span class="num">01.</span>About</a>
+                <a href="#education" class="nav-link"><span class="num">02.</span>Education</a>
+                <a href="#skills" class="nav-link"><span class="num">03.</span>Skills</a>
+                <a href="#projects" class="nav-link"><span class="num">04.</span>Projects</a>
+                <a href="#experience" class="nav-link"><span class="num">05.</span>Experience</a>
+                <a href="#contact" class="nav-link"><span class="num">06.</span>Contact</a>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden text-accent focus:outline-none">
+            <button id="menu-button" class="md:hidden text-accent relative z-[70] w-10 h-10 flex items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-light-navy">
-            <a href="#about" class="block py-2 hover:text-accent">About</a>
-            <a href="#education" class="block py-2 hover:text-accent">Education</a>
-            <a href="#skills" class="block py-2 hover:text-accent">Skills</a>
-            <a href="#projects" class="block py-2 hover:text-accent">Projects</a>
-            <a href="#achievements" class="block py-2 hover:text-accent">Achievements</a>
-            <a href="#activities" class="block py-2 hover:text-accent">Activities</a>
-            <a href="#contact" class="block py-2 hover:text-accent">Contact</a>
-        </div>
     </header>
 
-    <main class="container mx-auto px-6">
+    <div id="menu-backdrop" class="menu-backdrop md:hidden"></div>
+    <aside id="mobile-menu" class="mobile-menu md:hidden flex flex-col justify-center px-10" aria-hidden="true">
+        <nav class="flex flex-col gap-7 text-center text-lg text-slate-lighter" aria-label="Mobile">
+            <a href="#about"><span class="block font-mono text-sm text-accent">01.</span>About</a>
+            <a href="#education"><span class="block font-mono text-sm text-accent">02.</span>Education</a>
+            <a href="#skills"><span class="block font-mono text-sm text-accent">03.</span>Skills</a>
+            <a href="#projects"><span class="block font-mono text-sm text-accent">04.</span>Projects</a>
+            <a href="#experience"><span class="block font-mono text-sm text-accent">05.</span>Experience</a>
+            <a href="#contact"><span class="block font-mono text-sm text-accent">06.</span>Contact</a>
+        </nav>
+    </aside>
 
-        <section id="hero" class="min-h-screen flex flex-col justify-center items-start fade-in-section">
-            <p class="text-accent text-lg mb-4">Hello, I am</p>
-            <h1 class="text-4xl md:text-7xl font-bold text-gray-100">Jobayer Hosen.</h1>
-            <h2 class="text-4xl md:text-6xl font-bold text-gray-400 mt-2">A tech enthusiast civil engineering undergrad student.</h2>
-        </section>
+    <!-- ============ Side rails (large screens) ============ -->
+    <div class="side-rail left">
+        <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
+        <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-xl"></i></a>
+        <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g text-xl"></i></a>
+        <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube text-xl"></i></a>
+        <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+        <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
+    </div>
+    <div class="side-rail right">
+        <a href="mailto:jobayerhosen420@gmail.com" class="vertical">jobayerhosen420@gmail.com</a>
+    </div>
 
-        <section id="about" class="py-24 fade-in-section">
-            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">01.</span> About Me</h2>
-            <div class="grid md:grid-cols-5 gap-12 items-center">
-                <div class="md:col-span-3 text-lg space-y-4">
-                    <p> I’m Jobayer, a 4th-year Civil Engineering student at prestigious <strong class="text-gray-100">Bangladesh University of Engineering and Technology (BUET)</strong> majoring in Structural Engineering with a passion for where infrastructure meets technology. While I love the fundamentals of civil engineering, I’m equally fascinated by how tech is reshaping the field from smart materials to AI-assisted design.</p>
-                    <p>When I’m not studying structures, you’ll find me exploring the latest tech trends or binge-watching movies and anime. I’m not sure where this blend of interests will take me, but I’m excited to build the future-both physically and digitally.</p>
-                </div>
-                <div class="md:col-span-2">
-                    <img src="assets/jobayer1.jpg" alt="Jobayer Hosen" class="rounded-lg shadow-lg w-full h-auto object-cover border-2 border-accent/20">
-                </div>
+    <main id="main" class="max-w-content mx-auto px-6 md:px-12 lg:px-20">
+
+        <!-- ============ Hero ============ -->
+        <section id="top" class="relative min-h-screen flex items-center pt-24 pb-16">
+            <div class="hero-bg" aria-hidden="true">
+                <div class="hero-glow" style="top: 12%; right: -8%;"></div>
             </div>
-        </section>
-
-        <section id="education" class="py-24 fade-in-section">
-            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">02.</span> Education</h2>
-            <div class="max-w-3xl mx-auto space-y-8">
-                <div class="glass-card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-accent">Bangladesh University of Engineering and Technology (BUET)</h3>
-                    <p class="text-gray-400 italic">2021 - Present</p>
-                    <p class="mt-2">Bachelor of Science in Civil Engineering (Level 4, Term 1)</p>
-                </div>
-                <div class="glass-card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-accent">Notre Dame College, Dhaka</h3>
-                    <p class="text-gray-400 italic">2019 - 2021</p>
-                    <p class="mt-2">Higher Secondary Certificate (HSC)</p>
-                </div>
-                <div class="glass-card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-accent">Bhaluka Pilot High School, Mymensingh</h3>
-                    <p class="text-gray-400 italic">2014 - 2019</p>
-                    <p class="mt-2">Secondary School Certificate (SSC)</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="py-24 fade-in-section">
-            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">03.</span> Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
-                <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fab fa-html5 text-4xl text-accent mb-2"></i><p>HTML</p></div>
-                <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-drafting-compass text-4xl text-accent mb-2"></i><p>AutoCAD</p></div>
-                <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-square-root-alt text-4xl text-accent mb-2"></i><p>MATLAB</p></div>
-                <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-code text-4xl text-accent mb-2"></i><p>C++</p></div>
-                <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-cube text-4xl text-accent mb-2"></i><p>Sketchup</p></div>
-                <div class="glass-card p-4 text-center rounded-md hover:-translate-y-1 transition-transform"><i class="fas fa-camera-retro text-4xl text-accent mb-2"></i><p>Enscape</p></div>
-            </div>
-        </section>
-
-        <section id="projects" class="py-24 fade-in-section">
-            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">04.</span> Projects</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <a href="project-detail-1.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
-                    <div class="overflow-hidden"><img src="assets/project1-placeholder.jpg" alt="Multipurpose Zone Near Buriganga" class="project-image w-full h-56 object-cover transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/112240/64ffda?text=Project+1';"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-100">Multipurpose Zone Near Buriganga</h3>
-                        <p class="text-gray-400 mb-4">Designed a multi-purpose entertainment zone near the Buriganga river in Dhaka using Sketchup and Enscape.</p>
-                        <span class="text-accent hover:underline">View Details &rarr;</span>
-                    </div>
-                </a>
-
-                <a href="project-detail-3.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
-                    <div class="overflow-hidden"><img src="assets/project3-urban-metabolism.jpg" alt="Urban Metabolism Project" class="project-image w-full h-56 object-cover transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/112240/64ffda?text=Project+3';"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-100">Urban Metabolism Project</h3>
-                        <p class="text-gray-400 mb-4">Participated in a poster presentation competition at the Islamic University of Technology (IUT), focusing on waste collection system.</p>
-                        <span class="text-accent hover:underline">View Details &rarr;</span>
-                    </div>
-                </a>
-
-                <a href="project-detail-2.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
-                    <div class="overflow-hidden"><img src="assets/project2-placeholder.jpg" alt="Interactive Mohr's Circle" class="project-image w-full h-56 object-cover transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/112240/64ffda?text=Project+2';"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-100">Interactive Mohr's Circle</h3>
-                        <p class="text-gray-400 mb-4">Built an interactive Mohr's circle app using MATLAB for analyzing stress and finding the transformed state of stress.</p>
-                        <span class="text-accent hover:underline">View Details &rarr;</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section id="achievements" class="py-24 fade-in-section">
-            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">05.</span> Achievements</h2>
-            <div class="max-w-3xl mx-auto space-y-4 text-lg">
-                <p class="glass-card p-4 rounded-md flex items-start">
-                    <i class="fas fa-trophy text-accent mr-4 mt-1"></i>
-                    <span>Became 1st in the <a href="https://wikibarta.wikimedia.org.bd/article/1424" target="_blank" class="text-accent underline hover:text-white transition-colors">Notre Dame Wikipedia Edit-a-thon</a> in 2020, arranged by BUET Energy Club.</span>
+            <div class="hero-in max-w-3xl">
+                <p class="font-mono text-accent mb-5">Hi, my name is</p>
+                <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-ink tracking-tight">Jobayer Hosen.</h1>
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-slate mt-3 tracking-tight leading-tight">I build where infrastructure meets technology.</h2>
+                <p class="mt-7 max-w-xl text-lg leading-relaxed text-slate">
+                    Civil Engineering student at <span class="text-accent">BUET</span>, majoring in Structural Engineering.
+                    I design spaces, build engineering tools, and teach math to thousands of students.
                 </p>
-                <p class="glass-card p-4 rounded-md flex items-start">
-                    <i class="fas fa-trophy text-accent mr-4 mt-1"></i>
-                    <span>Received a postcard from Taiwan for contributing to Wikipedia Asian Month.</span>
-                </p>
-                <p class="glass-card p-4 rounded-md flex items-start">
-                    <i class="fas fa-trophy text-accent mr-4 mt-1"></i>
-                    <span>Received the Perfect Attendance certificate from Notre Dame College.</span>
-                </p>
-            </div>
-        </section>
-
-        <section id="activities" class="py-24 fade-in-section">
-            <h2 class="text-3xl font-bold text-gray-100 mb-12 flex items-center"><span class="text-accent mr-4">06.</span> Activities & Experience</h2>
-            <div class="max-w-3xl mx-auto space-y-4 text-lg">
-                <div class="glass-card rounded-lg overflow-hidden">
-                    <button class="w-full p-4 flex justify-between items-center text-left" onclick="toggleDropdown('udvash-details')">
-                        <div class="flex items-center">
-                            <img src="assets/udvash-logo-white.png" alt="Udvash Logo" class="w-10 h-10 mr-4">
-                            <div>
-                                <h3 class="font-bold text-accent">Math Teacher, UDVASH</h3>
-                                <p class="text-sm text-gray-400">September 2022 - Present</p>
-                            </div>
-                        </div>
-                        <i id="udvash-arrow" class="fas fa-chevron-down text-accent dropdown-arrow"></i>
-                    </button>
-                    <div id="udvash-details" class="hidden px-4 pb-4 border-t border-accent/20">
-                        <ul class="list-disc list-inside space-y-2 text-base mt-4">
-                            <li>Tutored and mentored over 50,000+ students.</li>
-                            <li>Enhanced public speaking skills by leading large classes and seminars, both online and offline.</li>
-                        </ul>
-                    </div>
+                <div class="mt-7 flex flex-wrap gap-3">
+                    <span class="chip"><i class="fas fa-building-columns"></i>Civil Engineering @ BUET</span>
+                    <span class="chip"><i class="fas fa-helmet-safety"></i>Structural Engineering</span>
+                    <span class="chip"><i class="fas fa-chalkboard-user"></i>50,000+ students taught</span>
                 </div>
-
-                <!-- Added Logo Next to ITE Student Chapter -->
-                <div class="glass-card p-4 rounded-md flex items-center">
-                    <img src="assets/ite-logo.svg" alt="ITE Logo" class="w-10 h-10 object-contain mr-4">
-                    <div>
-                        <span>Deputy Vice President, ITE BUET Student Chapter</span>
-                        <p class="text-sm text-gray-400">January 2026 - Present</p>
-                    </div>
-                </div>
-
-                <div class="glass-card p-4 rounded-md flex items-center">
-                    <i class="fab fa-wikipedia-w text-accent mr-4 w-6 text-center text-2xl"></i>
-                    <div>
-                        <span>Volunteer Contributor, Wikipedia</span>
-                        <p class="text-sm text-gray-400">2019 - Present</p>
-                    </div>
-                </div>
-                <div class="glass-card p-4 rounded-md flex items-center">
-                    <i class="fas fa-leaf text-accent mr-4 w-6 text-center text-2xl"></i>
-                    <div>
-                        <span>Lifetime Member, Notre Dame Nature Study Club</span>
-                        <p class="text-sm text-gray-400">Aug 2019 - Apr 2021</p>
-                    </div>
-                </div>
-                <div class="glass-card p-4 rounded-md flex items-center">
-                    <i class="fas fa-book-open text-accent mr-4 w-6 text-center text-2xl"></i>
-                    <div>
-                        <span>Member, Notre Dame English Club</span>
-                        <p class="text-sm text-gray-400">Aug 2019 - Apr 2021</p>
-                    </div>
+                <div class="mt-11 flex flex-wrap gap-4">
+                    <a href="#projects" class="btn btn-solid">View my work <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-outline">Get in touch</a>
                 </div>
             </div>
-        </section>
-
-        <section id="contact" class="py-24 text-center fade-in-section">
-            <h2 class="text-2xl font-bold text-accent mb-2">07. What’s Next?</h2>
-            <h3 class="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Get In Touch</h3>
-            <p class="max-w-xl mx-auto mb-8">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Whether you have a question or just want to say hi, feel free to reach out!
-            </p>
-            <a href="mailto:jobayerhosen420@gmail.com" class="inline-block border border-accent text-accent text-lg px-8 py-4 rounded-md hover:bg-accent/10 transition-colors duration-300">
-                Say Hello
+            <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate hover:text-accent transition-colors hidden md:block" aria-label="Scroll to About">
+                <i class="fas fa-chevron-down animate-bounce"></i>
             </a>
         </section>
 
+        <!-- ============ About ============ -->
+        <section id="about" class="py-24 md:py-28 reveal">
+            <h2 class="section-title"><span class="num">01.</span>About Me</h2>
+            <div class="grid md:grid-cols-5 gap-12 md:gap-14 items-start">
+                <div class="md:col-span-3 space-y-5 text-lg leading-relaxed">
+                    <p>
+                        I'm Jobayer, a 4th-year Civil Engineering student at
+                        <span class="text-accent">Bangladesh University of Engineering and Technology (BUET)</span>,
+                        majoring in Structural Engineering. I'm passionate about the space where infrastructure meets technology.
+                    </p>
+                    <p>
+                        I love the fundamentals of civil engineering, and I'm equally fascinated by how technology is reshaping the field,
+                        from smart materials to AI-assisted design.
+                    </p>
+                    <p>
+                        Outside of structures, I explore the latest in tech, edit Wikipedia, read
+                        (<a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" class="text-accent hover:underline">follow my shelf on Goodreads</a>),
+                        and watch a lot of movies and anime. I'm excited to build the future, both physically and digitally.
+                    </p>
+                    <p class="text-base text-slate-light pt-2">A few things I'm focused on:</p>
+                    <ul class="grid grid-cols-2 gap-x-6 gap-y-2 font-mono text-sm">
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>Structural design</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>AI in engineering</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>3D modelling &amp; rendering</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>Engineering tools in code</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>Sustainable cities</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>Teaching</li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2 pr-5">
+                    <div class="photo-frame">
+                        <img src="assets/jobayer1.jpg" alt="Portrait of Jobayer Hosen" width="562" height="698" class="w-full h-auto" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Education ============ -->
+        <section id="education" class="py-24 md:py-28 reveal">
+            <h2 class="section-title"><span class="num">02.</span>Education</h2>
+            <div class="timeline max-w-3xl space-y-6">
+                <article class="timeline-item is-current card p-6 md:p-7">
+                    <div class="flex flex-wrap items-baseline justify-between gap-2">
+                        <h3 class="text-lg md:text-xl font-semibold text-ink">Bangladesh University of Engineering and Technology (BUET)</h3>
+                        <span class="font-mono text-sm text-accent">2021 – Present</span>
+                    </div>
+                    <p class="mt-2">B.Sc. in Civil Engineering · Level 4, Term 1</p>
+                    <div class="mt-4 flex flex-wrap gap-2"><span class="tag">Major: Structural Engineering</span></div>
+                </article>
+                <article class="timeline-item card p-6 md:p-7">
+                    <div class="flex flex-wrap items-baseline justify-between gap-2">
+                        <h3 class="text-lg md:text-xl font-semibold text-ink">Notre Dame College, Dhaka</h3>
+                        <span class="font-mono text-sm text-slate">2019 – 2021</span>
+                    </div>
+                    <p class="mt-2">Higher Secondary Certificate (HSC)</p>
+                </article>
+                <article class="timeline-item card p-6 md:p-7">
+                    <div class="flex flex-wrap items-baseline justify-between gap-2">
+                        <h3 class="text-lg md:text-xl font-semibold text-ink">Bhaluka Pilot High School, Mymensingh</h3>
+                        <span class="font-mono text-sm text-slate">2014 – 2019</span>
+                    </div>
+                    <p class="mt-2">Secondary School Certificate (SSC)</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============ Skills ============ -->
+        <section id="skills" class="py-24 md:py-28 reveal">
+            <h2 class="section-title"><span class="num">03.</span>Skills &amp; Tools</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card p-7">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="logo-tile"><i class="fas fa-compass-drafting"></i></span>
+                        <h3 class="text-lg font-semibold text-ink">Design &amp; Drafting</h3>
+                    </div>
+                    <ul class="grid grid-cols-3 gap-4 text-center">
+                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fas fa-drafting-compass text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">AutoCAD</p></li>
+                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fas fa-cube text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">SketchUp</p></li>
+                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fas fa-camera-retro text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">Enscape</p></li>
+                    </ul>
+                </div>
+                <div class="card p-7">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="logo-tile"><i class="fas fa-terminal"></i></span>
+                        <h3 class="text-lg font-semibold text-ink">Computation &amp; Code</h3>
+                    </div>
+                    <ul class="grid grid-cols-3 gap-4 text-center">
+                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fas fa-square-root-variable text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">MATLAB</p></li>
+                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fas fa-code text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">C++</p></li>
+                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fab fa-html5 text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">HTML</p></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Projects ============ -->
+        <section id="projects" class="py-24 md:py-28 reveal">
+            <h2 class="section-title"><span class="num">04.</span>Selected Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+                <a href="project-detail-1.html" class="project-card card card-hover overflow-hidden flex flex-col">
+                    <div class="project-media"><img src="assets/project1-placeholder.jpg" alt="3D rendering of the multipurpose zone along the Buriganga river" loading="lazy"></div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="font-mono text-xs text-accent mb-2">Urban Design · CE302</p>
+                        <h3 class="text-xl font-semibold text-ink mb-3">Multipurpose Zone Near Buriganga</h3>
+                        <p class="text-slate mb-5 flex-1">A multipurpose riverside entertainment zone in Dhaka, modelled in SketchUp and rendered in Enscape.</p>
+                        <div class="flex flex-wrap gap-2 mb-5"><span class="tag">SketchUp</span><span class="tag">Enscape</span><span class="tag">AutoCAD</span></div>
+                        <span class="text-accent font-mono text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                    </div>
+                </a>
+
+                <a href="project-detail-3.html" class="project-card card card-hover overflow-hidden flex flex-col">
+                    <div class="project-media"><img src="assets/project3-urban-metabolism.jpg" alt="The Urban Metabolism Project poster" loading="lazy"></div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="font-mono text-xs text-accent mb-2">Poster Competition · IUT</p>
+                        <h3 class="text-xl font-semibold text-ink mb-3">The Urban Metabolism Project</h3>
+                        <p class="text-slate mb-5 flex-1">A human-centred circular economy for Dhaka's waste, presented at a poster competition at the Islamic University of Technology.</p>
+                        <div class="flex flex-wrap gap-2 mb-5"><span class="tag">Waste Management</span><span class="tag">Circular Economy</span><span class="tag">Team</span></div>
+                        <span class="text-accent font-mono text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                    </div>
+                </a>
+
+                <a href="project-detail-2.html" class="project-card card card-hover overflow-hidden flex flex-col">
+                    <div class="project-media"><img src="assets/project2-placeholder.jpg" alt="Interactive Mohr's circle plotted in MATLAB" loading="lazy"></div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="font-mono text-xs text-accent mb-2">Engineering Tool</p>
+                        <h3 class="text-xl font-semibold text-ink mb-3">Interactive Mohr's Circle</h3>
+                        <p class="text-slate mb-5 flex-1">An interactive MATLAB app for analysing stress and finding the transformed state of stress.</p>
+                        <div class="flex flex-wrap gap-2 mb-5"><span class="tag">MATLAB</span><span class="tag">Solid Mechanics</span></div>
+                        <span class="text-accent font-mono text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ============ Experience & Activities ============ -->
+        <section id="experience" class="py-24 md:py-28 reveal">
+            <h2 class="section-title"><span class="num">05.</span>Experience &amp; Activities</h2>
+            <div class="timeline max-w-3xl space-y-5">
+                <article class="timeline-item is-current card accordion">
+                    <button class="accordion-button w-full p-6 flex items-center gap-4 text-left" aria-expanded="false" aria-controls="udvash-details">
+                        <span class="logo-tile"><img src="assets/udvash-logo-white.png" alt="UDVASH logo"></span>
+                        <span class="flex-1">
+                            <span class="block text-lg font-semibold text-ink">Math Teacher <span class="text-accent">@ UDVASH</span></span>
+                            <span class="block font-mono text-sm text-slate mt-1">Sep 2022 – Present</span>
+                        </span>
+                        <i class="fas fa-chevron-down chevron text-accent"></i>
+                    </button>
+                    <div id="udvash-details" class="accordion-panel">
+                        <div>
+                            <ul class="px-6 pb-6 pl-[5.5rem] space-y-2">
+                                <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Tutored and mentored 50,000+ students.</li>
+                                <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Built strong public speaking skills leading large classes and seminars, online and offline.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="timeline-item is-current card p-6 flex items-center gap-4">
+                    <span class="logo-tile is-light"><img src="assets/ite-logo.svg" alt="ITE logo"></span>
+                    <div>
+                        <h3 class="text-lg font-semibold text-ink">Deputy Vice President <span class="text-accent">@ ITE BUET Student Chapter</span></h3>
+                        <p class="font-mono text-sm text-slate mt-1">Jan 2026 – Present</p>
+                    </div>
+                </article>
+
+                <article class="timeline-item is-current card p-6 flex items-center gap-4">
+                    <span class="logo-tile"><i class="fab fa-wikipedia-w"></i></span>
+                    <div>
+                        <h3 class="text-lg font-semibold text-ink">Volunteer Contributor <span class="text-accent">@ Wikipedia</span></h3>
+                        <p class="font-mono text-sm text-slate mt-1">2019 – Present</p>
+                    </div>
+                </article>
+
+                <article class="timeline-item card p-6 flex items-center gap-4">
+                    <span class="logo-tile"><i class="fas fa-leaf"></i></span>
+                    <div>
+                        <h3 class="text-lg font-semibold text-ink">Lifetime Member <span class="text-accent">@ Notre Dame Nature Study Club</span></h3>
+                        <p class="font-mono text-sm text-slate mt-1">Aug 2019 – Apr 2021</p>
+                    </div>
+                </article>
+
+                <article class="timeline-item card p-6 flex items-center gap-4">
+                    <span class="logo-tile"><i class="fas fa-book-open"></i></span>
+                    <div>
+                        <h3 class="text-lg font-semibold text-ink">Member <span class="text-accent">@ Notre Dame English Club</span></h3>
+                        <p class="font-mono text-sm text-slate mt-1">Aug 2019 – Apr 2021</p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Achievements -->
+            <h3 id="achievements" class="mt-20 mb-8 text-xl font-semibold text-ink flex items-center gap-3"><i class="fas fa-trophy text-accent"></i>Achievements</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card card-hover p-6">
+                    <p class="font-mono text-xs text-accent">2020 · 1st place</p>
+                    <p class="mt-3 text-slate-lighter">Won the <a href="https://wikibarta.wikimedia.org.bd/article/1424" target="_blank" rel="noopener" class="text-accent hover:underline">Notre Dame Wikipedia Edit-a-thon</a>, organised by BUET Energy Club.</p>
+                </div>
+                <div class="card card-hover p-6">
+                    <p class="font-mono text-xs text-accent">Wikipedia Asian Month</p>
+                    <p class="mt-3 text-slate-lighter">Received a postcard from Taiwan in recognition of contributions to Wikipedia Asian Month.</p>
+                </div>
+                <div class="card card-hover p-6">
+                    <p class="font-mono text-xs text-accent">Notre Dame College</p>
+                    <p class="mt-3 text-slate-lighter">Awarded the Perfect Attendance certificate.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Contact ============ -->
+        <section id="contact" class="py-28 md:py-36 text-center reveal">
+            <p class="font-mono text-accent mb-4">06. What's next?</p>
+            <h2 class="text-4xl md:text-6xl font-bold text-ink tracking-tight">Get In Touch</h2>
+            <p class="max-w-xl mx-auto mt-6 text-lg leading-relaxed">
+                I'm always open to new projects, creative ideas, and opportunities to be part of an amazing team.
+                Whether you have a question or just want to say hi, my inbox is open.
+            </p>
+            <a href="mailto:jobayerhosen420@gmail.com" class="btn btn-outline mt-11 text-base">
+                <i class="fas fa-envelope"></i> Say Hello
+            </a>
+        </section>
     </main>
 
-    <footer class="py-6 text-center text-gray-500">
-        <p>Designed & Built by Jobayer Hosen</p>
-        <div class="mt-4 flex justify-center items-center space-x-6">
-            <a href="mailto:jobayerhosen420@gmail.com" class="text-gray-400 hover:text-accent transition-colors"><i class="fas fa-envelope text-3xl"></i></a>
-            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-linkedin text-3xl"></i></a>
-            <a href="https://github.com/jobayer-hosen" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-github text-3xl"></i></a>
-            <a href="https://www.facebook.com/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-facebook text-3xl"></i></a>
-            <a href="https://www.instagram.com/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-instagram text-3xl"></i></a>
-            <a href="https://www.youtube.com/@jobayerx" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-youtube text-3xl"></i></a>
+    <!-- ============ Footer ============ -->
+    <footer class="pb-10 pt-6 text-center">
+        <div class="social-row flex justify-center gap-6 mb-6 xl:hidden">
+            <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
+            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-xl"></i></a>
+            <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g text-xl"></i></a>
+            <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube text-xl"></i></a>
+            <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+            <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
+            <a href="mailto:jobayerhosen420@gmail.com" aria-label="Email"><i class="fas fa-envelope text-xl"></i></a>
         </div>
+        <p class="font-mono text-xs text-slate">Designed &amp; built by Jobayer Hosen · © <span data-year>2026</span></p>
     </footer>
 
-    <script>
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // --- Dropdown Toggle Function ---
-        function toggleDropdown(id) {
-            const details = document.getElementById(id);
-            const arrow = document.getElementById(id.replace('-details', '-arrow'));
-            details.classList.toggle('hidden');
-            arrow.classList.toggle('rotate-180');
-        }
-
-        // --- Fade-in Sections on Scroll ---
-        const sections = document.querySelectorAll('.fade-in-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.10 });
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
+    <script src="assets/js/site.js"></script>
 </body>
 </html>

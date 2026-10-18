@@ -1,110 +1,166 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="no-js scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: Multipurpose Park - Jobayer Hosen</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Multipurpose Zone Near Buriganga | Jobayer Hosen</title>
+    <meta name="description" content="A multipurpose riverside entertainment zone near the Buriganga river in Dhaka, designed in SketchUp and rendered in Enscape for CE302.">
+    <meta name="theme-color" content="#0a192f">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Multipurpose Zone Near Buriganga | Jobayer Hosen">
+    <meta property="og:description" content="A riverside entertainment zone in Dhaka, designed in SketchUp and rendered in Enscape.">
+    <meta property="og:image" content="https://jobayer-hosen.github.io/assets/project1-placeholder.jpg">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="assets/js/tailwind-config.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0a192f; color: #ccd6f6; }
-        .text-accent { color: #64ffda; }
-        .bg-light-navy { background-color: #112240; }
-        .youtube-container { position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 aspect ratio */ height: 0; }
-        .youtube-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-    </style>
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body class="text-gray-300">
+<body>
+    <a href="#main" class="skip-link btn btn-solid">Skip to content</a>
 
-    <header class="bg-navy/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-3xl font-extrabold text-accent">JH</a>
-            <nav class="hidden md:flex items-center space-x-6 text-lg">
-                <a href="index.html#about" class="hover:text-accent transition-colors duration-300">About</a>
-                <a href="index.html#skills" class="hover:text-accent transition-colors duration-300">Skills</a>
-                <a href="index.html#projects" class="hover:text-accent transition-colors duration-300">Projects</a>
-                <a href="index.html#achievements" class="hover:text-accent transition-colors duration-300">Achievements</a>
-                <a href="index.html#activities" class="hover:text-accent transition-colors duration-300">Activities</a>
-                <a href="index.html#contact" class="hover:text-accent transition-colors duration-300">Contact</a>
+    <header class="site-header fixed inset-x-0 top-0 z-50">
+        <div class="h-full max-w-6xl mx-auto px-6 md:px-10 flex items-center justify-between">
+            <a href="index.html" class="logo-mark" aria-label="Jobayer Hosen, home">JH</a>
+            <nav class="hidden md:flex items-center gap-7 text-sm" aria-label="Main">
+                <a href="index.html#about" class="nav-link"><span class="num">01.</span>About</a>
+                <a href="index.html#education" class="nav-link"><span class="num">02.</span>Education</a>
+                <a href="index.html#skills" class="nav-link"><span class="num">03.</span>Skills</a>
+                <a href="index.html#projects" class="nav-link is-active"><span class="num">04.</span>Projects</a>
+                <a href="index.html#experience" class="nav-link"><span class="num">05.</span>Experience</a>
+                <a href="index.html#contact" class="nav-link"><span class="num">06.</span>Contact</a>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden text-accent focus:outline-none">
+            <button id="menu-button" class="md:hidden text-accent relative z-[70] w-10 h-10 flex items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-light-navy">
-            </div>
     </header>
+    <div id="menu-backdrop" class="menu-backdrop md:hidden"></div>
+    <aside id="mobile-menu" class="mobile-menu md:hidden flex flex-col justify-center px-10" aria-hidden="true">
+        <nav class="flex flex-col gap-7 text-center text-lg text-slate-lighter" aria-label="Mobile">
+            <a href="index.html#about"><span class="block font-mono text-sm text-accent">01.</span>About</a>
+            <a href="index.html#education"><span class="block font-mono text-sm text-accent">02.</span>Education</a>
+            <a href="index.html#skills"><span class="block font-mono text-sm text-accent">03.</span>Skills</a>
+            <a href="index.html#projects"><span class="block font-mono text-sm text-accent">04.</span>Projects</a>
+            <a href="index.html#experience"><span class="block font-mono text-sm text-accent">05.</span>Experience</a>
+            <a href="index.html#contact"><span class="block font-mono text-sm text-accent">06.</span>Contact</a>
+        </nav>
+    </aside>
 
-    <main class="container mx-auto px-6 pt-32 pb-24">
-        <div class="mb-12">
-            <a href="index.html#projects" class="text-accent hover:underline mb-4 inline-block">&larr; Back to Main Page</a>
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-100">Multipurpose Zone Near Buriganga</h1>
-            <p class="text-lg text-gray-400 mt-2">Made A 3D design and prepared a Project Proposal for CE302 course</p>
+    <main id="main" class="max-w-content mx-auto px-6 md:px-12 lg:px-20 pt-32 pb-20">
+        <div class="hero-in">
+            <a href="index.html#projects" class="inline-flex items-center gap-2 font-mono text-sm text-accent hover:underline"><i class="fas fa-arrow-left"></i> All projects</a>
+            <p class="font-mono text-sm text-accent mt-10">Case study · Urban Design</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-ink tracking-tight mt-3">Multipurpose Zone Near Buriganga</h1>
+            <p class="text-lg md:text-xl mt-5 max-w-2xl leading-relaxed">A 3D design and project proposal for a riverside entertainment zone in Dhaka, prepared for the CE302 course.</p>
+            <dl class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl">
+                <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Course</dt><dd class="text-ink mt-1">CE302, BUET</dd></div>
+                <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Location</dt><dd class="text-ink mt-1">Buriganga riverfront, Dhaka</dd></div>
+                <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Tools</dt><dd class="text-ink mt-1">SketchUp, Enscape, AutoCAD</dd></div>
+            </dl>
         </div>
 
-        <div class="grid lg:grid-cols-3 gap-12">
-            <div class="lg:col-span-2">
-                <h2 class="text-2xl font-bold text-gray-100 mb-4">About This Project</h2>
-                <div class="space-y-4 text-lg text-gray-400">
-                    <p>
-                        This project demonstrates the complete lifecycle of a design process, beginning with the foundational stages of planning and culminating in a detailed 3D visualization. The primary objective was to apply a structured, professional approach to project management and execution from start to finish.
-                    </p>
-                    <p>
-                        The initial phase involved developing a comprehensive project inception report to define the scope, goals, and constraints. Following this, a formal project proposal was created, which detailed the methodology, timeline, and expected outcomes. The final stage brought the entire concept to life through an immersive 3D design, where Enscape was used to create photorealistic renderings and virtual walkthroughs of the final model.
-                    </p>
-                    <p>
-                        Using Sketchup for detailed 3D modeling and Enscape for photorealistic rendering, I developed a complete conceptual design. This included planning layouts for green spaces, walkways, seating areas, and recreational facilities to maximize usability and visual appeal.
-                    </p>
-                </div>
+        <a href="assets/project1-image1.jpg" data-lightbox class="gallery-item block mt-12 aspect-[16/9] reveal">
+            <img src="assets/project1-image1.jpg" alt="Labelled 3D rendering of the site: parking, playing field, prayer space, cafe, multipurpose hall, admin building and amphitheater">
+        </a>
 
-                <h2 class="text-2xl font-bold text-gray-100 mt-12 mb-4">Project Video</h2>
-                <div class="youtube-container rounded-lg overflow-hidden">
-                    <iframe 
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="lg:col-span-1">
-                <div class="bg-light-navy p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-gray-100 mb-4">Technologies Used</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center"><i class="fas fa-cube text-accent mr-3"></i>Sketchup</li>
-                        <li class="flex items-center"><i class="fas fa-camera-retro text-accent mr-3"></i>Enscape</li>
-                        <li class="flex items-center"><i class="fas fa-drafting-compass text-accent mr-3"></i>AutoCAD</li>
-                    </ul>
-
-                    <h3 class="text-xl font-bold text-gray-100 mt-8 mb-4">Image Gallery</h3>
-                    <div class="space-y-4">
-                        <img src="assets/project1-image1.jpg" alt="Project rendering 1" class="rounded-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/112240/64ffda?text=Image+1';">
-                        <img src="assets/project1-image2.jpg" alt="Project rendering 2" class="rounded-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/112240/64ffda?text=Image+2';">
-                        <img src="assets/project1-image3.jpg" alt="Project rendering 3" class="rounded-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/112240/64ffda?text=Image+3';">
+        <div class="grid lg:grid-cols-3 gap-12 mt-16">
+            <div class="lg:col-span-2 space-y-14">
+                <section class="reveal">
+                    <h2 class="section-title"><span class="num">01.</span>Overview</h2>
+                    <div class="space-y-5 text-lg leading-relaxed">
+                        <p>This project follows the complete lifecycle of a design process, from the foundational stages of planning to a detailed 3D visualisation. The goal was to apply a structured, professional approach to project management and execution from start to finish.</p>
+                        <p>The first phase was a project inception report defining the scope, goals and constraints. Next came a formal project proposal detailing the methodology, timeline and expected outcomes. The final stage brought the concept to life as an immersive 3D design.</p>
+                        <p>I modelled the site in SketchUp and used Enscape for photorealistic renderings and virtual walkthroughs, planning green spaces, walkways, seating areas and recreational facilities to maximise usability and visual appeal.</p>
                     </div>
-                </div>
+                </section>
+
+                <section class="reveal">
+                    <h2 class="section-title"><span class="num">02.</span>Walkthrough</h2>
+                    <!--
+                        To add your video: delete the "video-placeholder" div below and
+                        uncomment the video-frame block, replacing VIDEO_ID with your YouTube video ID
+                        (the part after "watch?v=" in the link).
+                    -->
+                    <div class="video-placeholder">
+                        <span class="logo-tile"><i class="fas fa-video"></i></span>
+                        <p class="text-ink font-semibold">Walkthrough video coming soon</p>
+                        <p class="text-sm max-w-sm">A rendered fly-through of the design made in Enscape.</p>
+                    </div>
+                    <!--
+                    <div class="video-frame">
+                        <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Multipurpose Zone walkthrough" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    -->
+                </section>
             </div>
+
+            <aside class="space-y-6 reveal">
+                <div class="card p-6">
+                    <h3 class="font-semibold text-ink mb-4">Key spaces</h3>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-3"><i class="fas fa-masks-theater text-accent w-5 text-center"></i>Amphitheater</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-building text-accent w-5 text-center"></i>Multipurpose hall</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-mug-hot text-accent w-5 text-center"></i>Riverside cafe</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-futbol text-accent w-5 text-center"></i>Playing field</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-mosque text-accent w-5 text-center"></i>Prayer space</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-briefcase text-accent w-5 text-center"></i>Admin building</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-square-parking text-accent w-5 text-center"></i>Parking</li>
+                    </ul>
+                </div>
+                <div class="card p-6">
+                    <h3 class="font-semibold text-ink mb-4">Tools used</h3>
+                    <div class="flex flex-wrap gap-2"><span class="tag">SketchUp</span><span class="tag">Enscape</span><span class="tag">AutoCAD</span></div>
+                </div>
+                <div class="card p-6">
+                    <h3 class="font-semibold text-ink mb-4">Deliverables</h3>
+                    <ul class="space-y-2.5">
+                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Project inception report</li>
+                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Project proposal</li>
+                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>3D model &amp; renderings</li>
+                    </ul>
+                </div>
+            </aside>
         </div>
+
+        <section class="mt-20 reveal">
+            <h2 class="section-title"><span class="num">03.</span>Gallery</h2>
+            <div class="grid sm:grid-cols-3 gap-5">
+                <a href="assets/project1-image2.jpg" data-lightbox class="gallery-item block aspect-[4/3]"><img src="assets/project1-image2.jpg" alt="Project rendering" loading="lazy"></a>
+                <a href="assets/project1-image3.jpg" data-lightbox class="gallery-item block aspect-[4/3]"><img src="assets/project1-image3.jpg" alt="Project rendering" loading="lazy"></a>
+                <a href="assets/project1-image4.jpg" data-lightbox class="gallery-item block aspect-[4/3]"><img src="assets/project1-image4.jpg" alt="Top-view site plan drawn in AutoCAD" loading="lazy"></a>
+            </div>
+        </section>
+
+        <nav class="mt-24 pt-10 border-t border-navy-lighter flex justify-between gap-6" aria-label="Project navigation">
+            <a href="index.html#projects" class="group">
+                <span class="block font-mono text-xs text-slate"><i class="fas fa-arrow-left mr-1"></i> Back</span>
+                <span class="block text-ink group-hover:text-accent transition-colors mt-1">All projects</span>
+            </a>
+            <a href="project-detail-3.html" class="group text-right">
+                <span class="block font-mono text-xs text-slate">Next project <i class="fas fa-arrow-right ml-1"></i></span>
+                <span class="block text-ink group-hover:text-accent transition-colors mt-1">The Urban Metabolism Project</span>
+            </a>
+        </nav>
     </main>
 
-    <footer class="py-6 text-center text-gray-500">
-        <p>Designed & Built by Jobayer Hosen</p>
+    <footer class="pb-10 pt-6 text-center">
+        <div class="social-row flex justify-center gap-6 mb-6">
+            <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
+            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-xl"></i></a>
+            <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g text-xl"></i></a>
+            <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube text-xl"></i></a>
+            <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+            <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
+            <a href="mailto:jobayerhosen420@gmail.com" aria-label="Email"><i class="fas fa-envelope text-xl"></i></a>
+        </div>
+        <p class="font-mono text-xs text-slate">Designed &amp; built by Jobayer Hosen · © <span data-year>2026</span></p>
     </footer>
 
-    <script>
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if(mobileMenuButton) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-    </script>
+    <script src="assets/js/site.js"></script>
 </body>
 </html>

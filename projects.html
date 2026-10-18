@@ -1,94 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Jobayer Hosen</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0a192f; color: #ccd6f6; }
-        .text-accent { color: #64ffda; }
-        .bg-light-navy { background-color: #112240; }
-        .project-card:hover .project-image { transform: scale(1.05); }
-        .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7); }
-    </style>
+    <title>Projects | Jobayer Hosen</title>
+    <!-- Projects now live on the home page; this page forwards old links there. -->
+    <meta http-equiv="refresh" content="0; url=index.html#projects">
+    <link rel="canonical" href="https://jobayer-hosen.github.io/#projects">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <style>body { background: #0a192f; color: #8892b0; font-family: system-ui, sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; } a { color: #64ffda; }</style>
 </head>
-<body class="text-gray-300">
-
-    <header class="bg-navy/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-3xl font-extrabold text-accent">JH</a>
-            <nav class="hidden md:flex items-center space-x-8 text-lg">
-                <a href="index.html#about" class="hover:text-accent transition-colors duration-300">About</a>
-                <a href="index.html#skills" class="hover:text-accent transition-colors duration-300">Skills</a>
-                <a href="projects.html" class="hover:text-accent transition-colors duration-300">Projects</a>
-                <a href="mailto:jobayerhosen420@gmail.com" class="hover:text-accent transition-colors duration-300">Contact</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-accent focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-light-navy">
-            <a href="index.html#about" class="block py-2 hover:text-accent">About</a>
-            <a href="index.html#skills" class="block py-2 hover:text-accent">Skills</a>
-            <a href="projects.html" class="block py-2 hover:text-accent">Projects</a>
-            <a href="mailto:jobayerhosen420@gmail.com" class="block py-2 hover:text-accent">Contact</a>
-        </div>
-    </header>
-
-    <main class="container mx-auto px-6 pt-32 pb-24">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-100 mb-12">My Projects</h1>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <a href="project-detail-1.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
-                <div class="overflow-hidden"><img src="assets/project1-placeholder.jpg" alt="Structural Analysis Web Tool" class="project-image w-full h-56 object-cover transition-transform duration-300"></div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-gray-100">Structural Analysis Web Tool</h3>
-                    <p class="text-gray-400 mb-4">A web application for performing basic structural analysis on beams and trusses.</p>
-                    <span class="text-accent hover:underline">View Details &rarr;</span>
-                </div>
-            </a>
-            <a href="project-detail-2.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
-                <div class="overflow-hidden"><img src="assets/project2-placeholder.jpg" alt="Construction Material Calculator" class="project-image w-full h-56 object-cover transition-transform duration-300"></div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-gray-100">Construction Material Calculator</h3>
-                    <p class="text-gray-400 mb-4">A tool to estimate the quantity of materials like cement, sand, and aggregate required for concrete works.</p>
-                    <span class="text-accent hover:underline">View Details &rarr;</span>
-                </div>
-            </a>
-            <a href="project-detail-3.html" class="project-card block bg-light-navy rounded-lg overflow-hidden shadow-lg transition-all duration-300">
-                <div class="overflow-hidden"><img src="assets/project3-urban-metabolism.jpg" alt="Urban Metabolism Project" class="project-image w-full h-56 object-cover transition-transform duration-300"></div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-gray-100">Urban Metabolism Project</h3>
-                    <p class="text-gray-400 mb-4">Participated in a poster presentation competition at the Islamic University of Technology (IUT), focusing on urban resource flows.</p>
-                    <span class="text-accent hover:underline">View Details &rarr;</span>
-                </div>
-            </a>
-        </div>
-    </main>
-
-    <footer class="py-6 text-center text-gray-500">
-        <p>Designed & Built by Jobayer Hosen</p>
-        <div class="mt-4 flex justify-center items-center space-x-6">
-            <a href="mailto:jobayerhosen420@gmail.com" class="text-gray-400 hover:text-accent transition-colors"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/jobayer-hosen" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-github"></i></a>
-            <a href="https://www.facebook.com/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/jobayerx/" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-instagram"></i></a>
-        </div>
-    </footer>
-
-    <script>
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+<body>
+    <p>Redirecting to <a href="index.html#projects">my projects</a>…</p>
 </body>
 </html>
