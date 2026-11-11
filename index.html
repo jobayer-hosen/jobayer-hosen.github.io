@@ -6,104 +6,133 @@
     <title>Jobayer Hosen | Civil Engineering, BUET</title>
     <meta name="description" content="Jobayer Hosen is a Civil Engineering student at BUET majoring in Structural Engineering, working where infrastructure meets technology.">
     <meta name="author" content="Jobayer Hosen">
-    <meta name="theme-color" content="#0a192f">
-    <link rel="canonical" href="https://jobayer-hosen.github.io/">
+    <meta name="theme-color" content="#050914">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Jobayer Hosen | Civil Engineering, BUET">
-    <meta property="og:description" content="Civil Engineering student at BUET, working where infrastructure meets technology.">
-    <meta property="og:url" content="https://jobayer-hosen.github.io/">
+    <meta property="og:description" content="Jobayer Hosen is a Civil Engineering student at BUET majoring in Structural Engineering, working where infrastructure meets technology.">
     <meta property="og:image" content="https://jobayer-hosen.github.io/assets/jobayer1.jpg">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="assets/js/tailwind-config.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
     <a href="#main" class="skip-link btn btn-solid">Skip to content</a>
+    <div id="scroll-progress" aria-hidden="true"></div>
 
     <!-- ============ Header ============ -->
-    <header class="site-header fixed inset-x-0 top-0 z-50">
-        <div class="h-full max-w-6xl mx-auto px-6 md:px-10 flex items-center justify-between">
-            <a href="#top" class="logo-mark" aria-label="Jobayer Hosen, back to top">JH</a>
-            <nav class="hidden md:flex items-center gap-7 text-sm" aria-label="Main">
-                <a href="#about" class="nav-link"><span class="num">01.</span>About</a>
-                <a href="#education" class="nav-link"><span class="num">02.</span>Education</a>
-                <a href="#skills" class="nav-link"><span class="num">03.</span>Skills</a>
-                <a href="#projects" class="nav-link"><span class="num">04.</span>Projects</a>
-                <a href="#experience" class="nav-link"><span class="num">05.</span>Experience</a>
-                <a href="#contact" class="nav-link"><span class="num">06.</span>Contact</a>
+    <header class="site-header">
+        <div class="nav-pill">
+            <a href="#top" class="logo-mark" aria-label="Jobayer Hosen, home">JH</a>
+            <nav class="hidden lg:flex items-center gap-1" aria-label="Main">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="journal.html" class="nav-link">Journal</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
-            <button id="menu-button" class="md:hidden text-accent relative z-[70] w-10 h-10 flex items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
+            <div class="flex items-center gap-2">
+                <a href="mailto:jobayerhosen420@gmail.com" class="btn btn-solid !py-2 !px-4 !text-sm hidden sm:inline-flex">Say hello</a>
+                <button id="menu-button" class="menu-button lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
         </div>
     </header>
 
-    <div id="menu-backdrop" class="menu-backdrop md:hidden"></div>
-    <aside id="mobile-menu" class="mobile-menu md:hidden flex flex-col justify-center px-10" aria-hidden="true">
-        <nav class="flex flex-col gap-7 text-center text-lg text-slate-lighter" aria-label="Mobile">
-            <a href="#about"><span class="block font-mono text-sm text-accent">01.</span>About</a>
-            <a href="#education"><span class="block font-mono text-sm text-accent">02.</span>Education</a>
-            <a href="#skills"><span class="block font-mono text-sm text-accent">03.</span>Skills</a>
-            <a href="#projects"><span class="block font-mono text-sm text-accent">04.</span>Projects</a>
-            <a href="#experience"><span class="block font-mono text-sm text-accent">05.</span>Experience</a>
-            <a href="#contact"><span class="block font-mono text-sm text-accent">06.</span>Contact</a>
-        </nav>
-    </aside>
-
-    <!-- ============ Side rails (large screens) ============ -->
+    <!-- Contact links at the sides (large screens) -->
     <div class="side-rail left">
-        <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
-        <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-xl"></i></a>
-        <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g text-xl"></i></a>
-        <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube text-xl"></i></a>
-        <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
-        <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
+        <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github text-lg"></i></a>
+        <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-lg"></i></a>
+        <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g text-lg"></i></a>
+        <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube text-lg"></i></a>
+        <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram text-lg"></i></a>
+        <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f text-lg"></i></a>
     </div>
     <div class="side-rail right">
         <a href="mailto:jobayerhosen420@gmail.com" class="vertical">jobayerhosen420@gmail.com</a>
     </div>
 
-    <main id="main" class="max-w-content mx-auto px-6 md:px-12 lg:px-20">
+    <aside id="mobile-menu" class="mobile-menu lg:hidden" aria-hidden="true">
+        <nav aria-label="Mobile">
+            <a href="#about"><span>01</span>About</a>
+            <a href="#education"><span>02</span>Education</a>
+            <a href="#skills"><span>03</span>Skills</a>
+            <a href="#projects"><span>04</span>Projects</a>
+            <a href="#experience"><span>05</span>Experience</a>
+            <a href="journal.html"><span>06</span>Journal</a>
+            <a href="#contact"><span>07</span>Contact</a>
+        </nav>
+        <div class="social-row flex flex-wrap gap-3 pt-8">
+            <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g"></i></a>
+            <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:jobayerhosen420@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </aside>
+
+    <main id="main">
+    <div class="max-w-content mx-auto px-6 md:px-10">
 
         <!-- ============ Hero ============ -->
-        <section id="top" class="relative min-h-screen flex items-center pt-24 pb-16">
-            <div class="hero-bg" aria-hidden="true">
-                <div class="hero-glow" style="top: 12%; right: -8%;"></div>
-            </div>
-            <div class="hero-in max-w-3xl">
-                <p class="font-mono text-accent mb-5">Hi, my name is</p>
-                <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-ink tracking-tight">Jobayer Hosen.</h1>
-                <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-slate mt-3 tracking-tight leading-tight">I build where infrastructure meets technology.</h2>
-                <p class="mt-7 max-w-xl text-lg leading-relaxed text-slate">
-                    Civil Engineering student at <span class="text-accent">BUET</span>, majoring in Structural Engineering.
-                    I design spaces, build engineering tools, and teach math to thousands of students.
+        <section id="top" class="relative min-h-[100svh] flex items-center pt-28 pb-14">
+            <div class="wind-wrap" aria-hidden="true"><canvas data-wind></canvas></div>
+            <div class="w-full">
+                <a href="project-detail-4.html" class="status-pill fade-up" style="--d:100">
+                    <span class="pulse-dot"></span>
+                    <span class="truncate">Now: mapping Bangladesh's wind hazard</span>
+                    <i class="fas fa-arrow-right text-accent text-xs"></i>
+                </a>
+                <h1 class="mt-7 font-bold text-ink tracking-tight leading-[0.95] text-[clamp(3.4rem,14vw,8.5rem)]">
+                    <span class="line"><span style="--d:200">Jobayer</span></span>
+                    <span class="line"><span style="--d:330">Hosen<span class="text-accent">.</span></span></span>
+                </h1>
+                <p class="mt-6 font-display font-medium text-slate-light leading-tight max-w-3xl text-[clamp(1.5rem,4.6vw,2.75rem)] fade-up" style="--d:650">
+                    I build where <span class="text-accent">infrastructure</span> meets <span class="text-accent">technology</span>.
                 </p>
-                <div class="mt-7 flex flex-wrap gap-3">
-                    <span class="chip"><i class="fas fa-building-columns"></i>Civil Engineering @ BUET</span>
-                    <span class="chip"><i class="fas fa-helmet-safety"></i>Structural Engineering</span>
-                    <span class="chip"><i class="fas fa-chalkboard-user"></i>50,000+ students taught</span>
-                </div>
-                <div class="mt-11 flex flex-wrap gap-4">
+                <p class="mt-5 font-mono text-sm md:text-base text-slate-light min-h-[1.5em] fade-up" style="--d:800">
+                    <span class="text-accent">&gt;</span>
+                    <span data-typed='["Structural engineering student", "Wind hazard researcher", "Math teacher to 50,000+ students", "Wikipedia editor since 2019", "Reader and traveller"]'>Structural engineering student</span>
+                </p>
+                <p class="mt-6 max-w-xl text-lg leading-relaxed fade-up" style="--d:900">
+                    Civil Engineering student at <span class="text-ink">BUET</span>, majoring in Structural Engineering.
+                    I design spaces, build engineering tools, research wind hazard, and teach math to thousands of students.
+                </p>
+                <div class="mt-9 flex flex-wrap gap-4 fade-up" style="--d:1000">
                     <a href="#projects" class="btn btn-solid">View my work <i class="fas fa-arrow-right"></i></a>
-                    <a href="#contact" class="btn btn-outline">Get in touch</a>
+                    <a href="journal.html" class="btn btn-ghost">Read my journal</a>
                 </div>
+                <dl class="mt-14 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 md:gap-10 max-w-2xl fade-up" style="--d:1150">
+                    <div>
+                        <dd class="stat-num"><span data-count="50000" data-suffix="+">50,000+</span></dd>
+                        <dt class="mt-2 text-xs md:text-sm">students taught</dt>
+                    </div>
+                    <div>
+                        <dd class="stat-num"><span data-count="4">4</span></dd>
+                        <dt class="mt-2 text-xs md:text-sm">featured projects</dt>
+                    </div>
+                    <div>
+                        <dd class="stat-num">2019</dd>
+                        <dt class="mt-2 text-xs md:text-sm">editing Wikipedia since</dt>
+                    </div>
+                </dl>
             </div>
-            <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate hover:text-accent transition-colors hidden md:block" aria-label="Scroll to About">
-                <i class="fas fa-chevron-down animate-bounce"></i>
-            </a>
+            <a href="#about" class="absolute bottom-6 right-0 hidden md:block" aria-label="Scroll to About"><span class="scroll-cue"></span></a>
         </section>
 
         <!-- ============ About ============ -->
         <section id="about" class="py-24 md:py-28 reveal">
-            <h2 class="section-title"><span class="num">01.</span>About Me</h2>
-            <div class="grid md:grid-cols-5 gap-12 md:gap-14 items-start">
+            <h2 class="section-title"><span class="num">01</span>About Me</h2>
+            <div class="grid md:grid-cols-5 gap-14 items-start">
                 <div class="md:col-span-3 space-y-5 text-lg leading-relaxed">
                     <p>
                         I'm Jobayer, a 4th-year Civil Engineering student at
@@ -119,7 +148,7 @@
                         and watch a lot of movies and anime. I'm excited to build the future, both physically and digitally.
                     </p>
                     <p class="text-base text-slate-light pt-2">A few things I'm focused on:</p>
-                    <ul class="grid grid-cols-2 gap-x-6 gap-y-2 font-mono text-sm">
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 font-mono text-sm">
                         <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>Structural design</li>
                         <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>AI in engineering</li>
                         <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>3D modelling &amp; rendering</li>
@@ -128,7 +157,7 @@
                         <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>Teaching</li>
                     </ul>
                 </div>
-                <div class="md:col-span-2 pr-5">
+                <div class="md:col-span-2 pr-4 pt-2">
                     <div class="photo-frame">
                         <img src="assets/jobayer1.jpg" alt="Portrait of Jobayer Hosen" width="562" height="698" class="w-full h-auto" loading="lazy">
                     </div>
@@ -137,25 +166,28 @@
         </section>
 
         <!-- ============ Education ============ -->
-        <section id="education" class="py-24 md:py-28 reveal">
-            <h2 class="section-title"><span class="num">02.</span>Education</h2>
+        <section id="education" class="py-24 md:py-28 reveal-group">
+            <h2 class="section-title reveal-item"><span class="num">02</span>Education</h2>
             <div class="timeline max-w-3xl space-y-6">
-                <article class="timeline-item is-current card p-6 md:p-7">
+                <article class="timeline-item is-current card p-6 md:p-7 reveal-item">
                     <div class="flex flex-wrap items-baseline justify-between gap-2">
                         <h3 class="text-lg md:text-xl font-semibold text-ink">Bangladesh University of Engineering and Technology (BUET)</h3>
                         <span class="font-mono text-sm text-accent">2021 – Present</span>
                     </div>
                     <p class="mt-2">B.Sc. in Civil Engineering · Level 4, Term 1</p>
-                    <div class="mt-4 flex flex-wrap gap-2"><span class="tag">Major: Structural Engineering</span></div>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="tag">Major: Structural Engineering</span>
+                        <a href="project-detail-4.html" class="tag hover:border-accent">Thesis: Wind speed mapping <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
                 </article>
-                <article class="timeline-item card p-6 md:p-7">
+                <article class="timeline-item card p-6 md:p-7 reveal-item">
                     <div class="flex flex-wrap items-baseline justify-between gap-2">
                         <h3 class="text-lg md:text-xl font-semibold text-ink">Notre Dame College, Dhaka</h3>
                         <span class="font-mono text-sm text-slate">2019 – 2021</span>
                     </div>
                     <p class="mt-2">Higher Secondary Certificate (HSC)</p>
                 </article>
-                <article class="timeline-item card p-6 md:p-7">
+                <article class="timeline-item card p-6 md:p-7 reveal-item">
                     <div class="flex flex-wrap items-baseline justify-between gap-2">
                         <h3 class="text-lg md:text-xl font-semibold text-ink">Bhaluka Pilot High School, Mymensingh</h3>
                         <span class="font-mono text-sm text-slate">2014 – 2019</span>
@@ -167,121 +199,125 @@
 
         <!-- ============ Skills ============ -->
         <section id="skills" class="py-24 md:py-28 reveal">
-            <h2 class="section-title"><span class="num">03.</span>Skills &amp; Tools</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="card p-7">
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="logo-tile"><i class="fas fa-compass-drafting"></i></span>
-                        <h3 class="text-lg font-semibold text-ink">Design &amp; Drafting</h3>
-                    </div>
-                    <ul class="grid grid-cols-3 gap-4 text-center">
-                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fas fa-drafting-compass text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">AutoCAD</p></li>
-                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fas fa-cube text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">SketchUp</p></li>
-                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fas fa-camera-retro text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">Enscape</p></li>
-                    </ul>
-                </div>
-                <div class="card p-7">
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="logo-tile"><i class="fas fa-terminal"></i></span>
-                        <h3 class="text-lg font-semibold text-ink">Computation &amp; Code</h3>
-                    </div>
-                    <ul class="grid grid-cols-3 gap-4 text-center">
-                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fas fa-square-root-variable text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">MATLAB</p></li>
-                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fas fa-code text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">C++</p></li>
-                        <li class="rounded-lg bg-navy/60 py-5 px-2 hover:-translate-y-1 transition-transform"><i class="fab fa-html5 text-3xl text-accent"></i><p class="mt-3 text-sm text-slate-lighter">HTML</p></li>
-                    </ul>
-                </div>
-            </div>
+            <h2 class="section-title"><span class="num">03</span>Skills &amp; Tools</h2>
+            <ul class="card grid grid-cols-2 sm:grid-cols-4 gap-2 p-4 md:p-6">
+                <li class="skill"><i class="fas fa-drafting-compass"></i><p>AutoCAD</p></li>
+                <li class="skill"><i class="fas fa-building"></i><p>ETABS</p></li>
+                <li class="skill"><i class="fas fa-bridge"></i><p>SAP2000</p></li>
+                <li class="skill"><i class="fas fa-cube"></i><p>SketchUp</p></li>
+                <li class="skill"><i class="fas fa-camera-retro"></i><p>Enscape</p></li>
+                <li class="skill"><i class="fas fa-square-root-variable"></i><p>MATLAB</p></li>
+                <li class="skill"><i class="fas fa-code"></i><p>C++</p></li>
+                <li class="skill"><i class="fab fa-html5"></i><p>HTML</p></li>
+            </ul>
         </section>
 
         <!-- ============ Projects ============ -->
-        <section id="projects" class="py-24 md:py-28 reveal">
-            <h2 class="section-title"><span class="num">04.</span>Selected Projects</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-                <a href="project-detail-1.html" class="project-card card card-hover overflow-hidden flex flex-col">
+        <section id="projects" class="py-24 md:py-28">
+            <h2 class="section-title reveal"><span class="num">04</span>Selected Projects</h2>
+
+            <!-- Featured: thesis -->
+            <a href="project-detail-4.html" class="feature-card card card-hover grid md:grid-cols-2 overflow-hidden mb-7 reveal">
+                <div class="wind-art min-h-[230px] md:min-h-[360px]">
+                    <div class="art-grid"></div>
+                    <canvas data-wind data-density="1.3" aria-hidden="true"></canvas>
+                    <div class="absolute inset-x-5 bottom-4 flex justify-between items-end font-mono text-[0.7rem] text-slate-light">
+                        <span>WIND HAZARD · BANGLADESH</span>
+                        <span>23.7°N 90.4°E</span>
+                    </div>
+                </div>
+                <div class="p-7 md:p-9 flex flex-col justify-center">
+                    <p class="flex items-center gap-2.5 font-mono text-xs text-accent mb-3"><span class="pulse-dot"></span>Undergraduate thesis · In progress</p>
+                    <h3 class="text-2xl md:text-3xl font-semibold text-ink leading-tight">Risk-Based Wind Speed Mapping of Bangladesh</h3>
+                    <p class="mt-4 leading-relaxed">
+                        Developing reliable, spatially distributed wind-speed maps for wind-resistant structural design,
+                        using long-term weather-station records, extreme value analysis and GIS. The aim is to give technical evidence
+                        for improving the wind-loading provisions of the Bangladesh National Building Code (BNBC).
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-5"><span class="tag">Wind Engineering</span><span class="tag">Extreme Value Analysis</span><span class="tag">GIS</span><span class="tag">BNBC</span></div>
+                    <span class="mt-6 text-accent font-display font-semibold">Read about the research <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                </div>
+            </a>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7 reveal-group">
+                <a href="project-detail-1.html" class="project-card card card-hover flex flex-col reveal-item">
                     <div class="project-media"><img src="assets/project1-placeholder.jpg" alt="3D rendering of the multipurpose zone along the Buriganga river" loading="lazy"></div>
                     <div class="p-6 flex flex-col flex-1">
                         <p class="font-mono text-xs text-accent mb-2">Urban Design · CE302</p>
                         <h3 class="text-xl font-semibold text-ink mb-3">Multipurpose Zone Near Buriganga</h3>
-                        <p class="text-slate mb-5 flex-1">A multipurpose riverside entertainment zone in Dhaka, modelled in SketchUp and rendered in Enscape.</p>
+                        <p class="mb-5 flex-1">A multipurpose riverside entertainment zone in Dhaka, modelled in SketchUp and rendered in Enscape.</p>
                         <div class="flex flex-wrap gap-2 mb-5"><span class="tag">SketchUp</span><span class="tag">Enscape</span><span class="tag">AutoCAD</span></div>
-                        <span class="text-accent font-mono text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                        <span class="text-accent font-display font-semibold text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
                     </div>
                 </a>
-
-                <a href="project-detail-3.html" class="project-card card card-hover overflow-hidden flex flex-col">
+                <a href="project-detail-3.html" class="project-card card card-hover flex flex-col reveal-item">
                     <div class="project-media"><img src="assets/project3-urban-metabolism.jpg" alt="The Urban Metabolism Project poster" loading="lazy"></div>
                     <div class="p-6 flex flex-col flex-1">
                         <p class="font-mono text-xs text-accent mb-2">Poster Competition · IUT</p>
                         <h3 class="text-xl font-semibold text-ink mb-3">The Urban Metabolism Project</h3>
-                        <p class="text-slate mb-5 flex-1">A human-centred circular economy for Dhaka's waste, presented at a poster competition at the Islamic University of Technology.</p>
-                        <div class="flex flex-wrap gap-2 mb-5"><span class="tag">Waste Management</span><span class="tag">Circular Economy</span><span class="tag">Team</span></div>
-                        <span class="text-accent font-mono text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                        <p class="mb-5 flex-1">A human-centred circular economy for Dhaka's waste, presented at a poster competition at the Islamic University of Technology.</p>
+                        <div class="flex flex-wrap gap-2 mb-5"><span class="tag">Waste Management</span><span class="tag">Circular Economy</span></div>
+                        <span class="text-accent font-display font-semibold text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
                     </div>
                 </a>
-
-                <a href="project-detail-2.html" class="project-card card card-hover overflow-hidden flex flex-col">
+                <a href="project-detail-2.html" class="project-card card card-hover flex flex-col reveal-item">
                     <div class="project-media"><img src="assets/project2-placeholder.jpg" alt="Interactive Mohr's circle plotted in MATLAB" loading="lazy"></div>
                     <div class="p-6 flex flex-col flex-1">
                         <p class="font-mono text-xs text-accent mb-2">Engineering Tool</p>
                         <h3 class="text-xl font-semibold text-ink mb-3">Interactive Mohr's Circle</h3>
-                        <p class="text-slate mb-5 flex-1">An interactive MATLAB app for analysing stress and finding the transformed state of stress.</p>
+                        <p class="mb-5 flex-1">An interactive MATLAB app for analysing stress and finding the transformed state of stress.</p>
                         <div class="flex flex-wrap gap-2 mb-5"><span class="tag">MATLAB</span><span class="tag">Solid Mechanics</span></div>
-                        <span class="text-accent font-mono text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                        <span class="text-accent font-display font-semibold text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
                     </div>
                 </a>
             </div>
         </section>
 
         <!-- ============ Experience & Activities ============ -->
-        <section id="experience" class="py-24 md:py-28 reveal">
-            <h2 class="section-title"><span class="num">05.</span>Experience &amp; Activities</h2>
-            <div class="timeline max-w-3xl space-y-5">
-                <article class="timeline-item is-current card accordion">
+        <section id="experience" class="py-24 md:py-28">
+            <h2 class="section-title reveal"><span class="num">05</span>Experience &amp; Activities</h2>
+            <div class="timeline max-w-3xl space-y-5 reveal-group">
+                <article class="timeline-item is-current card accordion reveal-item">
                     <button class="accordion-button w-full p-6 flex items-center gap-4 text-left" aria-expanded="false" aria-controls="udvash-details">
-                        <span class="logo-tile"><img src="assets/udvash-logo-white.png" alt="UDVASH logo"></span>
+                        <span class="icon-tile"><img src="assets/udvash-logo-white.png" alt="UDVASH logo"></span>
                         <span class="flex-1">
-                            <span class="block text-lg font-semibold text-ink">Math Teacher <span class="text-accent">@ UDVASH</span></span>
+                            <span class="block text-lg font-semibold text-ink font-display">Math Teacher <span class="text-accent">@ UDVASH</span></span>
                             <span class="block font-mono text-sm text-slate mt-1">Sep 2022 – Present</span>
                         </span>
                         <i class="fas fa-chevron-down chevron text-accent"></i>
                     </button>
                     <div id="udvash-details" class="accordion-panel">
                         <div>
-                            <ul class="px-6 pb-6 pl-[5.5rem] space-y-2">
+                            <ul class="px-6 pb-6 sm:pl-[5.4rem] space-y-2">
                                 <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Tutored and mentored 50,000+ students.</li>
                                 <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Built strong public speaking skills leading large classes and seminars, online and offline.</li>
                             </ul>
                         </div>
                     </div>
                 </article>
-
-                <article class="timeline-item is-current card p-6 flex items-center gap-4">
-                    <span class="logo-tile is-light"><img src="assets/ite-logo.svg" alt="ITE logo"></span>
+                <article class="timeline-item is-current card p-6 flex items-center gap-4 reveal-item">
+                    <span class="icon-tile is-light"><img src="assets/ite-logo.svg" alt="ITE logo"></span>
                     <div>
                         <h3 class="text-lg font-semibold text-ink">Deputy Vice President <span class="text-accent">@ ITE BUET Student Chapter</span></h3>
                         <p class="font-mono text-sm text-slate mt-1">Jan 2026 – Present</p>
                     </div>
                 </article>
-
-                <article class="timeline-item is-current card p-6 flex items-center gap-4">
-                    <span class="logo-tile"><i class="fab fa-wikipedia-w"></i></span>
+                <article class="timeline-item is-current card p-6 flex items-center gap-4 reveal-item">
+                    <span class="icon-tile"><i class="fab fa-wikipedia-w"></i></span>
                     <div>
                         <h3 class="text-lg font-semibold text-ink">Volunteer Contributor <span class="text-accent">@ Wikipedia</span></h3>
                         <p class="font-mono text-sm text-slate mt-1">2019 – Present</p>
                     </div>
                 </article>
-
-                <article class="timeline-item card p-6 flex items-center gap-4">
-                    <span class="logo-tile"><i class="fas fa-leaf"></i></span>
+                <article class="timeline-item card p-6 flex items-center gap-4 reveal-item">
+                    <span class="icon-tile"><i class="fas fa-leaf"></i></span>
                     <div>
                         <h3 class="text-lg font-semibold text-ink">Lifetime Member <span class="text-accent">@ Notre Dame Nature Study Club</span></h3>
                         <p class="font-mono text-sm text-slate mt-1">Aug 2019 – Apr 2021</p>
                     </div>
                 </article>
-
-                <article class="timeline-item card p-6 flex items-center gap-4">
-                    <span class="logo-tile"><i class="fas fa-book-open"></i></span>
+                <article class="timeline-item card p-6 flex items-center gap-4 reveal-item">
+                    <span class="icon-tile"><i class="fas fa-book-open"></i></span>
                     <div>
                         <h3 class="text-lg font-semibold text-ink">Member <span class="text-accent">@ Notre Dame English Club</span></h3>
                         <p class="font-mono text-sm text-slate mt-1">Aug 2019 – Apr 2021</p>
@@ -290,51 +326,65 @@
             </div>
 
             <!-- Achievements -->
-            <h3 id="achievements" class="mt-20 mb-8 text-xl font-semibold text-ink flex items-center gap-3"><i class="fas fa-trophy text-accent"></i>Achievements</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="card card-hover p-6">
+            <h3 id="achievements" class="mt-20 mb-8 text-2xl font-semibold text-ink flex items-center gap-3 reveal"><i class="fas fa-trophy text-accent text-xl"></i>Achievements</h3>
+            <div class="grid md:grid-cols-3 gap-6 reveal-group">
+                <div class="card card-hover p-6 reveal-item">
                     <p class="font-mono text-xs text-accent">2020 · 1st place</p>
                     <p class="mt-3 text-slate-lighter">Won the <a href="https://wikibarta.wikimedia.org.bd/article/1424" target="_blank" rel="noopener" class="text-accent hover:underline">Notre Dame Wikipedia Edit-a-thon</a>, organised by BUET Energy Club.</p>
                 </div>
-                <div class="card card-hover p-6">
+                <div class="card card-hover p-6 reveal-item">
                     <p class="font-mono text-xs text-accent">Wikipedia Asian Month</p>
                     <p class="mt-3 text-slate-lighter">Received a postcard from Taiwan in recognition of contributions to Wikipedia Asian Month.</p>
                 </div>
-                <div class="card card-hover p-6">
+                <div class="card card-hover p-6 reveal-item">
                     <p class="font-mono text-xs text-accent">Notre Dame College</p>
                     <p class="mt-3 text-slate-lighter">Awarded the Perfect Attendance certificate.</p>
                 </div>
             </div>
         </section>
 
+        <!-- ============ Journal teaser ============ -->
+        <section id="journal" class="py-24 md:py-28 reveal">
+            <h2 class="section-title"><span class="num">06</span>Journal</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-lg leading-relaxed max-w-md">Life outside the blueprint. A personal feed where I sometimes post about a trip, a book, or whatever is on my mind.</p>
+                    <div id="journal-latest" class="mt-8 pl-5 border-l-2 border-accent/40"></div>
+                    <a href="journal.html" class="btn btn-ghost mt-8">Open the journal <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div id="journal-photos" class="photo-grid"></div>
+            </div>
+        </section>
+
         <!-- ============ Contact ============ -->
         <section id="contact" class="py-28 md:py-36 text-center reveal">
-            <p class="font-mono text-accent mb-4">06. What's next?</p>
-            <h2 class="text-4xl md:text-6xl font-bold text-ink tracking-tight">Get In Touch</h2>
-            <p class="max-w-xl mx-auto mt-6 text-lg leading-relaxed">
+            <p class="eyebrow mb-5">07 · What's next?</p>
+            <h2 class="font-bold text-ink tracking-tight leading-none text-[clamp(3rem,11vw,6.5rem)]">Let's <span class="text-accent">talk.</span></h2>
+            <p class="max-w-xl mx-auto mt-7 text-lg leading-relaxed">
                 I'm always open to new projects, creative ideas, and opportunities to be part of an amazing team.
                 Whether you have a question or just want to say hi, my inbox is open.
             </p>
-            <a href="mailto:jobayerhosen420@gmail.com" class="btn btn-outline mt-11 text-base">
-                <i class="fas fa-envelope"></i> Say Hello
-            </a>
+            <a href="mailto:jobayerhosen420@gmail.com" class="btn btn-solid mt-10 !text-base !px-8 !py-4"><i class="fas fa-envelope"></i> Say hello</a>
         </section>
+    </div>
     </main>
 
     <!-- ============ Footer ============ -->
-    <footer class="pb-10 pt-6 text-center">
-        <div class="social-row flex justify-center gap-6 mb-6 xl:hidden">
-            <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
-            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-xl"></i></a>
-            <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g text-xl"></i></a>
-            <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube text-xl"></i></a>
-            <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
-            <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
-            <a href="mailto:jobayerhosen420@gmail.com" aria-label="Email"><i class="fas fa-envelope text-xl"></i></a>
+    <footer class="pb-10 pt-10 text-center border-t border-white/5 mt-10">
+        <div class="social-row flex flex-wrap justify-center gap-3 mb-6 px-6">
+            <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g"></i></a>
+            <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:jobayerhosen420@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
         <p class="font-mono text-xs text-slate">Designed &amp; built by Jobayer Hosen · © <span data-year>2026</span></p>
     </footer>
 
+    <script src="journal/entries.js"></script>
+    <script src="assets/js/journal.js"></script>
     <script src="assets/js/site.js"></script>
 </body>
 </html>

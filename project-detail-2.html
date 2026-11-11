@@ -5,78 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Mohr's Circle | Jobayer Hosen</title>
     <meta name="description" content="An interactive Mohr's circle app built in MATLAB for analysing stress and finding the transformed state of stress.">
-    <meta name="theme-color" content="#0a192f">
-    <meta property="og:type" content="article">
+    <meta name="author" content="Jobayer Hosen">
+    <meta name="theme-color" content="#050914">
+    <meta property="og:type" content="website">
     <meta property="og:title" content="Interactive Mohr's Circle | Jobayer Hosen">
-    <meta property="og:description" content="An interactive MATLAB app for stress transformation.">
+    <meta property="og:description" content="An interactive Mohr's circle app built in MATLAB for analysing stress and finding the transformed state of stress.">
     <meta property="og:image" content="https://jobayer-hosen.github.io/assets/project2-placeholder.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="assets/js/tailwind-config.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
     <a href="#main" class="skip-link btn btn-solid">Skip to content</a>
+    <div id="scroll-progress" aria-hidden="true"></div>
 
-    <header class="site-header fixed inset-x-0 top-0 z-50">
-        <div class="h-full max-w-6xl mx-auto px-6 md:px-10 flex items-center justify-between">
+    <!-- ============ Header ============ -->
+    <header class="site-header">
+        <div class="nav-pill">
             <a href="index.html" class="logo-mark" aria-label="Jobayer Hosen, home">JH</a>
-            <nav class="hidden md:flex items-center gap-7 text-sm" aria-label="Main">
-                <a href="index.html#about" class="nav-link"><span class="num">01.</span>About</a>
-                <a href="index.html#education" class="nav-link"><span class="num">02.</span>Education</a>
-                <a href="index.html#skills" class="nav-link"><span class="num">03.</span>Skills</a>
-                <a href="index.html#projects" class="nav-link is-active"><span class="num">04.</span>Projects</a>
-                <a href="index.html#experience" class="nav-link"><span class="num">05.</span>Experience</a>
-                <a href="index.html#contact" class="nav-link"><span class="num">06.</span>Contact</a>
+            <nav class="hidden lg:flex items-center gap-1" aria-label="Main">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#education" class="nav-link">Education</a>
+                <a href="index.html#skills" class="nav-link">Skills</a>
+                <a href="index.html#projects" class="nav-link is-active">Projects</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="journal.html" class="nav-link">Journal</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
             </nav>
-            <button id="menu-button" class="md:hidden text-accent relative z-[70] w-10 h-10 flex items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
+            <div class="flex items-center gap-2">
+                <a href="mailto:jobayerhosen420@gmail.com" class="btn btn-solid !py-2 !px-4 !text-sm hidden sm:inline-flex">Say hello</a>
+                <button id="menu-button" class="menu-button lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
         </div>
     </header>
-    <div id="menu-backdrop" class="menu-backdrop md:hidden"></div>
-    <aside id="mobile-menu" class="mobile-menu md:hidden flex flex-col justify-center px-10" aria-hidden="true">
-        <nav class="flex flex-col gap-7 text-center text-lg text-slate-lighter" aria-label="Mobile">
-            <a href="index.html#about"><span class="block font-mono text-sm text-accent">01.</span>About</a>
-            <a href="index.html#education"><span class="block font-mono text-sm text-accent">02.</span>Education</a>
-            <a href="index.html#skills"><span class="block font-mono text-sm text-accent">03.</span>Skills</a>
-            <a href="index.html#projects"><span class="block font-mono text-sm text-accent">04.</span>Projects</a>
-            <a href="index.html#experience"><span class="block font-mono text-sm text-accent">05.</span>Experience</a>
-            <a href="index.html#contact"><span class="block font-mono text-sm text-accent">06.</span>Contact</a>
+
+    <!-- Contact links at the sides (large screens) -->
+    <div class="side-rail left">
+        <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github text-lg"></i></a>
+        <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-lg"></i></a>
+        <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g text-lg"></i></a>
+        <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube text-lg"></i></a>
+        <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram text-lg"></i></a>
+        <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f text-lg"></i></a>
+    </div>
+    <div class="side-rail right">
+        <a href="mailto:jobayerhosen420@gmail.com" class="vertical">jobayerhosen420@gmail.com</a>
+    </div>
+
+    <aside id="mobile-menu" class="mobile-menu lg:hidden" aria-hidden="true">
+        <nav aria-label="Mobile">
+            <a href="index.html#about"><span>01</span>About</a>
+            <a href="index.html#education"><span>02</span>Education</a>
+            <a href="index.html#skills"><span>03</span>Skills</a>
+            <a href="index.html#projects"><span>04</span>Projects</a>
+            <a href="index.html#experience"><span>05</span>Experience</a>
+            <a href="journal.html"><span>06</span>Journal</a>
+            <a href="index.html#contact"><span>07</span>Contact</a>
         </nav>
+        <div class="social-row flex flex-wrap gap-3 pt-8">
+            <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g"></i></a>
+            <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:jobayerhosen420@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
     </aside>
 
-    <main id="main" class="max-w-content mx-auto px-6 md:px-12 lg:px-20 pt-32 pb-20">
-        <div class="hero-in">
-            <a href="index.html#projects" class="inline-flex items-center gap-2 font-mono text-sm text-accent hover:underline"><i class="fas fa-arrow-left"></i> All projects</a>
-            <p class="font-mono text-sm text-accent mt-10">Case study · Engineering Tool</p>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-ink tracking-tight mt-3">Interactive Mohr's Circle</h1>
-            <p class="text-lg md:text-xl mt-5 max-w-2xl leading-relaxed">An interactive MATLAB app for analysing stress and finding the transformed state of stress.</p>
-            <dl class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl">
-                <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Type</dt><dd class="text-ink mt-1">Interactive app</dd></div>
-                <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Subject</dt><dd class="text-ink mt-1">Stress transformation</dd></div>
-                <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Built with</dt><dd class="text-ink mt-1">MATLAB</dd></div>
-            </dl>
-        </div>
+    <main id="main" class="max-w-content mx-auto px-6 md:px-10 pt-32 pb-16">
+        <a href="index.html#projects" class="inline-flex items-center gap-2 font-mono text-sm text-accent hover:underline fade-up" style="--d:50"><i class="fas fa-arrow-left"></i> All projects</a>
+        <p class="eyebrow mt-10 fade-up" style="--d:120">Case study · Engineering Tool</p>
+        <h1 class="mt-4 font-bold text-ink tracking-tight leading-[1.02] text-[clamp(2.3rem,7.5vw,4.6rem)]">
+            <span class="line"><span style="--d:200">Interactive</span></span>
+            <span class="line"><span style="--d:320">Mohr's <span class="text-accent">Circle</span></span></span>
+        </h1>
+        <p class="text-lg md:text-xl mt-6 max-w-2xl leading-relaxed fade-up" style="--d:600">An interactive MATLAB app for analysing stress and finding the transformed state of stress.</p>
+        <dl class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl fade-up" style="--d:720">
+            <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Type</dt><dd class="text-ink mt-1">Interactive app</dd></div>
+            <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Subject</dt><dd class="text-ink mt-1">Stress transformation</dd></div>
+            <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Built with</dt><dd class="text-ink mt-1">MATLAB</dd></div>
+        </dl>
 
         <div class="grid lg:grid-cols-5 gap-12 mt-14 items-start">
             <a href="assets/project2-placeholder.jpg" data-lightbox class="gallery-item block lg:col-span-3 reveal">
                 <img src="assets/project2-placeholder.jpg" alt="Interactive Mohr circle plotted in a MATLAB figure window, showing normal stress against shear stress with angle markers">
             </a>
-            <div class="lg:col-span-2 space-y-6 reveal">
-                <section>
-                    <h2 class="section-title"><span class="num">01.</span>Overview</h2>
+            <div class="lg:col-span-2 space-y-6 reveal-group">
+                <section class="reveal-item">
+                    <h2 class="section-title"><span class="num">01</span>Overview</h2>
                     <p class="text-lg leading-relaxed">
                         Mohr's circle is a graphical way to see how normal and shear stresses change as an element is rotated.
                         This app plots the circle in MATLAB and lets you explore it interactively to find the transformed state of stress at any angle.
                     </p>
                 </section>
-                <div class="card p-6">
+                <div class="card p-6 reveal-item">
                     <h3 class="font-semibold text-ink mb-4">What it shows</h3>
                     <ul class="space-y-2.5">
                         <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Normal stress (σ) against shear stress (τ)</li>
@@ -84,34 +114,35 @@
                         <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Transformed stresses at a chosen angle</li>
                     </ul>
                 </div>
-                <div class="card p-6">
+                <div class="card p-6 reveal-item">
                     <h3 class="font-semibold text-ink mb-4">Tools used</h3>
                     <div class="flex flex-wrap gap-2"><span class="tag">MATLAB</span><span class="tag">Solid Mechanics</span></div>
                 </div>
             </div>
         </div>
 
-        <nav class="mt-24 pt-10 border-t border-navy-lighter flex justify-between gap-6" aria-label="Project navigation">
+        <nav class="mt-24 pt-10 border-t border-white/10 flex justify-between gap-6" aria-label="Project navigation">
             <a href="project-detail-3.html" class="group">
                 <span class="block font-mono text-xs text-slate"><i class="fas fa-arrow-left mr-1"></i> Previous project</span>
-                <span class="block text-ink group-hover:text-accent transition-colors mt-1">The Urban Metabolism Project</span>
+                <span class="block text-ink group-hover:text-accent transition-colors mt-1 font-display">The Urban Metabolism Project</span>
             </a>
-            <a href="project-detail-1.html" class="group text-right">
+            <a href="project-detail-4.html" class="group text-right">
                 <span class="block font-mono text-xs text-slate">Next project <i class="fas fa-arrow-right ml-1"></i></span>
-                <span class="block text-ink group-hover:text-accent transition-colors mt-1">Multipurpose Zone Near Buriganga</span>
+                <span class="block text-ink group-hover:text-accent transition-colors mt-1 font-display">Wind Speed Mapping of Bangladesh</span>
             </a>
         </nav>
     </main>
 
-    <footer class="pb-10 pt-6 text-center">
-        <div class="social-row flex justify-center gap-6 mb-6">
-            <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
-            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-xl"></i></a>
-            <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g text-xl"></i></a>
-            <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube text-xl"></i></a>
-            <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
-            <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
-            <a href="mailto:jobayerhosen420@gmail.com" aria-label="Email"><i class="fas fa-envelope text-xl"></i></a>
+    <!-- ============ Footer ============ -->
+    <footer class="pb-10 pt-10 text-center border-t border-white/5 mt-10">
+        <div class="social-row flex flex-wrap justify-center gap-3 mb-6 px-6">
+            <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g"></i></a>
+            <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:jobayerhosen420@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
         <p class="font-mono text-xs text-slate">Designed &amp; built by Jobayer Hosen · © <span data-year>2026</span></p>
     </footer>

@@ -3,16 +3,17 @@ tailwind.config = {
     theme: {
         extend: {
             colors: {
-                navy: { DEFAULT: '#0a192f', light: '#112240', lighter: '#233554' },
-                slate: { DEFAULT: '#8892b0', light: '#a8b2d1', lighter: '#ccd6f6' },
-                ink: '#e6f1ff',
+                navy: { DEFAULT: '#070c17', light: '#0e1626', lighter: '#1c2942' },
+                slate: { DEFAULT: '#93a1bd', light: '#b9c4dc', lighter: '#d5def0' },
+                ink: '#eaf1ff',
                 accent: { DEFAULT: '#64ffda', dark: '#45d6b5' },
             },
             fontFamily: {
-                sans: ['Inter', 'system-ui', 'sans-serif'],
+                sans: ['Inter', '"Hind Siliguri"', 'system-ui', 'sans-serif'],
+                display: ['"Space Grotesk"', '"Hind Siliguri"', 'Inter', 'sans-serif'],
                 mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
             },
-            maxWidth: { content: '1100px' },
+            maxWidth: { content: '1120px' },
         },
     },
 };

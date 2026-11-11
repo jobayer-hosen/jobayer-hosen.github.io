@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk-Based Wind Speed Mapping of Bangladesh | Jobayer Hosen</title>
+    <meta name="description" content="Undergraduate thesis at BUET: developing risk-based wind-speed maps of Bangladesh for structural design using BMD data, extreme value analysis and GIS.">
+    <meta name="author" content="Jobayer Hosen">
+    <meta name="theme-color" content="#050914">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Risk-Based Wind Speed Mapping of Bangladesh | Jobayer Hosen">
+    <meta property="og:description" content="Undergraduate thesis at BUET: developing risk-based wind-speed maps of Bangladesh for structural design using BMD data, extreme value analysis and GIS.">
+    <meta property="og:image" content="https://jobayer-hosen.github.io/assets/jobayer1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+    <a href="#main" class="skip-link btn btn-solid">Skip to content</a>
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ============ Header ============ -->
+    <header class="site-header">
+        <div class="nav-pill">
+            <a href="index.html" class="logo-mark" aria-label="Jobayer Hosen, home">JH</a>
+            <nav class="hidden lg:flex items-center gap-1" aria-label="Main">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#education" class="nav-link">Education</a>
+                <a href="index.html#skills" class="nav-link">Skills</a>
+                <a href="index.html#projects" class="nav-link is-active">Projects</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="journal.html" class="nav-link">Journal</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <a href="mailto:jobayerhosen420@gmail.com" class="btn btn-solid !py-2 !px-4 !text-sm hidden sm:inline-flex">Say hello</a>
+                <button id="menu-button" class="menu-button lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact links at the sides (large screens) -->
+    <div class="side-rail left">
+        <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github text-lg"></i></a>
+        <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-lg"></i></a>
+        <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g text-lg"></i></a>
+        <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube text-lg"></i></a>
+        <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram text-lg"></i></a>
+        <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f text-lg"></i></a>
+    </div>
+    <div class="side-rail right">
+        <a href="mailto:jobayerhosen420@gmail.com" class="vertical">jobayerhosen420@gmail.com</a>
+    </div>
+
+    <aside id="mobile-menu" class="mobile-menu lg:hidden" aria-hidden="true">
+        <nav aria-label="Mobile">
+            <a href="index.html#about"><span>01</span>About</a>
+            <a href="index.html#education"><span>02</span>Education</a>
+            <a href="index.html#skills"><span>03</span>Skills</a>
+            <a href="index.html#projects"><span>04</span>Projects</a>
+            <a href="index.html#experience"><span>05</span>Experience</a>
+            <a href="journal.html"><span>06</span>Journal</a>
+            <a href="index.html#contact"><span>07</span>Contact</a>
+        </nav>
+        <div class="social-row flex flex-wrap gap-3 pt-8">
+            <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g"></i></a>
+            <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:jobayerhosen420@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </aside>
+
+    <main id="main" class="max-w-content mx-auto px-6 md:px-10 pt-32 pb-16">
+        <a href="index.html#projects" class="inline-flex items-center gap-2 font-mono text-sm text-accent hover:underline fade-up" style="--d:50"><i class="fas fa-arrow-left"></i> All projects</a>
+        <p class="flex items-center gap-2.5 eyebrow mt-10 fade-up" style="--d:120"><span class="pulse-dot"></span>Undergraduate thesis · In progress</p>
+        <h1 class="mt-4 font-bold text-ink tracking-tight leading-[1.02] text-[clamp(2.1rem,7.5vw,4.6rem)]">
+            <span class="line"><span style="--d:200">Risk-Based Wind</span></span>
+            <span class="line"><span style="--d:300">Speed Mapping</span></span>
+            <span class="line"><span style="--d:400">of <span class="text-accent">Bangladesh</span></span></span>
+        </h1>
+        <p class="text-lg md:text-xl mt-6 max-w-2xl leading-relaxed fade-up" style="--d:600">Developing reliable, spatially distributed wind-speed maps to support wind-resistant structural design and a better understanding of regional wind hazards.</p>
+        <dl class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl fade-up" style="--d:720">
+            <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Type</dt><dd class="text-ink mt-1">Undergraduate thesis</dd></div>
+            <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Institution</dt><dd class="text-ink mt-1">BUET, Civil Engineering</dd></div>
+            <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Field</dt><dd class="text-ink mt-1">Wind engineering</dd></div>
+            <div><dt class="font-mono text-xs text-slate uppercase tracking-wider">Status</dt><dd class="text-accent mt-1">Ongoing</dd></div>
+        </dl>
+
+        <div class="wind-art mt-12 h-[260px] md:h-[420px] rounded-[22px] border border-white/10 reveal">
+            <div class="art-grid"></div>
+            <canvas data-wind data-density="1.4" aria-hidden="true"></canvas>
+            <div class="absolute inset-x-5 md:inset-x-7 bottom-5 flex flex-wrap justify-between items-end gap-2 font-mono text-[0.7rem] md:text-xs text-slate-light">
+                <span>WIND HAZARD · BANGLADESH</span>
+                <span>Illustration only · result maps will be added as the research progresses</span>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-12 mt-20">
+            <div class="lg:col-span-2 space-y-20">
+                <section class="reveal">
+                    <h2 class="section-title"><span class="num">01</span>Why it matters</h2>
+                    <div class="space-y-5 text-lg leading-relaxed">
+                        <p>Bangladesh is exposed to severe wind events, including tropical cyclones and squalls. Yet accurately estimating design wind speeds across the country remains challenging, because of gaps in meteorological data, differing exposure conditions from region to region, and the statistical uncertainty of extreme wind events.</p>
+                        <p>This research builds a data-driven framework for evaluating wind hazard across Bangladesh, so that design wind speeds can better reflect where a structure actually stands.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title reveal"><span class="num">02</span>How the research works</h2>
+                    <div class="pipeline reveal-group">
+                        <div class="pipeline-step reveal-item">
+                            <span class="step-num">01</span>
+                            <div class="card p-5 sm:p-6">
+                                <h3 class="text-lg font-semibold text-ink flex items-center gap-2.5"><i class="fas fa-tower-broadcast text-accent"></i>Meteorological data analysis</h3>
+                                <ul class="mt-3 space-y-2">
+                                    <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Processing long-term wind observations from Bangladesh Meteorological Department (BMD) stations across the country.</li>
+                                    <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Evaluating ERA5 reanalysis wind data against BMD observations, and bringing in cyclone and squall records.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pipeline-step reveal-item">
+                            <span class="step-num">02</span>
+                            <div class="card p-5 sm:p-6">
+                                <h3 class="text-lg font-semibold text-ink flex items-center gap-2.5"><i class="fas fa-satellite text-accent"></i>Surface roughness &amp; directional exposure</h3>
+                                <ul class="mt-3 space-y-2">
+                                    <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Studying the terrain and land cover around each station with GIS and satellite imagery.</li>
+                                    <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Assessing exposure by direction using the provisions of ASCE 7-22 Section 26.7.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pipeline-step reveal-item">
+                            <span class="step-num">03</span>
+                            <div class="card p-5 sm:p-6">
+                                <h3 class="text-lg font-semibold text-ink flex items-center gap-2.5"><i class="fas fa-chart-line text-accent"></i>Extreme value analysis</h3>
+                                <ul class="mt-3 space-y-2">
+                                    <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Building annual maximum wind-speed datasets and applying extreme-value statistics, including Gumbel distribution-based analysis.</li>
+                                    <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Estimating wind speeds for different mean recurrence intervals (MRIs), at conventional and risk-based design levels.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pipeline-step reveal-item">
+                            <span class="step-num">04</span>
+                            <div class="card p-5 sm:p-6">
+                                <h3 class="text-lg font-semibold text-ink flex items-center gap-2.5"><i class="fas fa-map-location-dot text-accent"></i>GIS-based wind hazard mapping</h3>
+                                <ul class="mt-3 space-y-2">
+                                    <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Interpolating station-based estimates into continuous wind-speed surfaces.</li>
+                                    <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1.5"></i>Producing maps that show how wind hazard varies across Bangladesh and which regions demand higher design wind speeds.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="reveal">
+                    <h2 class="section-title"><span class="num">03</span>The goal</h2>
+                    <p class="font-display font-medium text-ink leading-snug text-[clamp(1.4rem,3.6vw,1.9rem)]">More representative, geographically informed design wind-speed recommendations for Bangladesh's built environment.</p>
+                    <p class="mt-5 text-lg leading-relaxed">The findings may also provide useful technical evidence for the future assessment and improvement of national wind-loading provisions, including the Bangladesh National Building Code (BNBC).</p>
+                </section>
+            </div>
+
+            <aside class="space-y-6 reveal-group lg:sticky lg:top-28 lg:self-start">
+                <div class="card p-6 reveal-item">
+                    <h3 class="font-semibold text-ink mb-4">Data sources</h3>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-3"><i class="fas fa-tower-broadcast text-accent w-5 text-center"></i>BMD station observations</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-earth-asia text-accent w-5 text-center"></i>ERA5 atmospheric reanalysis</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-hurricane text-accent w-5 text-center"></i>Cyclone &amp; squall records</li>
+                    </ul>
+                </div>
+                <div class="card p-6 reveal-item">
+                    <h3 class="font-semibold text-ink mb-4">Methods</h3>
+                    <div class="flex flex-wrap gap-2"><span class="tag">Extreme Value Analysis</span><span class="tag">Gumbel distribution</span><span class="tag">GIS</span><span class="tag">Remote sensing</span><span class="tag">Spatial interpolation</span></div>
+                </div>
+                <div class="card p-6 reveal-item">
+                    <h3 class="font-semibold text-ink mb-4">Codes &amp; standards</h3>
+                    <div class="flex flex-wrap gap-2"><span class="tag">ASCE 7-22</span><span class="tag">BNBC</span></div>
+                </div>
+            </aside>
+        </div>
+
+        <nav class="mt-24 pt-10 border-t border-white/10 flex justify-between gap-6" aria-label="Project navigation">
+            <a href="index.html#projects" class="group">
+                <span class="block font-mono text-xs text-slate"><i class="fas fa-arrow-left mr-1"></i> Back</span>
+                <span class="block text-ink group-hover:text-accent transition-colors mt-1 font-display">All projects</span>
+            </a>
+            <a href="project-detail-1.html" class="group text-right">
+                <span class="block font-mono text-xs text-slate">Next project <i class="fas fa-arrow-right ml-1"></i></span>
+                <span class="block text-ink group-hover:text-accent transition-colors mt-1 font-display">Multipurpose Zone Near Buriganga</span>
+            </a>
+        </nav>
+    </main>
+
+    <!-- ============ Footer ============ -->
+    <footer class="pb-10 pt-10 text-center border-t border-white/5 mt-10">
+        <div class="social-row flex flex-wrap justify-center gap-3 mb-6 px-6">
+            <a href="https://github.com/jobayer-hosen" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jobayerx/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.goodreads.com/jobayerx" target="_blank" rel="noopener" aria-label="Goodreads"><i class="fab fa-goodreads-g"></i></a>
+            <a href="https://www.youtube.com/@jobayerx" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/jobayerx/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/jobayerx/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:jobayerhosen420@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="font-mono text-xs text-slate">Designed &amp; built by Jobayer Hosen · © <span data-year>2026</span></p>
+    </footer>
+
+    <script src="assets/js/site.js"></script>
+</body>
+</html>
