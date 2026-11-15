@@ -241,7 +241,6 @@ a.status-pill:hover { border-color: var(--accent); }
 @media (hover: hover) { .skill:hover i { transform: translateY(-3px); } }
 
 .icon-tile { width: 46px; height: 46px; flex: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: rgba(100, 255, 218, 0.08); color: var(--accent); font-size: 1.25rem; }
-.icon-tile.is-light { background: #f4f7fb; }
 .icon-tile img { width: 32px; height: 32px; object-fit: contain; }
 
 /* ---------- Projects: scroll down and the cards slide sideways ---------- */
