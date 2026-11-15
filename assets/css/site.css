@@ -1,4 +1,33 @@
-/* Shared styles for every page. Colors also live in assets/js/tailwind-config.js. */
+/* =============================================================================
+   site.css — the look of every page.
+
+   Most spacing and layout is done with Tailwind classes written in the HTML.
+   This file holds everything Tailwind cannot do in one class: colours, the
+   header, cards, and the scroll effects. Colours are also listed in
+   assets/js/tailwind-config.js; change them in both places.
+
+   In this file, in order (search for the heading to jump there):
+     Colours and base ............ colours, fonts, page background
+     Header ...................... top bar, phone menu, side contact rails
+     Buttons
+     Opening ..................... home page: fly through the name into the photo
+     Small pieces ................ text entrances, status pill, typing caret, scroll cue
+     Section headings
+     Cards ....................... cards, tags, skills, icon tiles
+     Projects .................... home page: cards that slide sideways
+     Wind artwork ................ animated thesis artwork
+     Photo frame ................. About photo
+     Timeline .................... education and experience, and the line that draws itself
+     Accordion, Social icons
+     Gallery + lightbox .......... project photos and the full-screen viewer
+     Video placeholder
+     Research pipeline ........... thesis page steps
+     Journal feed ................ journal posts, photo grids, map, Goodreads list
+     Reveal on scroll ............ fade-in as sections appear
+     Fallbacks ................... no JavaScript, reduced motion
+   ============================================================================= */
+
+/* ---------- Colours and base ---------- */
 
 :root {
     --bg: #070c17;
@@ -10,8 +39,12 @@
     --ink: #eaf1ff;
     --accent: #64ffda;
     --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* Distance from the screen edge to the page content (used by the full-width scroll sections) */
+    --gutter: 1.5rem;
 }
+@media (min-width: 768px) { :root { --gutter: max(2.5rem, calc((100vw - 1120px) / 2 + 2.5rem)); } }
 
+/* Sideways overflow is clipped on html only: putting it on body as well would stop the pinned scroll sections from sticking */
 html { overflow-x: clip; scroll-padding-top: 92px; scrollbar-color: #1c2942 var(--bg); scrollbar-width: thin; }
 body {
     background-color: var(--bg);
@@ -19,7 +52,6 @@ body {
     font-family: 'Inter', 'Hind Siliguri', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
 }
 /* Faint blueprint grid behind everything */
 body::after {
@@ -41,7 +73,7 @@ h1, h2, h3 { font-family: 'Space Grotesk', 'Hind Siliguri', 'Inter', sans-serif;
 .skip-link { position: absolute; left: -9999px; top: 1rem; z-index: 100; }
 .skip-link:focus { left: 1rem; }
 
-/* Scroll progress bar */
+/* Thin progress bar along the top of the screen */
 #scroll-progress {
     position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 90; background: var(--accent);
     transform: scaleX(0); transform-origin: 0 50%; pointer-events: none;
@@ -81,7 +113,7 @@ body.menu-open .nav-pill { background: transparent; border-color: transparent; b
 
 .menu-button { width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: var(--ink); background: rgba(148, 170, 220, 0.1); }
 
-/* Full-screen mobile menu */
+/* Full-screen phone menu */
 .mobile-menu {
     position: fixed; inset: 0; z-index: 45; padding: 110px 30px 40px;
     display: flex; flex-direction: column; justify-content: space-between;
@@ -100,7 +132,6 @@ body.menu-open .nav-pill { background: transparent; border-color: transparent; b
 .mobile-menu nav a span { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 400; color: var(--accent); }
 .mobile-menu.is-open nav a { opacity: 1; transform: none; }
 .mobile-menu nav a:active { color: var(--accent); }
-body.menu-open { overflow: hidden; }
 
 /* Side rails with contact links (large screens) */
 .side-rail { position: fixed; bottom: 0; z-index: 10; display: none; flex-direction: column; align-items: center; gap: 1.25rem; }
@@ -127,14 +158,31 @@ body.menu-open { overflow: hidden; }
 .btn-ghost { border-color: rgba(148, 170, 220, 0.3); color: var(--ink); }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-/* ---------- Hero ---------- */
-.wind-wrap {
-    position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 72%, transparent 100%);
-            mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 72%, transparent 100%);
-}
-.wind-wrap canvas { width: 100%; height: 100%; display: block; opacity: 0.55; }
+/* A "pin" stays fixed to the screen while you scroll through its tall parent section */
+.pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
 
+/* ---------- Opening: scroll to fly through the name into the photo ---------- */
+.opening { position: relative; height: 280vh; }
+.opening-pin { isolation: isolate; background: var(--bg); --fs: min(clamp(3.4rem, 17vw, 15rem), 28vh); }
+.opening-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% 50%; }
+/* Lifts the darkest parts of the photo to the page colour, so nothing shows outside the letters */
+.opening-lift { position: absolute; inset: 0; background: var(--bg); mix-blend-mode: lighten; }
+/* A dark sheet with white letters; "darken" turns the white letters into windows onto the photo */
+.opening-mask { position: absolute; inset: 0; background: var(--bg); display: grid; place-items: center; mix-blend-mode: darken; }
+.opening-word { position: relative; color: #fff; font-weight: 700; font-size: var(--fs); line-height: 0.9; letter-spacing: -0.03em; text-align: center; }
+.opening-wind { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.7; }
+.opening-intro { position: absolute; inset: 0; pointer-events: none; }
+.opening-intro > * { position: absolute; left: 0; right: 0; display: flex; justify-content: center; padding: 0 1.5rem; }
+.opening-intro .status-pill { pointer-events: auto; }
+.opening-intro .intro-top { top: calc(50% - var(--fs) * 0.9 - 3.4rem); }
+.opening-intro .intro-bottom { top: calc(50% + var(--fs) * 0.9 + 1rem); }
+.opening-intro .intro-cue { bottom: 4.5vh; }
+.opening-after { position: absolute; left: 0; right: 0; bottom: 0; padding: 30vh var(--gutter) 10vh; background: linear-gradient(to top, rgba(7, 12, 23, 0.9), transparent); opacity: 0; pointer-events: none; }
+.opening-after.is-live { pointer-events: auto; }
+.opening-line { margin-top: 0.8rem; font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 600; color: #fff; font-size: clamp(1.9rem, 5vw, 3.6rem); line-height: 1.08; letter-spacing: -0.02em; max-width: 13ch; }
+
+/* ---------- Small pieces used on several pages ---------- */
+/* Headline lines that slide up, and text that fades up, when a page opens */
 .line { display: block; overflow: hidden; padding-bottom: 0.14em; margin-bottom: -0.14em; }
 .line > span { display: block; transform: translateY(115%); animation: line-up 1s var(--ease) forwards; animation-delay: calc(var(--d, 0) * 1ms); }
 @keyframes line-up { to { transform: none; } }
@@ -154,8 +202,6 @@ a.status-pill:hover { border-color: var(--accent); }
 
 .typed-caret { display: inline-block; width: 2px; height: 1.05em; margin-left: 3px; vertical-align: -0.15em; background: var(--accent); animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
-
-.stat-num { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(1.6rem, 5vw, 2.25rem); color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; }
 
 .scroll-cue { width: 26px; height: 42px; border-radius: 999px; border: 1.5px solid rgba(148, 170, 220, 0.4); display: flex; justify-content: center; padding-top: 8px; }
 .scroll-cue::after { content: ''; width: 3px; height: 8px; border-radius: 3px; background: var(--accent); animation: cue 1.8s ease-in-out infinite; }
@@ -198,22 +244,33 @@ a.status-pill:hover { border-color: var(--accent); }
 .icon-tile.is-light { background: #f4f7fb; }
 .icon-tile img { width: 32px; height: 32px; object-fit: contain; }
 
-/* Project cards */
-.project-card .project-media { overflow: hidden; position: relative; aspect-ratio: 16 / 10; border-radius: 15px 15px 0 0; background: var(--surface-2); }
-.project-card .project-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease), filter 0.5s ease; filter: saturate(0.85); }
-.project-card .project-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(14, 22, 38, 0.75), transparent 55%); }
-.project-card .arrow, .feature-card .arrow { transition: transform 0.25s var(--ease); }
+/* ---------- Projects: scroll down and the cards slide sideways ---------- */
+/* Sits above the side contact rails, so the cards never slide underneath the icons */
+.hscroll { position: relative; z-index: 11; background: var(--bg); height: 280vh; }   /* site.js sets the exact height from the width of the cards */
+.hscroll-pin { display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; padding: 76px 0 24px; }
+.hscroll-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 var(--gutter); }
+.hscroll-head .section-title { margin-bottom: 0; flex: 1; }
+.hscroll-count { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; white-space: nowrap; }
+.hscroll-count b { color: var(--accent); font-weight: 500; }
+.h-track { display: flex; gap: 24px; width: max-content; padding: 0 var(--gutter); will-change: transform; }
+.h-card { flex: none; display: flex; flex-direction: column; width: min(82vw, 540px); height: min(64vh, 580px); overflow: hidden; }
+.h-media { position: relative; flex: 1 1 auto; min-height: 0; overflow: hidden; background: var(--surface-2); }
+.h-media img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85); transition: transform 0.7s var(--ease), filter 0.5s ease; }
+.h-body { flex: none; padding: 1.2rem 1.4rem 1.4rem; }
+.h-card .arrow { transition: transform 0.25s var(--ease); }
 @media (hover: hover) {
-    .project-card:hover .project-media img { transform: scale(1.06); filter: saturate(1); }
-    .project-card:hover .arrow, .feature-card:hover .arrow { transform: translateX(4px); }
+    .h-card:hover .h-media img { transform: scale(1.05); filter: saturate(1); }
+    .h-card:hover .arrow { transform: translateX(4px); }
 }
+.h-bar { margin: 0 var(--gutter); height: 2px; background: var(--line); }
+.h-bar i { display: block; height: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
 
-/* Animated wind artwork (thesis card + thesis page) */
+/* ---------- Wind artwork (thesis card + thesis page) ---------- */
 .wind-art { position: relative; overflow: hidden; background: #0a111f; }
 .wind-art canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .wind-art .art-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(148, 170, 220, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 170, 220, 0.07) 1px, transparent 1px); background-size: 34px 34px; }
 
-/* Photo frame (About) */
+/* ---------- Photo frame (About) ---------- */
 .photo-frame { position: relative; max-width: 320px; margin: 0 auto; }
 .photo-frame img { position: relative; z-index: 1; border-radius: 16px; transition: transform 0.5s var(--ease); }
 .photo-frame::after { content: ''; position: absolute; inset: 0; transform: translate(16px, 16px); border: 1.5px solid var(--accent); border-radius: 16px; transition: transform 0.5s var(--ease); }
@@ -222,25 +279,35 @@ a.status-pill:hover { border-color: var(--accent); }
     .photo-frame:hover::after { transform: translate(10px, 10px); }
 }
 
-/* Timeline */
+/* ---------- Timeline ---------- */
 .timeline { position: relative; padding-left: 2rem; }
-.timeline::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: rgba(148, 170, 220, 0.18); }
+.timeline:not(.draw-ready)::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: rgba(148, 170, 220, 0.18); }
 .timeline-item { position: relative; }
-.timeline-item::after { content: ''; position: absolute; left: -2rem; top: 1.7rem; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); z-index: 1; }
+.timeline-item::after { content: ''; position: absolute; left: -2rem; top: 1.7rem; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); z-index: 1; transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
 .timeline-item.is-current::after { background: var(--accent); box-shadow: 0 0 0 5px rgba(100, 255, 218, 0.12); }
 
-/* Accordion */
+/* The line that draws itself as you scroll. site.js adds it to anything marked data-draw
+   and switches each step on (--on goes from 0 to 1) as the line reaches it. */
+.draw-line { position: absolute; width: 2px; border-radius: 2px; background: rgba(148, 170, 220, 0.18); pointer-events: none; }
+.draw-line i { position: absolute; inset: 0; border-radius: inherit; background: var(--accent); transform-origin: 50% 0; transform: scaleY(0); }
+.timeline > .draw-line { left: 6px; }
+.pipeline > .draw-line { left: 23px; }
+.draw-ready > .timeline-item, .draw-ready > .pipeline-step { opacity: calc(0.32 + 0.68 * var(--on, 1)); }
+.draw-ready > .timeline-item:not(.is-on)::after { border-color: rgba(148, 170, 220, 0.4); background: var(--bg); box-shadow: none; }
+.draw-ready > .pipeline-step:not(.is-on) .step-num { color: var(--text); border-color: var(--line); }
+
+/* ---------- Accordion ---------- */
 .accordion-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s var(--ease); }
 .accordion-panel > div { overflow: hidden; }
 .accordion.is-open .accordion-panel { grid-template-rows: 1fr; }
 .accordion .chevron { transition: transform 0.3s ease; }
 .accordion.is-open .chevron { transform: rotate(180deg); }
 
-/* Social icons */
+/* ---------- Social icons ---------- */
 .social-row a { width: 42px; height: 42px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; color: var(--text-2); border: 1px solid var(--line); transition: color 0.2s ease, transform 0.3s var(--ease), border-color 0.2s ease; }
 .social-row a:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-3px); }
 
-/* Gallery + lightbox */
+/* ---------- Gallery + lightbox ---------- */
 .gallery-item { overflow: hidden; border-radius: 14px; cursor: zoom-in; background: var(--surface-2); border: 1px solid var(--line); }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
 @media (hover: hover) { .gallery-item:hover img { transform: scale(1.04); } }
@@ -255,20 +322,22 @@ a.status-pill:hover { border-color: var(--accent); }
 .lightbox-count { position: absolute; top: 1.6rem; left: 1.25rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-2); }
 .lightbox.is-single .lightbox-prev, .lightbox.is-single .lightbox-next, .lightbox.is-single .lightbox-count { display: none; }
 
-/* Video placeholder */
+/* ---------- Video placeholder ---------- */
 .video-placeholder { aspect-ratio: 16 / 9; border-radius: 16px; border: 1px dashed rgba(148, 170, 220, 0.3); background: var(--surface); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; text-align: center; padding: 1rem; }
 .video-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; }
 .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-/* Research pipeline (thesis page) */
+/* ---------- Research pipeline (thesis page) ---------- */
 .pipeline { display: grid; gap: 1.25rem; }
 .pipeline-step { position: relative; padding-left: 4.25rem; }
-.pipeline-step .step-num { position: absolute; left: 0; top: 0; width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; color: var(--accent); background: var(--surface); border: 1px solid rgba(100, 255, 218, 0.3); z-index: 1; }
-.pipeline-step:not(:last-child)::before { content: ''; position: absolute; left: 23px; top: 48px; bottom: -1.25rem; width: 2px; background: rgba(148, 170, 220, 0.18); }
+.pipeline { position: relative; }
+.pipeline-step .step-num { position: absolute; left: 0; top: 0; width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; color: var(--accent); background: var(--surface); border: 1px solid rgba(100, 255, 218, 0.3); z-index: 1; transition: color 0.3s ease, border-color 0.3s ease; }
+.pipeline:not(.draw-ready) > .pipeline-step:not(:last-child)::before { content: ''; position: absolute; left: 23px; top: 48px; bottom: -1.25rem; width: 2px; background: rgba(148, 170, 220, 0.18); }
 @media (max-width: 640px) {
     .pipeline-step { padding-left: 3rem; }
     .pipeline-step .step-num { width: 36px; height: 36px; border-radius: 10px; font-size: 0.8rem; }
-    .pipeline-step:not(:last-child)::before { left: 17px; top: 36px; }
+    .pipeline:not(.draw-ready) > .pipeline-step:not(:last-child)::before { left: 17px; top: 36px; }
+    .pipeline > .draw-line { left: 17px; }
 }
 
 /* ---------- Journal feed ---------- */
@@ -304,6 +373,15 @@ a.status-pill:hover { border-color: var(--accent); }
 .reveal-group .reveal-item { opacity: 0; transform: translateY(22px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); transition-delay: calc(var(--i, 0) * 70ms); }
 .reveal-group.is-visible .reveal-item { opacity: 1; transform: none; }
 .no-js .reveal, .no-js .reveal-group .reveal-item, .no-js .line > span, .no-js .fade-up { opacity: 1; transform: none; animation: none; }
+
+/* ---------- Fallbacks ---------- */
+/* Without JavaScript the scroll sections fall back to plain, readable layouts */
+.no-js .opening { height: auto; }
+.no-js .opening-mask, .no-js .opening-lift, .no-js .opening-wind, .no-js .opening-intro { display: none; }
+.no-js .opening-after { opacity: 1; pointer-events: auto; }
+.no-js .hscroll { height: auto; padding: 6rem 0; }
+.no-js .hscroll .pin { position: static; height: auto; overflow: visible; }
+.no-js .h-track { width: auto; flex-wrap: wrap; }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }

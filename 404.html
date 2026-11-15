@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found | Jobayer Hosen</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#070c17">
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+
+    <!-- Some pages were renamed when the site was tidied up. Old links are sent to the new address here. -->
+    <script>
+        (function () {
+            var moved = {
+                '/project-detail-1.html': '/projects/buriganga-zone.html',
+                '/project-detail-2.html': '/projects/mohrs-circle.html',
+                '/project-detail-3.html': '/projects/urban-metabolism.html',
+                '/project-detail-4.html': '/projects/wind-speed-mapping.html',
+                '/projects.html': '/#projects'
+            };
+            var to = moved[window.location.pathname];
+            if (to) window.location.replace(to);
+        })();
+    </script>
+
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="/assets/js/tailwind-config.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+    <main class="min-h-screen flex flex-col items-center justify-center text-center px-6">
+        <p class="eyebrow">404</p>
+        <h1 class="mt-4 font-bold text-ink tracking-tight leading-none text-[clamp(2.6rem,9vw,5rem)]">Page not <span class="text-accent">found.</span></h1>
+        <p class="mt-6 text-lg max-w-md">This page does not exist, or it has moved. The home page has everything.</p>
+        <a href="/" class="btn btn-solid mt-9">Go to the home page <i class="fas fa-arrow-right"></i></a>
+    </main>
+</body>
+</html>

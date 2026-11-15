@@ -10,9 +10,9 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Jobayer Hosen | Civil Engineering, BUET">
     <meta property="og:description" content="Jobayer Hosen is a Civil Engineering student at BUET majoring in Structural Engineering, working where infrastructure meets technology.">
-    <meta property="og:image" content="https://jobayer-hosen.github.io/assets/jobayer1.jpg">
+    <meta property="og:image" content="https://jobayer-hosen.github.io/assets/images/about/portrait.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="assets/js/tailwind-config.js"></script>
@@ -81,95 +81,73 @@
     </aside>
 
     <main id="main">
-    <div class="max-w-content mx-auto px-6 md:px-10">
 
-        <!-- ============ Hero ============ -->
-        <section id="top" class="relative min-h-[100svh] flex items-center pt-28 pb-14">
-            <div class="wind-wrap" aria-hidden="true"><canvas data-wind></canvas></div>
-            <div class="w-full">
-                <a href="project-detail-4.html" class="status-pill fade-up" style="--d:100">
-                    <span class="pulse-dot"></span>
-                    <span class="truncate">Now: mapping Bangladesh's wind hazard</span>
-                    <i class="fas fa-arrow-right text-accent text-xs"></i>
-                </a>
-                <h1 class="mt-7 font-bold text-ink tracking-tight leading-[0.95] text-[clamp(3.4rem,14vw,8.5rem)]">
-                    <span class="line"><span style="--d:200">Jobayer</span></span>
-                    <span class="line"><span style="--d:330">Hosen<span class="text-accent">.</span></span></span>
-                </h1>
-                <p class="mt-6 font-display font-medium text-slate-light leading-tight max-w-3xl text-[clamp(1.5rem,4.6vw,2.75rem)] fade-up" style="--d:650">
-                    I build where <span class="text-accent">infrastructure</span> meets <span class="text-accent">technology</span>.
-                </p>
-                <p class="mt-5 font-mono text-sm md:text-base text-slate-light min-h-[1.5em] fade-up" style="--d:800">
-                    <span class="text-accent">&gt;</span>
-                    <span data-typed='["Structural engineering student", "Wind hazard researcher", "Math teacher to 50,000+ students", "Wikipedia editor since 2019", "Reader and traveller"]'>Structural engineering student</span>
-                </p>
-                <p class="mt-6 max-w-xl text-lg leading-relaxed fade-up" style="--d:900">
-                    Civil Engineering student at <span class="text-ink">BUET</span>, majoring in Structural Engineering.
-                    I design spaces, build engineering tools, research wind hazard, and teach math to thousands of students.
-                </p>
-                <div class="mt-9 flex flex-wrap gap-4 fade-up" style="--d:1000">
-                    <a href="#projects" class="btn btn-solid">View my work <i class="fas fa-arrow-right"></i></a>
-                    <a href="journal.html" class="btn btn-ghost">Read my journal</a>
+        <!-- ============ Opening: scroll to fly through the name into the photo ============
+             To change the photo, replace the image path on the "opening-photo" line below. -->
+        <section id="top" class="opening" data-opening>
+            <div class="pin opening-pin">
+                <img class="opening-photo" src="journal/photos/saint-martin/shore.jpg" alt="Jobayer standing on the shore of Saint Martin's Island with open arms">
+                <div class="opening-lift"></div>
+                <div class="opening-mask"><h1 class="opening-word" aria-label="Jobayer Hosen">JOBAYER<br>HOS<span class="opening-target">E</span>N</h1></div>
+                <canvas class="opening-wind" data-wind aria-hidden="true"></canvas>
+                <div class="opening-intro">
+                    <div class="intro-top">
+                        <a href="projects/wind-speed-mapping.html" class="status-pill fade-up" style="--d:300">
+                            <span class="pulse-dot"></span>
+                            <span class="truncate">Now: mapping Bangladesh's wind hazard</span>
+                            <i class="fas fa-arrow-right text-accent text-xs"></i>
+                        </a>
+                    </div>
+                    <p class="intro-bottom font-mono text-sm md:text-base text-slate-light">
+                        <span class="inline-block fade-up" style="--d:500"><span class="text-accent">&gt;</span> <span data-typed='["Structural engineering student", "Wind hazard researcher", "Math teacher to 50,000+ students", "Wikipedia editor since 2019", "Reader and traveller"]'>Structural engineering student</span></span>
+                    </p>
+                    <div class="intro-cue" aria-hidden="true"><span class="scroll-cue"></span></div>
                 </div>
-                <dl class="mt-14 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 md:gap-10 max-w-2xl fade-up" style="--d:1150">
-                    <div>
-                        <dd class="stat-num"><span data-count="50000" data-suffix="+">50,000+</span></dd>
-                        <dt class="mt-2 text-xs md:text-sm">students taught</dt>
+                <div class="opening-after">
+                    <p class="eyebrow">Civil Engineering · BUET</p>
+                    <p class="opening-line">I build where infrastructure meets technology.</p>
+                    <div class="mt-7 flex flex-wrap gap-3">
+                        <a href="#projects" class="btn btn-solid">View my work <i class="fas fa-arrow-right"></i></a>
+                        <a href="journal.html" class="btn btn-ghost">Read my journal</a>
                     </div>
-                    <div>
-                        <dd class="stat-num"><span data-count="4">4</span></dd>
-                        <dt class="mt-2 text-xs md:text-sm">featured projects</dt>
-                    </div>
-                    <div>
-                        <dd class="stat-num">2019</dd>
-                        <dt class="mt-2 text-xs md:text-sm">editing Wikipedia since</dt>
-                    </div>
-                </dl>
+                </div>
             </div>
-            <a href="#about" class="absolute bottom-6 right-0 hidden md:block" aria-label="Scroll to About"><span class="scroll-cue"></span></a>
         </section>
 
-        <!-- ============ About ============ -->
+    <div class="max-w-content mx-auto px-6 md:px-10">
+
+        <!-- ============ About ============
+             The photo is assets/images/about/portrait.jpg. To change it, replace that file with a new one of the same name. -->
         <section id="about" class="py-24 md:py-28 reveal">
             <h2 class="section-title"><span class="num">01</span>About Me</h2>
-            <div class="grid md:grid-cols-5 gap-14 items-start">
+            <div class="grid md:grid-cols-5 gap-14 items-center">
                 <div class="md:col-span-3 space-y-5 text-lg leading-relaxed">
                     <p>
                         I'm Jobayer, a 4th-year Civil Engineering student at
                         <span class="text-accent">Bangladesh University of Engineering and Technology (BUET)</span>,
-                        majoring in Structural Engineering. I'm passionate about the space where infrastructure meets technology.
+                        majoring in Structural Engineering. I'm interested in how structures are designed and built,
+                        and in how technology is changing that work.
                     </p>
                     <p>
-                        I love the fundamentals of civil engineering, and I'm equally fascinated by how technology is reshaping the field,
-                        from smart materials to AI-assisted design.
+                        Away from engineering, I love to travel. I've already seen a good part of Bangladesh,
+                        and I want to travel the whole world.
                     </p>
-                    <p>
-                        Outside of structures, I explore the latest in tech, edit Wikipedia, read books,
-                        and watch a lot of movies and anime. I'm excited to build the future, both physically and digitally.
-                    </p>
-                    <p class="text-base text-slate-light pt-2">A few things I'm focused on:</p>
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 font-mono text-sm">
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>Structural design</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>AI in engineering</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>3D modelling &amp; rendering</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>Engineering tools in code</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>Sustainable cities</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i>Teaching</li>
-                    </ul>
+                    <a href="journal.html" class="inline-flex items-center gap-2 text-accent font-display font-semibold hover:underline">See where I've been <i class="fas fa-arrow-right text-sm"></i></a>
                 </div>
                 <div class="md:col-span-2 pr-4 pt-2">
                     <div class="photo-frame">
-                        <img src="assets/jobayer1.jpg" alt="Portrait of Jobayer Hosen" width="562" height="698" class="w-full h-auto" loading="lazy">
+                        <img src="assets/images/about/portrait.jpg" alt="Portrait of Jobayer Hosen" width="640" height="800" class="w-full h-auto" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ============ Education ============ -->
-        <section id="education" class="py-24 md:py-28 reveal-group">
-            <h2 class="section-title reveal-item"><span class="num">02</span>Education</h2>
-            <div class="timeline max-w-3xl space-y-6">
-                <article class="timeline-item is-current card p-6 md:p-7 reveal-item">
+        <section id="education" class="py-24 md:py-28">
+            <h2 class="section-title reveal"><span class="num">02</span>Education</h2>
+            <!-- data-draw: a line draws down the side as you scroll and switches each entry on -->
+            <div class="timeline max-w-3xl space-y-6" data-draw>
+                <article class="timeline-item is-current card p-6 md:p-7">
                     <div class="flex flex-wrap items-baseline justify-between gap-2">
                         <h3 class="text-lg md:text-xl font-semibold text-ink">Bangladesh University of Engineering and Technology (BUET)</h3>
                         <span class="font-mono text-sm text-accent">2021 – Present</span>
@@ -177,17 +155,17 @@
                     <p class="mt-2">B.Sc. in Civil Engineering · Level 4, Term 1</p>
                     <div class="mt-4 flex flex-wrap gap-2">
                         <span class="tag">Major: Structural Engineering</span>
-                        <a href="project-detail-4.html" class="tag hover:border-accent">Thesis: Wind speed mapping <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="projects/wind-speed-mapping.html" class="tag hover:border-accent">Thesis: Wind speed mapping <i class="fas fa-arrow-right ml-1"></i></a>
                     </div>
                 </article>
-                <article class="timeline-item card p-6 md:p-7 reveal-item">
+                <article class="timeline-item card p-6 md:p-7">
                     <div class="flex flex-wrap items-baseline justify-between gap-2">
                         <h3 class="text-lg md:text-xl font-semibold text-ink">Notre Dame College, Dhaka</h3>
                         <span class="font-mono text-sm text-slate">2019 – 2021</span>
                     </div>
                     <p class="mt-2">Higher Secondary Certificate (HSC)</p>
                 </article>
-                <article class="timeline-item card p-6 md:p-7 reveal-item">
+                <article class="timeline-item card p-6 md:p-7">
                     <div class="flex flex-wrap items-baseline justify-between gap-2">
                         <h3 class="text-lg md:text-xl font-semibold text-ink">Bhaluka Pilot High School, Mymensingh</h3>
                         <span class="font-mono text-sm text-slate">2014 – 2019</span>
@@ -197,13 +175,17 @@
             </div>
         </section>
 
-        <!-- ============ Skills ============ -->
+        <!-- ============ Skills ============
+             To add a skill, copy one <li class="skill">...</li> line and change the name.
+             Icon names come from fontawesome.com/icons (free ones). -->
         <section id="skills" class="py-24 md:py-28 reveal">
             <h2 class="section-title"><span class="num">03</span>Skills &amp; Tools</h2>
-            <ul class="card grid grid-cols-2 sm:grid-cols-4 gap-2 p-4 md:p-6">
+            <ul class="card grid grid-cols-2 sm:grid-cols-5 gap-2 p-4 md:p-6">
                 <li class="skill"><i class="fas fa-drafting-compass"></i><p>AutoCAD</p></li>
                 <li class="skill"><i class="fas fa-building"></i><p>ETABS</p></li>
                 <li class="skill"><i class="fas fa-bridge"></i><p>SAP2000</p></li>
+                <li class="skill"><i class="fas fa-layer-group"></i><p>QGIS</p></li>
+                <li class="skill"><i class="fas fa-earth-asia"></i><p>ArcGIS</p></li>
                 <li class="skill"><i class="fas fa-cube"></i><p>SketchUp</p></li>
                 <li class="skill"><i class="fas fa-camera-retro"></i><p>Enscape</p></li>
                 <li class="skill"><i class="fas fa-square-root-variable"></i><p>MATLAB</p></li>
@@ -212,74 +194,78 @@
             </ul>
         </section>
 
-        <!-- ============ Projects ============ -->
-        <section id="projects" class="py-24 md:py-28">
-            <h2 class="section-title reveal"><span class="num">04</span>Selected Projects</h2>
+    </div>
 
-            <!-- Featured: thesis -->
-            <a href="project-detail-4.html" class="feature-card card card-hover grid md:grid-cols-2 overflow-hidden mb-7 reveal">
-                <div class="wind-art min-h-[230px] md:min-h-[360px]">
-                    <div class="art-grid"></div>
-                    <canvas data-wind data-density="1.3" aria-hidden="true"></canvas>
-                    <div class="absolute inset-x-5 bottom-4 flex justify-between items-end font-mono text-[0.7rem] text-slate-light">
-                        <span>WIND HAZARD · BANGLADESH</span>
-                        <span>23.7°N 90.4°E</span>
-                    </div>
+        <!-- ============ Projects: scroll down and the cards slide sideways ============
+             To add a project, copy one <a class="h-card ...">...</a> block and change its link, picture and text. -->
+        <section id="projects" class="hscroll" data-hscroll>
+            <div class="pin hscroll-pin">
+                <div class="hscroll-head">
+                    <h2 class="section-title"><span class="num">04</span>Selected Projects</h2>
+                    <span class="hscroll-count" aria-hidden="true"><b>01</b> / 04</span>
                 </div>
-                <div class="p-7 md:p-9 flex flex-col justify-center">
-                    <p class="flex items-center gap-2.5 font-mono text-xs text-accent mb-3"><span class="pulse-dot"></span>Undergraduate thesis · In progress</p>
-                    <h3 class="text-2xl md:text-3xl font-semibold text-ink leading-tight">Risk-Based Wind Speed Mapping of Bangladesh</h3>
-                    <p class="mt-4 leading-relaxed">
-                        Developing reliable, spatially distributed wind-speed maps for wind-resistant structural design,
-                        using long-term weather-station records, extreme value analysis and GIS. The aim is to give technical evidence
-                        for improving the wind-loading provisions of the Bangladesh National Building Code (BNBC).
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-5"><span class="tag">Wind Engineering</span><span class="tag">Extreme Value Analysis</span><span class="tag">GIS</span><span class="tag">BNBC</span></div>
-                    <span class="mt-6 text-accent font-display font-semibold">Read about the research <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                <div class="h-track">
+                    <a href="projects/wind-speed-mapping.html" class="h-card card card-hover">
+                        <div class="h-media wind-art">
+                            <div class="art-grid"></div>
+                            <canvas data-wind data-density="1.3" aria-hidden="true"></canvas>
+                            <div class="absolute inset-x-5 bottom-4 flex justify-between items-end font-mono text-[0.7rem] text-slate-light">
+                                <span>WIND HAZARD · BANGLADESH</span>
+                                <span>23.7°N 90.4°E</span>
+                            </div>
+                        </div>
+                        <div class="h-body">
+                            <p class="flex items-center gap-2.5 font-mono text-xs text-accent"><span class="pulse-dot"></span>Undergraduate thesis · In progress</p>
+                            <h3 class="mt-2 text-xl font-semibold text-ink leading-snug">Risk-Based Wind Speed Mapping of Bangladesh</h3>
+                            <p class="mt-2">Wind-speed maps for wind-resistant structural design, built from long-term weather-station records, extreme value analysis and GIS.</p>
+                            <div class="flex flex-wrap gap-2 mt-4"><span class="tag">Wind Engineering</span><span class="tag">GIS</span><span class="tag">BNBC</span></div>
+                            <span class="mt-4 inline-block text-accent font-display font-semibold text-sm">Read about the research <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                        </div>
+                    </a>
+                    <a href="projects/buriganga-zone.html" class="h-card card card-hover">
+                        <div class="h-media"><img src="assets/images/projects/buriganga/site-overview.jpg" alt="3D rendering of the multipurpose zone along the Buriganga river"></div>
+                        <div class="h-body">
+                            <p class="font-mono text-xs text-accent">Urban Design · CE302</p>
+                            <h3 class="mt-2 text-xl font-semibold text-ink leading-snug">Multipurpose Zone Near Buriganga</h3>
+                            <p class="mt-2">A multipurpose riverside entertainment zone in Dhaka, modelled in SketchUp and rendered in Enscape.</p>
+                            <div class="flex flex-wrap gap-2 mt-4"><span class="tag">SketchUp</span><span class="tag">Enscape</span><span class="tag">AutoCAD</span></div>
+                            <span class="mt-4 inline-block text-accent font-display font-semibold text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                        </div>
+                    </a>
+                    <a href="projects/urban-metabolism.html" class="h-card card card-hover">
+                        <div class="h-media"><img src="assets/images/projects/urban-metabolism/poster.jpg" alt="The Urban Metabolism Project poster"></div>
+                        <div class="h-body">
+                            <p class="font-mono text-xs text-accent">Poster Competition · IUT</p>
+                            <h3 class="mt-2 text-xl font-semibold text-ink leading-snug">The Urban Metabolism Project</h3>
+                            <p class="mt-2">A human-centred circular economy for Dhaka's waste, presented at the Islamic University of Technology.</p>
+                            <div class="flex flex-wrap gap-2 mt-4"><span class="tag">Waste Management</span><span class="tag">Circular Economy</span></div>
+                            <span class="mt-4 inline-block text-accent font-display font-semibold text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                        </div>
+                    </a>
+                    <a href="projects/mohrs-circle.html" class="h-card card card-hover">
+                        <div class="h-media"><img src="assets/images/projects/mohrs-circle/app-screenshot.jpg" alt="Interactive Mohr's circle plotted in MATLAB"></div>
+                        <div class="h-body">
+                            <p class="font-mono text-xs text-accent">Engineering Tool</p>
+                            <h3 class="mt-2 text-xl font-semibold text-ink leading-snug">Interactive Mohr's Circle</h3>
+                            <p class="mt-2">An interactive MATLAB app for analysing stress and finding the transformed state of stress.</p>
+                            <div class="flex flex-wrap gap-2 mt-4"><span class="tag">MATLAB</span><span class="tag">Solid Mechanics</span></div>
+                            <span class="mt-4 inline-block text-accent font-display font-semibold text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
+                        </div>
+                    </a>
                 </div>
-            </a>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7 reveal-group">
-                <a href="project-detail-1.html" class="project-card card card-hover flex flex-col reveal-item">
-                    <div class="project-media"><img src="assets/project1-placeholder.jpg" alt="3D rendering of the multipurpose zone along the Buriganga river" loading="lazy"></div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <p class="font-mono text-xs text-accent mb-2">Urban Design · CE302</p>
-                        <h3 class="text-xl font-semibold text-ink mb-3">Multipurpose Zone Near Buriganga</h3>
-                        <p class="mb-5 flex-1">A multipurpose riverside entertainment zone in Dhaka, modelled in SketchUp and rendered in Enscape.</p>
-                        <div class="flex flex-wrap gap-2 mb-5"><span class="tag">SketchUp</span><span class="tag">Enscape</span><span class="tag">AutoCAD</span></div>
-                        <span class="text-accent font-display font-semibold text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
-                    </div>
-                </a>
-                <a href="project-detail-3.html" class="project-card card card-hover flex flex-col reveal-item">
-                    <div class="project-media"><img src="assets/project3-urban-metabolism.jpg" alt="The Urban Metabolism Project poster" loading="lazy"></div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <p class="font-mono text-xs text-accent mb-2">Poster Competition · IUT</p>
-                        <h3 class="text-xl font-semibold text-ink mb-3">The Urban Metabolism Project</h3>
-                        <p class="mb-5 flex-1">A human-centred circular economy for Dhaka's waste, presented at a poster competition at the Islamic University of Technology.</p>
-                        <div class="flex flex-wrap gap-2 mb-5"><span class="tag">Waste Management</span><span class="tag">Circular Economy</span></div>
-                        <span class="text-accent font-display font-semibold text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
-                    </div>
-                </a>
-                <a href="project-detail-2.html" class="project-card card card-hover flex flex-col reveal-item">
-                    <div class="project-media"><img src="assets/project2-placeholder.jpg" alt="Interactive Mohr's circle plotted in MATLAB" loading="lazy"></div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <p class="font-mono text-xs text-accent mb-2">Engineering Tool</p>
-                        <h3 class="text-xl font-semibold text-ink mb-3">Interactive Mohr's Circle</h3>
-                        <p class="mb-5 flex-1">An interactive MATLAB app for analysing stress and finding the transformed state of stress.</p>
-                        <div class="flex flex-wrap gap-2 mb-5"><span class="tag">MATLAB</span><span class="tag">Solid Mechanics</span></div>
-                        <span class="text-accent font-display font-semibold text-sm">Case study <i class="fas fa-arrow-right arrow ml-1"></i></span>
-                    </div>
-                </a>
+                <div class="h-bar" aria-hidden="true"><i></i></div>
             </div>
         </section>
+
+    <div class="max-w-content mx-auto px-6 md:px-10">
 
         <!-- ============ Experience & Activities ============ -->
         <section id="experience" class="py-24 md:py-28">
             <h2 class="section-title reveal"><span class="num">05</span>Experience &amp; Activities</h2>
-            <div class="timeline max-w-3xl space-y-5 reveal-group">
-                <article class="timeline-item is-current card accordion reveal-item">
+            <div class="timeline max-w-3xl space-y-5" data-draw>
+                <article class="timeline-item is-current card accordion">
                     <button class="accordion-button w-full p-6 flex items-center gap-4 text-left" aria-expanded="false" aria-controls="udvash-details">
-                        <span class="icon-tile"><img src="assets/udvash-logo-white.png" alt="UDVASH logo"></span>
+                        <span class="icon-tile"><img src="assets/images/logos/udvash.png" alt="UDVASH logo"></span>
                         <span class="flex-1">
                             <span class="block text-lg font-semibold text-ink font-display">Math Teacher <span class="text-accent">@ UDVASH</span></span>
                             <span class="block font-mono text-sm text-slate mt-1">Sep 2022 – Present</span>
@@ -295,28 +281,28 @@
                         </div>
                     </div>
                 </article>
-                <article class="timeline-item is-current card p-6 flex items-center gap-4 reveal-item">
-                    <span class="icon-tile is-light"><img src="assets/ite-logo.svg" alt="ITE logo"></span>
+                <article class="timeline-item is-current card p-6 flex items-center gap-4">
+                    <span class="icon-tile is-light"><img src="assets/images/logos/ite.svg" alt="ITE logo"></span>
                     <div>
                         <h3 class="text-lg font-semibold text-ink">Deputy Vice President <span class="text-accent">@ ITE BUET Student Chapter</span></h3>
                         <p class="font-mono text-sm text-slate mt-1">Jan 2026 – Present</p>
                     </div>
                 </article>
-                <article class="timeline-item is-current card p-6 flex items-center gap-4 reveal-item">
+                <article class="timeline-item is-current card p-6 flex items-center gap-4">
                     <span class="icon-tile"><i class="fab fa-wikipedia-w"></i></span>
                     <div>
                         <h3 class="text-lg font-semibold text-ink">Volunteer Contributor <span class="text-accent">@ Wikipedia</span></h3>
                         <p class="font-mono text-sm text-slate mt-1">2019 – Present</p>
                     </div>
                 </article>
-                <article class="timeline-item card p-6 flex items-center gap-4 reveal-item">
+                <article class="timeline-item card p-6 flex items-center gap-4">
                     <span class="icon-tile"><i class="fas fa-leaf"></i></span>
                     <div>
                         <h3 class="text-lg font-semibold text-ink">Lifetime Member <span class="text-accent">@ Notre Dame Nature Study Club</span></h3>
                         <p class="font-mono text-sm text-slate mt-1">Aug 2019 – Apr 2021</p>
                     </div>
                 </article>
-                <article class="timeline-item card p-6 flex items-center gap-4 reveal-item">
+                <article class="timeline-item card p-6 flex items-center gap-4">
                     <span class="icon-tile"><i class="fas fa-book-open"></i></span>
                     <div>
                         <h3 class="text-lg font-semibold text-ink">Member <span class="text-accent">@ Notre Dame English Club</span></h3>

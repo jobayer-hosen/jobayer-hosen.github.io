@@ -1,5 +1,23 @@
-// Shared behaviour for every page: header, mobile menu, scroll progress, scroll reveal,
-// active nav link, accordions, image lightbox, wind animation, counters and typed text.
+// =============================================================================
+// site.js — the behaviour shared by every page.
+//
+// In this file, in order (search for the heading to jump there):
+//   Header ................ shadow, hide on scroll down, progress bar
+//   Mobile menu
+//   Reveal on scroll ...... sections fade in as they appear
+//   Highlight the nav link
+//   Accordions ............ click to open (experience)
+//   Lightbox .............. full-screen photo viewer
+//   Glow .................. soft outline that follows the pointer on cards
+//   Typed, rotating words . the line under the name on the home page
+//   Wind animation ........ flowing lines on any <canvas data-wind>
+//   Scroll scenes ......... name zoom opening (data-opening), sideways
+//                           projects (data-hscroll), self-drawing lines (data-draw)
+//   Footer year
+//
+// Nothing here needs editing to change text or photos; those live in the HTML
+// pages and in journal/entries.js.
+// =============================================================================
 (function () {
     document.documentElement.classList.remove('no-js');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -39,6 +57,7 @@
         menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
         menuButton.querySelector('i').className = open ? 'fas fa-xmark text-lg' : 'fas fa-bars text-lg';
         menu.setAttribute('aria-hidden', String(!open));
+        document.documentElement.style.overflow = open ? 'hidden' : '';   // stop the page scrolling behind the menu
         if (open && header) header.classList.remove('is-hidden');
     }
     if (menuButton && menu) {
@@ -95,13 +114,14 @@
         if (button) button.addEventListener('click', () => {
             const open = acc.classList.toggle('is-open');
             button.setAttribute('aria-expanded', String(open));
+            setTimeout(measureScenes, 400);   // the page got taller or shorter: re-measure the scroll effects
         });
     });
 
     // --- Lightbox: any link with data-lightbox opens its image full screen.
     //     Links sharing the same data-lightbox name form a set you can step through. ---
     let box = null, boxLinks = [], boxIndex = 0;
-    function closeBox() { if (box) { box.classList.remove('is-open'); document.body.style.overflow = ''; } }
+    function closeBox() { if (box) { box.classList.remove('is-open'); document.documentElement.style.overflow = ''; } }
     function showInBox(i) {
         boxIndex = (i + boxLinks.length) % boxLinks.length;
         const link = boxLinks[boxIndex];
@@ -137,7 +157,7 @@
         const name = link.getAttribute('data-lightbox');
         boxLinks = name ? [...document.querySelectorAll('[data-lightbox="' + name.replace(/"/g, '') + '"]')] : [link];
         showInBox(Math.max(0, boxLinks.indexOf(link)));
-        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
         requestAnimationFrame(() => box.classList.add('is-open'));
         box.querySelector('.lightbox-close').focus();
     });
@@ -158,30 +178,6 @@
             card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
             card.style.setProperty('--my', (e.clientY - r.top) + 'px');
         }, { passive: true });
-    }
-
-    // --- Count-up numbers: <span data-count="50000" data-suffix="+"> ---
-    function runCounter(el) {
-        const target = parseFloat(el.dataset.count);
-        const suffix = el.dataset.suffix || '';
-        if (reduceMotion) { el.textContent = target.toLocaleString('en-US') + suffix; return; }
-        const start = performance.now();
-        const duration = 1600;
-        (function tick(now) {
-            const t = Math.min(1, (now - start) / duration);
-            const eased = 1 - Math.pow(1 - t, 3);
-            el.textContent = Math.round(target * eased).toLocaleString('en-US') + suffix;
-            if (t < 1) requestAnimationFrame(tick);
-        })(start);
-    }
-    const counters = document.querySelectorAll('[data-count]');
-    if (counters.length && 'IntersectionObserver' in window) {
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) { runCounter(entry.target); counterObserver.unobserve(entry.target); }
-            });
-        }, { threshold: 0.6 });
-        counters.forEach(el => counterObserver.observe(el));
     }
 
     // --- Typed, rotating words: <span data-typed='["one","two"]'> ---
@@ -293,6 +289,168 @@
     }
     document.querySelectorAll('canvas[data-wind]').forEach(initWind);
 
+    // =====================================================================
+    // Scroll scenes: effects that follow how far you have scrolled.
+    // Each scene has "measure" (how far through it you are, 0 to 1) and
+    // "apply" (draw that moment). Values are smoothed a little so that
+    // mouse-wheel steps look fluid.
+    // =====================================================================
+    const clamp = (v, a, b) => Math.min(b === undefined ? 1 : b, Math.max(a === undefined ? 0 : a, v));
+    const span = (v, a, b) => clamp((v - a) / (b - a));           // 0 → 1 while v goes from a to b
+    const ease = t => t * t * (3 - 2 * t);
+    const vh = () => window.innerHeight;
+    const scenes = [];
+    const addScene = (measure, apply) => scenes.push({ measure, apply, cur: null, target: 0, last: null });
+    // How far a tall section has been scrolled while its ".pin" stays stuck to the screen
+    const pinProgress = el => () => {
+        const r = el.getBoundingClientRect();
+        const total = r.height - vh();
+        return total > 0 ? clamp(-r.top / total) : 0;
+    };
+
+    // --- Opening: fly through the name into the photo ---
+    const opening = document.querySelector('[data-opening]');
+    if (opening) {
+        const word = opening.querySelector('.opening-word'), target = opening.querySelector('.opening-target');
+        const mask = opening.querySelector('.opening-mask'), photo = opening.querySelector('.opening-photo');
+        const wind = opening.querySelector('.opening-wind'), intro = opening.querySelector('.opening-intro');
+        const after = opening.querySelector('.opening-after');
+        // Zoom towards the upright stroke of one letter, so that letter ends up filling the screen
+        const setOrigin = () => {
+            word.style.transformOrigin = (target.offsetLeft + target.offsetWidth * 0.26) + 'px ' + (target.offsetTop + target.offsetHeight * 0.5) + 'px';
+        };
+        setOrigin();
+        window.addEventListener('resize', setOrigin);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(setOrigin);
+        addScene(pinProgress(opening), p => {
+            let gone;                                             // the point where the dark sheet has fully cleared
+            if (reduceMotion) {                                   // no zoom: the name simply fades into the photo
+                mask.style.opacity = (1 - span(p, 0.3, 0.6)).toFixed(3);
+                gone = 0.6;
+            } else {
+                const z = span(p, 0.04, 0.74);
+                word.style.transform = 'scale(' + Math.exp(z * z * Math.log(70)).toFixed(3) + ')';
+                mask.style.opacity = (1 - span(p, 0.7, 0.8)).toFixed(3);
+                photo.style.transform = 'scale(' + (1.18 - p * 0.18).toFixed(4) + ')';
+                gone = 0.8;
+            }
+            mask.style.visibility = p >= gone ? 'hidden' : 'visible';   // stop drawing the giant letters once they are gone
+            const windOn = 1 - span(p, 0.2, 0.55);
+            wind.style.opacity = (windOn * 0.7).toFixed(3);
+            wind.style.visibility = windOn > 0 ? 'visible' : 'hidden';
+            const introOn = 1 - span(p, 0.01, 0.1);
+            intro.style.opacity = introOn.toFixed(3);
+            intro.style.visibility = introOn > 0 ? 'visible' : 'hidden';
+            const a = ease(span(p, gone, gone + 0.13));
+            after.style.opacity = a.toFixed(3);
+            after.style.transform = 'translateY(' + ((1 - a) * 28).toFixed(1) + 'px)';
+            after.classList.toggle('is-live', a > 0.5);
+        });
+    }
+
+    // --- Sideways sections: you scroll down, the cards move across ---
+    document.querySelectorAll('[data-hscroll]').forEach(scene => {
+        const pin = scene.querySelector('.pin'), track = scene.querySelector('.h-track');
+        const bar = scene.querySelector('.h-bar i'), count = scene.querySelector('.hscroll-count b');
+        if (!pin || !track) return;
+        const cards = [...track.children];
+        let max = 0, travel = -1;
+        addScene(() => {
+            // The section is one screen tall plus the distance the cards have to travel
+            max = Math.max(0, track.offsetWidth - pin.clientWidth);
+            const want = Math.round(max * 1.3);
+            if (want !== travel) { travel = want; scene.style.height = 'calc(100vh + ' + want + 'px)'; }
+            return pinProgress(scene)();
+        }, p => {
+            const q = span(p, 0.04, 0.96);
+            track.style.transform = 'translate3d(' + (-q * max).toFixed(1) + 'px,0,0)';
+            if (bar) bar.style.transform = 'scaleX(' + q.toFixed(4) + ')';
+            if (count) count.textContent = String(Math.round(q * (cards.length - 1)) + 1).padStart(2, '0');
+        });
+        // Keyboard users: when a card gets focus, scroll to the point where that card is on screen
+        track.addEventListener('focusin', (e) => {
+            const card = e.target.closest('.h-card');
+            if (!card || !e.target.matches(':focus-visible')) return;
+            const i = cards.indexOf(card);
+            const p = 0.04 + 0.92 * (cards.length > 1 ? i / (cards.length - 1) : 0);
+            const top = scene.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({ top: top + p * (scene.offsetHeight - vh()), behavior: 'auto' });
+            pin.scrollLeft = 0;
+        });
+    });
+
+    // --- A line that draws itself down a list and switches each step on as it arrives ---
+    document.querySelectorAll('[data-draw]').forEach(box => {
+        const steps = [...box.children].filter(el => el.matches('.timeline-item, .pipeline-step'));
+        if (steps.length < 2) return;
+        const line = document.createElement('span');
+        const fill = document.createElement('i');
+        line.className = 'draw-line';
+        line.setAttribute('aria-hidden', 'true');
+        line.append(fill);
+        box.append(line);
+        box.classList.add('draw-ready');
+        // Where the centre of a step's dot (or number box) sits, measured from the top of the list
+        const dotY = step => {
+            const num = step.querySelector('.step-num');
+            return step.offsetTop + (num ? num.offsetTop + num.offsetHeight / 2 : 34);
+        };
+        let top = 0, length = 0, dots = [];
+        addScene(() => {
+            dots = steps.map(dotY);
+            top = dots[0];
+            length = dots[dots.length - 1] - top;
+            const r = box.getBoundingClientRect();
+            return length > 0 ? clamp((vh() * 0.62 - (r.top + top)) / length) : 0;
+        }, f => {
+            line.style.top = top + 'px';
+            line.style.height = length + 'px';
+            fill.style.transform = 'scaleY(' + f.toFixed(4) + ')';
+            const y = top + f * length;
+            steps.forEach((step, i) => {
+                const on = span(y, dots[i] - 30, dots[i] + 6);
+                step.style.setProperty('--on', on.toFixed(3));
+                step.classList.toggle('is-on', on > 0.6);
+            });
+        });
+    });
+
+    // --- Run the scenes ---
+    let scenesRunning = false;
+    function nextFrame(cb) {
+        let done = false;
+        const run = () => { if (!done) { done = true; cb(); } };
+        requestAnimationFrame(run);
+        setTimeout(run, 60);                                      // keeps things moving if the browser is not drawing frames
+    }
+    function sceneFrame() {
+        let moving = false;
+        for (const s of scenes) {
+            if (s.cur === null) s.cur = s.target;
+            const d = s.target - s.cur;
+            if (Math.abs(d) > 0.0005) { s.cur += d * 0.16; moving = true; } else s.cur = s.target;
+            if (s.cur !== s.last) { s.apply(s.cur); s.last = s.cur; }
+        }
+        if (moving) nextFrame(sceneFrame); else scenesRunning = false;
+    }
+    function measureScenes() {
+        if (!scenes.length) return;
+        for (const s of scenes) s.target = s.measure();
+        if (!scenesRunning) { scenesRunning = true; nextFrame(sceneFrame); }
+    }
+    // Jump straight to the right state (used on load and when the window changes size)
+    function settleScenes() {
+        for (const s of scenes) { s.target = s.measure(); s.cur = s.target; s.apply(s.cur); s.last = s.cur; }
+    }
+    if (scenes.length) {
+        window.addEventListener('scroll', measureScenes, { passive: true });
+        window.addEventListener('resize', settleScenes);
+        window.addEventListener('load', settleScenes);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(settleScenes);
+        settleScenes();
+        settleScenes();   // a second pass: the first one may have changed section heights
+    }
+
     // --- Footer year ---
     document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
 
@@ -300,5 +458,5 @@
     onScroll();
 
     // Let journal.js reveal content it adds after load
-    window.Site = { observeReveals: observeReveals };
+    window.Site = { observeReveals: observeReveals, settleScenes: settleScenes };
 })();
