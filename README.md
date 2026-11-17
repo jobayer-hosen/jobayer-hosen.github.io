@@ -42,7 +42,7 @@ CLAUDE.md                   Notes for Claude, so it knows how this project works
 |---|---|
 | Change the About text | `index.html`, the part marked `About` |
 | Change my About photo | Replace `assets/images/about/portrait.jpg` with a new photo of the same name |
-| Change the photo behind my name | `index.html`, the line with `opening-photo` (also delete `data-water` and `data-horizon` there: the moving sea is made for the current photo) |
+| Change the photo behind my name | `index.html`, the line with `opening-photo` |
 | Add a skill | `index.html`, the part marked `Skills`: copy one line and change the name |
 | Add a project | Copy a page in `projects/`, then copy one card in `index.html` under `Projects` |
 | Add education or experience | `index.html`, the parts marked `Education` and `Experience & Activities` |
