@@ -11,6 +11,7 @@
 //   Glow .................. soft outline that follows the pointer on cards
 //   Typed, rotating words . the line under the name on the home page
 //   Wind animation ........ flowing lines on any <canvas data-wind>
+//   Live sea .............. moving water in the opening photo (data-water)
 //   Scroll scenes ......... name zoom opening (data-opening), sideways
 //                           projects (data-hscroll), self-drawing lines (data-draw)
 //   Footer year
@@ -289,6 +290,128 @@
     }
     document.querySelectorAll('canvas[data-wind]').forEach(initWind);
 
+    // --- Live sea: the water in the opening photo keeps moving, like a live wallpaper ---
+    // A photo with data-water="mask.png" gets a canvas laid over it that redraws the photo with
+    // gentle swells and ripples. In the mask, white is water that may move; black (sky, people,
+    // rocks) stays still. data-horizon is where the sea meets the sky (0 = top, 1 = bottom).
+    function initSea(photo) {
+        const canvas = document.createElement('canvas');
+        canvas.className = 'opening-sea';
+        canvas.setAttribute('aria-hidden', 'true');
+        const gl = canvas.getContext('webgl', { alpha: false, antialias: false, premultipliedAlpha: false });
+        if (!gl) return null;
+        photo.after(canvas);
+        const horizon = parseFloat(photo.dataset.horizon || '0.58');
+
+        const vs = 'attribute vec2 p; varying vec2 v; void main(){ v = p; gl_Position = vec4(p, 0.0, 1.0); }';
+        const fs = [
+            '#ifdef GL_FRAGMENT_PRECISION_HIGH', 'precision highp float;', '#else', 'precision mediump float;', '#endif',
+            'uniform sampler2D photo, mask; uniform vec2 view, img; uniform vec4 fit; uniform float time, horizon;',
+            'varying vec2 v;',
+            'float hash(vec2 q){ return fract(sin(dot(q, vec2(127.1, 311.7))) * 43758.5453); }',
+            'float noise(vec2 q){ vec2 i = floor(q), f = fract(q); f = f * f * (3.0 - 2.0 * f);',
+            '  return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x), mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y); }',
+            'void main(){',
+            '  vec2 px = vec2(v.x * 0.5 + 0.5, 0.5 - v.y * 0.5) * view;',          // canvas pixel, y down
+            '  vec2 uv = (px - fit.xy) / fit.zw;',                                   // place in the photo, 0..1
+            '  float m = texture2D(mask, uv).r;',
+            '  vec2 d = vec2(0.0); float shine = 0.0;',
+            '  if (m > 0.004) {',
+            '    float n = clamp((uv.y - horizon) / (1.0 - horizon), 0.0, 1.0);',   // 0 far out, 1 at the shore
+            '    float z = 1.0 / max(n, 0.03);',                                    // distance out to sea
+            '    float x = (uv.x - 0.5) * (img.x / img.y) * z;',                    // across the sea
+            '    float bend = noise(vec2(x * 0.35, z * 0.25 - time * 0.02)) * 6.2832;',
+            '    float ph = z * 7.0 + time * 1.15 + bend;',                         // swells rolling in to the shore
+            '    vec2 q = vec2(x * 5.0, z * 5.0 + time * 0.8);',
+            '    float r1 = noise(q) - 0.5, r2 = noise(q * 1.9 + vec2(17.0, -time * 0.35)) - 0.5;',
+            '    d = vec2(r2 * 3.2 + cos(ph) * 1.4, sin(ph) * 4.5 + r1 * 3.0) * n * m;',  // in photo pixels
+            '    shine = sin(ph) * n * m * 0.045;',
+            '  }',
+            '  vec3 c = texture2D(photo, uv + d / img).rgb;',
+            '  gl_FragColor = vec4(c * (1.0 + shine), 1.0);',
+            '}'
+        ].join('\n');
+        const compile = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+        const prog = gl.createProgram();
+        gl.attachShader(prog, compile(gl.VERTEX_SHADER, vs));
+        gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fs));
+        gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { canvas.remove(); return null; }
+        gl.useProgram(prog);
+        gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);   // one big triangle
+        const loc = gl.getAttribLocation(prog, 'p');
+        gl.enableVertexAttribArray(loc);
+        gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+        const u = name => gl.getUniformLocation(prog, name);
+        gl.uniform1i(u('photo'), 0);
+        gl.uniform1i(u('mask'), 1);
+        gl.uniform1f(u('horizon'), horizon);
+
+        const texture = (unit, image) => {
+            gl.activeTexture(gl.TEXTURE0 + unit);
+            gl.bindTexture(gl.TEXTURE_2D, gl.createTexture());
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, image);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        };
+        const loaded = img => new Promise((ok, fail) => {
+            if (img.complete && img.naturalWidth) ok(img);
+            else { img.addEventListener('load', () => ok(img), { once: true }); img.addEventListener('error', fail, { once: true }); }
+        });
+        const maskImg = new Image();
+        maskImg.src = photo.dataset.water;
+
+        let ready = false, raf = null, visible = false, last = 0;
+        function resize() {
+            if (!ready) return;
+            const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+            const w = Math.round(canvas.clientWidth * dpr), h = Math.round(canvas.clientHeight * dpr);
+            if (!w || !h) return;
+            if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+            gl.viewport(0, 0, w, h);
+            // the same "cover" fit and focus point as the photo itself
+            const iw = photo.naturalWidth, ih = photo.naturalHeight, k = Math.max(w / iw, h / ih);
+            const pos = (getComputedStyle(photo).objectPosition || '50% 50%').split(' ').map(s => parseFloat(s) / 100);
+            gl.uniform2f(u('view'), w, h);
+            gl.uniform2f(u('img'), iw, ih);
+            gl.uniform4f(u('fit'), (w - iw * k) * (isNaN(pos[0]) ? 0.5 : pos[0]), (h - ih * k) * (isNaN(pos[1]) ? 0.5 : pos[1]), iw * k, ih * k);
+        }
+        function draw(now) {
+            gl.uniform1f(u('time'), (now / 1000) % 3600);
+            gl.drawArrays(gl.TRIANGLES, 0, 3);
+        }
+        function loop(now) {
+            raf = requestAnimationFrame(loop);
+            if (now - last < 32) return;                                  // about 30 frames a second is plenty
+            last = now;
+            draw(now);
+        }
+        function start() { if (ready && !raf && visible && !document.hidden) raf = requestAnimationFrame(loop); }
+        function stop() { if (raf) { cancelAnimationFrame(raf); raf = null; } }
+
+        Promise.all([loaded(photo), loaded(maskImg)]).then(() => {
+            texture(0, photo);
+            texture(1, maskImg);
+            ready = true;
+            resize();
+            draw(performance.now());
+            canvas.classList.add('is-ready');
+            start();
+        }).catch(() => canvas.remove());
+        let resizeTimer;
+        window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { resize(); if (ready) draw(performance.now()); }, 150); });
+        document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else start(); });
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(entries => { visible = entries[0].isIntersecting; if (visible) start(); else stop(); }).observe(canvas);
+        } else { visible = true; start(); }
+        return canvas;
+    }
+    const seaPhoto = !reduceMotion && document.querySelector('.opening-photo[data-water]');
+    const seaCanvas = seaPhoto ? initSea(seaPhoto) : null;
+
     // =====================================================================
     // Scroll scenes: effects that follow how far you have scrolled.
     // Each scene has "measure" (how far through it you are, 0 to 1) and
@@ -332,6 +455,7 @@
                 word.style.transform = 'scale(' + Math.exp(z * z * Math.log(70)).toFixed(3) + ')';
                 mask.style.opacity = (1 - span(p, 0.7, 0.8)).toFixed(3);
                 photo.style.transform = 'scale(' + (1.18 - p * 0.18).toFixed(4) + ')';
+                if (seaCanvas) seaCanvas.style.transform = photo.style.transform;   // the moving sea follows the photo
                 gone = 0.8;
             }
             mask.style.visibility = p >= gone ? 'hidden' : 'visible';   // stop drawing the giant letters once they are gone

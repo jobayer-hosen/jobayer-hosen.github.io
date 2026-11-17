@@ -83,10 +83,12 @@
     <main id="main">
 
         <!-- ============ Opening: scroll to fly through the name into the photo ============
-             To change the photo, replace the image path on the "opening-photo" line below. -->
+             To change the photo, replace the image path on the "opening-photo" line below.
+             The moving sea uses a mask made for this photo (data-water): delete data-water and
+             data-horizon if you change the photo, or the wrong parts will move. -->
         <section id="top" class="opening" data-opening>
             <div class="pin opening-pin">
-                <img class="opening-photo" src="journal/photos/saint-martin/shore.jpg" alt="Jobayer standing on the shore of Saint Martin's Island with open arms">
+                <img class="opening-photo" data-water="assets/images/opening/shore-water.png" data-horizon="0.582" src="journal/photos/saint-martin/shore.jpg" alt="Jobayer standing on the shore of Saint Martin's Island with open arms">
                 <div class="opening-lift"></div>
                 <div class="opening-mask"><h1 class="opening-word" aria-label="Jobayer Hosen">JOBAYER<br>HOS<span class="opening-target">E</span>N</h1></div>
                 <canvas class="opening-wind" data-wind aria-hidden="true"></canvas>

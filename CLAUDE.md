@@ -17,7 +17,8 @@ This is Jobayer Hosen's personal portfolio, a static site served by GitHub Pages
 - Minimal and calm: dark background, one mint accent (`#64ffda`), Space Grotesk for headings, Inter for text,
   JetBrains Mono for small labels. No multi-colour gradients, glows, badges or a different style on one page.
 - Jobayer likes motion that follows scrolling. The chosen effects are the name zoom opening, projects that slide
-  sideways, self-drawing timeline lines, and the flowing wind animation. Reuse the "Scroll scenes" helpers in
+  sideways, self-drawing timeline lines, the flowing wind animation, and the moving sea in the opening photo
+  ("Live sea" in `assets/js/site.js`; its mask is `assets/images/opening/shore-water.png`, white = water that moves). Reuse the "Scroll scenes" helpers in
   `assets/js/site.js` for anything new.
 - Everything must work on phones as well as desktop. Check both sizes before saying it is done.
 - Contact links stay in the side rails on large screens and in the footer.
