@@ -319,33 +319,9 @@
         const setOrigin = () => {
             word.style.transformOrigin = (target.offsetLeft + target.offsetWidth * 0.26) + 'px ' + (target.offsetTop + target.offsetHeight * 0.5) + 'px';
         };
-        // Dark hair inside a letter would make that letter vanish into the dark page. A second copy of the
-        // name, shown only in a soft circle over the hair, lays a light veil there so the letters stay whole.
-        // "data-hair" on the photo gives the circle: centre x, centre y and radius, as fractions of the
-        // photo's width / height / width. Without it there is no veil.
-        const START_ZOOM = 1.18;
-        const veil = opening.querySelector('.opening-veil'), veilWord = veil && veil.querySelector('.opening-word');
-        const setVeil = () => {
-            if (!veil) return;
-            const hair = (photo.dataset.hair || '').split(/[ ,]+/).map(parseFloat);
-            if (hair.length < 3 || hair.some(isNaN) || !photo.naturalWidth) { veil.style.display = 'none'; return; }
-            veil.style.display = '';
-            const W = photo.clientWidth, H = photo.clientHeight;
-            const k = Math.max(W / photo.naturalWidth, H / photo.naturalHeight);        // the photo covers the screen
-            const w = photo.naturalWidth * k, h = photo.naturalHeight * k;
-            const pos = (getComputedStyle(photo).objectPosition || '50% 50%').split(' ').map(v => parseFloat(v) / 100);
-            const x = W / 2 + ((W - w) * pos[0] + hair[0] * w - W / 2) * START_ZOOM;
-            const y = H / 2 + ((H - h) * pos[1] + hair[1] * h - H / 2) * START_ZOOM;
-            veil.style.setProperty('--hx', x.toFixed(1) + 'px');
-            veil.style.setProperty('--hy', y.toFixed(1) + 'px');
-            veil.style.setProperty('--hr', (hair[2] * w * START_ZOOM).toFixed(1) + 'px');
-            veilWord.style.transformOrigin = word.style.transformOrigin;
-        };
-        const layout = () => { setOrigin(); setVeil(); };
-        layout();
-        window.addEventListener('resize', layout);
-        photo.addEventListener('load', layout);
-        if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+        setOrigin();
+        window.addEventListener('resize', setOrigin);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(setOrigin);
         addScene(pinProgress(opening), p => {
             let gone;                                             // the point where the dark sheet has fully cleared
             if (reduceMotion) {                                   // no zoom: the name simply fades into the photo
@@ -355,14 +331,8 @@
                 const z = span(p, 0.04, 0.74);
                 word.style.transform = 'scale(' + Math.exp(z * z * Math.log(70)).toFixed(3) + ')';
                 mask.style.opacity = (1 - span(p, 0.7, 0.8)).toFixed(3);
-                photo.style.transform = 'scale(' + (START_ZOOM - p * (START_ZOOM - 1)).toFixed(4) + ')';
+                photo.style.transform = 'scale(' + (1.18 - p * 0.18).toFixed(4) + ')';
                 gone = 0.8;
-            }
-            if (veil) {                                           // the veil follows the name, and clears as you fly in
-                const veilOn = 1 - span(p, 0.06, 0.3);
-                veil.style.opacity = veilOn.toFixed(3);
-                veil.style.visibility = veilOn > 0 ? 'visible' : 'hidden';
-                if (veilOn > 0) veilWord.style.transform = word.style.transform;
             }
             mask.style.visibility = p >= gone ? 'hidden' : 'visible';   // stop drawing the giant letters once they are gone
             const windOn = 1 - span(p, 0.2, 0.55);
