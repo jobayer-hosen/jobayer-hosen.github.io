@@ -84,13 +84,15 @@
 
         <!-- ============ Opening: scroll to fly through the name into the photo ============
              To change the photo, replace the image path on the "opening-photo" line below.
-             "data-keep-below" is where the head starts, measured down the photo (0 = top, 1 = bottom);
-             the photo begins lower so the head does not hide the letters. Remove it for a photo with no person. -->
+             "data-hair" marks the dark hair (centre across, centre down, size; each as a part of the photo
+             from 0 to 1) so the letters over it get a light veil and stay readable. Remove it for a photo
+             with nothing dark behind the name. -->
         <section id="top" class="opening" data-opening>
             <div class="pin opening-pin">
-                <img class="opening-photo" data-keep-below="0.5" src="journal/photos/saint-martin/shore.jpg" alt="Jobayer standing on the shore of Saint Martin's Island with open arms">
+                <img class="opening-photo" data-hair="0.5575 0.543 0.024" src="journal/photos/saint-martin/shore.jpg" alt="Jobayer standing on the shore of Saint Martin's Island with open arms">
                 <div class="opening-lift"></div>
                 <div class="opening-mask"><h1 class="opening-word" aria-label="Jobayer Hosen">JOBAYER<br>HOS<span class="opening-target">E</span>N</h1></div>
+                <div class="opening-veil" aria-hidden="true"><div class="opening-word">JOBAYER<br>HOSEN</div></div>
                 <canvas class="opening-wind" data-wind aria-hidden="true"></canvas>
                 <div class="opening-intro">
                     <div class="intro-top">
