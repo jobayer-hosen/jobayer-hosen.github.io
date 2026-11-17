@@ -314,21 +314,38 @@
             'void main(){',
             '  vec2 px = vec2(v.x * 0.5 + 0.5, 0.5 - v.y * 0.5) * view;',          // canvas pixel, y down
             '  vec2 uv = (px - fit.xy) / fit.zw;',                                   // place in the photo, 0..1
+            '  vec3 c0 = texture2D(photo, uv).rgb;',
             '  float m = texture2D(mask, uv).r;',
-            '  vec2 d = vec2(0.0); float shine = 0.0;',
-            '  if (m > 0.004) {',
-            '    float n = clamp((uv.y - horizon) / (1.0 - horizon), 0.0, 1.0);',   // 0 far out, 1 at the shore
-            '    float z = 1.0 / max(n, 0.03);',                                    // distance out to sea
-            '    float x = (uv.x - 0.5) * (img.x / img.y) * z;',                    // across the sea
-            '    float bend = noise(vec2(x * 0.35, z * 0.25 - time * 0.02)) * 6.2832;',
-            '    float ph = z * 7.0 + time * 1.15 + bend;',                         // swells rolling in to the shore
-            '    vec2 q = vec2(x * 5.0, z * 5.0 + time * 0.8);',
-            '    float r1 = noise(q) - 0.5, r2 = noise(q * 1.9 + vec2(17.0, -time * 0.35)) - 0.5;',
-            '    d = vec2(r2 * 5.5 + cos(ph) * 2.6, sin(ph) * 9.0 + r1 * 5.5) * n * m;',  // in photo pixels
-            '    shine = sin(ph) * n * m * 0.08;',
+            '  if (m < 0.004) { gl_FragColor = vec4(c0, 1.0); return; }',           // sky, person, rocks: as photographed
+            '  float n = clamp((uv.y - horizon) / (1.0 - horizon), 0.0, 1.0);',     // 0 far out, 1 at the shore
+            '  float z = 1.0 / max(n, 0.03);',                                      // distance out to sea
+            '  float x = (uv.x - 0.5) * (img.x / img.y) * z;',                      // across the sea
+            // swells rolling in, and small ripples (in photo pixels)
+            '  float bend = noise(vec2(x * 0.35, z * 0.25 - time * 0.02)) * 6.2832;',
+            '  float ph = z * 7.0 + time * 1.15 + bend;',
+            '  vec2 q = vec2(x * 5.0, z * 5.0 + time * 0.8);',
+            '  float r1 = noise(q) - 0.5, r2 = noise(q * 1.9 + vec2(17.0, -time * 0.35)) - 0.5;',
+            '  vec2 d = vec2(r2 * 3.5 + cos(ph) * 1.6, sin(ph) * 6.0 + r1 * 3.5) * n;',
+            // the water itself travels in toward the shore: two copies slide along and take turns
+            '  float side = (noise(vec2(x * 0.15 + 3.0, z * 0.2)) - 0.5) * 0.7;',
+            '  float surge = 0.75 + 0.25 * sin(time * 0.7 + z * 0.4);',
+            '  vec2 flow = vec2(side, 1.0) * 38.0 * pow(n, 1.35) * surge;',
+            '  float p1 = fract(time / 2.8 + noise(vec2(x * 0.5 + 9.0, z * 0.5))), p2 = fract(p1 + 0.5);',
+            '  float w1 = 1.0 - abs(2.0 * p1 - 1.0), w2 = 1.0 - w1;',
+            '  vec2 a = uv + (d - flow * p1) / img, b = uv + (d - flow * p2) / img;',
+            '  w1 *= texture2D(mask, a).r; w2 *= texture2D(mask, b).r;',            // never pull in rock, sky or person
+            '  float ws = w1 + w2;',
+            '  vec3 c = c0;',
+            '  if (ws > 0.02) {',
+            '    w1 /= ws; w2 /= ws;',
+            '    vec3 mu = (texture2D(photo, uv + vec2(-10.0, -4.0) / img).rgb + texture2D(photo, uv + vec2(10.0, -4.0) / img).rgb',
+            '             + texture2D(photo, uv + vec2(-10.0, 4.0) / img).rgb + texture2D(photo, uv + vec2(10.0, 4.0) / img).rgb) * 0.25;',
+            '    vec3 mixed = w1 * texture2D(photo, a).rgb + w2 * texture2D(photo, b).rgb;',
+            '    c = mu + (mixed - mu) / sqrt(w1 * w1 + w2 * w2);',                // keep the ripples crisp while the copies cross over
+            '    c = mix(c0, c, smoothstep(0.02, 0.3, ws));',
             '  }',
-            '  vec3 c = texture2D(photo, uv + d / img).rgb;',
-            '  gl_FragColor = vec4(c * (1.0 + shine), 1.0);',
+            '  c *= 1.0 + sin(ph) * n * 0.07;',                                     // light catching the swells
+            '  gl_FragColor = vec4(mix(c0, clamp(c, 0.0, 1.0), m), 1.0);',
             '}'
         ].join('\n');
         const compile = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
