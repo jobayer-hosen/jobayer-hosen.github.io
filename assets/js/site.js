@@ -324,8 +324,8 @@
             '    float ph = z * 7.0 + time * 1.15 + bend;',                         // swells rolling in to the shore
             '    vec2 q = vec2(x * 5.0, z * 5.0 + time * 0.8);',
             '    float r1 = noise(q) - 0.5, r2 = noise(q * 1.9 + vec2(17.0, -time * 0.35)) - 0.5;',
-            '    d = vec2(r2 * 3.2 + cos(ph) * 1.4, sin(ph) * 4.5 + r1 * 3.0) * n * m;',  // in photo pixels
-            '    shine = sin(ph) * n * m * 0.045;',
+            '    d = vec2(r2 * 5.5 + cos(ph) * 2.6, sin(ph) * 9.0 + r1 * 5.5) * n * m;',  // in photo pixels
+            '    shine = sin(ph) * n * m * 0.08;',
             '  }',
             '  vec3 c = texture2D(photo, uv + d / img).rgb;',
             '  gl_FragColor = vec4(c * (1.0 + shine), 1.0);',
