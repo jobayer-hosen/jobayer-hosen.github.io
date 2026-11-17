@@ -319,9 +319,27 @@
         const setOrigin = () => {
             word.style.transformOrigin = (target.offsetLeft + target.offsetWidth * 0.26) + 'px ' + (target.offsetTop + target.offsetHeight * 0.5) + 'px';
         };
-        setOrigin();
-        window.addEventListener('resize', setOrigin);
-        if (document.fonts && document.fonts.ready) document.fonts.ready.then(setOrigin);
+        // The photo starts a little lower, so the head sits under the name instead of hiding its letters,
+        // then glides back to its own place while you fly in. "data-keep-below" on the photo says where
+        // the head begins (0 = top of the photo, 1 = bottom). Without it the photo does not move.
+        const START_ZOOM = 1.18;
+        let drop = 0;
+        const setDrop = () => {
+            const keep = parseFloat(photo.dataset.keepBelow);
+            drop = 0;
+            if (reduceMotion || !keep || !photo.naturalWidth) return;
+            const W = photo.clientWidth, H = photo.clientHeight;
+            const shown = photo.naturalHeight * Math.max(W / photo.naturalWidth, H / photo.naturalHeight);
+            const posY = parseFloat((getComputedStyle(photo).objectPosition || '50% 50%').split(' ')[1]) / 100;
+            const headTop = H / 2 + ((H - shown) * (isNaN(posY) ? 0.5 : posY) + keep * shown - H / 2) * START_ZOOM;
+            const roomAbove = word.offsetTop + (START_ZOOM - 1) * H / 2 - 8;   // never uncover the photo's top edge inside a letter
+            drop = clamp(word.offsetTop + word.offsetHeight - headTop, 0, Math.max(0, roomAbove));
+        };
+        const layout = () => { setOrigin(); setDrop(); };
+        layout();
+        window.addEventListener('resize', layout);
+        photo.addEventListener('load', layout);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
         addScene(pinProgress(opening), p => {
             let gone;                                             // the point where the dark sheet has fully cleared
             if (reduceMotion) {                                   // no zoom: the name simply fades into the photo
@@ -331,7 +349,8 @@
                 const z = span(p, 0.04, 0.74);
                 word.style.transform = 'scale(' + Math.exp(z * z * Math.log(70)).toFixed(3) + ')';
                 mask.style.opacity = (1 - span(p, 0.7, 0.8)).toFixed(3);
-                photo.style.transform = 'scale(' + (1.18 - p * 0.18).toFixed(4) + ')';
+                const down = drop * (1 - ease(span(p, 0.04, 0.6)));
+                photo.style.transform = 'translate3d(0,' + down.toFixed(1) + 'px,0) scale(' + (START_ZOOM - p * (START_ZOOM - 1)).toFixed(4) + ')';
                 gone = 0.8;
             }
             mask.style.visibility = p >= gone ? 'hidden' : 'visible';   // stop drawing the giant letters once they are gone

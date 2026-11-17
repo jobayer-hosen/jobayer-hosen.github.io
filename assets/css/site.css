@@ -176,7 +176,7 @@ body.menu-open .nav-pill { background: transparent; border-color: transparent; b
 .opening-intro .status-pill { pointer-events: auto; }
 .opening-intro .intro-top { top: calc(50% - var(--fs) * 0.9 - 3.4rem); }
 .opening-intro .intro-bottom { top: calc(50% + var(--fs) * 0.9 + 1rem); }
-.opening-intro .intro-cue { bottom: 4.5vh; }
+.opening-intro .intro-cue { bottom: 3.5vh; flex-direction: column; align-items: center; gap: 0.7rem; }
 .opening-after { position: absolute; left: 0; right: 0; bottom: 0; padding: 30vh var(--gutter) 10vh; background: linear-gradient(to top, rgba(7, 12, 23, 0.9), transparent); opacity: 0; pointer-events: none; }
 .opening-after.is-live { pointer-events: auto; }
 .opening-line { margin-top: 0.8rem; font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 600; color: #fff; font-size: clamp(1.9rem, 5vw, 3.6rem); line-height: 1.08; letter-spacing: -0.02em; max-width: 13ch; }
@@ -206,6 +206,7 @@ a.status-pill:hover { border-color: var(--accent); }
 .scroll-cue { width: 26px; height: 42px; border-radius: 999px; border: 1.5px solid rgba(148, 170, 220, 0.4); display: flex; justify-content: center; padding-top: 8px; }
 .scroll-cue::after { content: ''; width: 3px; height: 8px; border-radius: 3px; background: var(--accent); animation: cue 1.8s ease-in-out infinite; }
 @keyframes cue { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(14px); opacity: 0; } 100% { opacity: 0; } }
+.scroll-word { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text); padding-left: 0.28em; }
 
 /* ---------- Section headings ---------- */
 .section-title {
